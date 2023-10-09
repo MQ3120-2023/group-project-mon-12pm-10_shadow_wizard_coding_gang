@@ -130,7 +130,7 @@ table {
 
 /* ~~~~~Grid Layout~~~~~ */
 
-.mainContainer {
+/* .mainContainer {
     display: grid;
     grid-template-columns: 1.5fr 0.6fr 1.5fr 0.6fr 1.5fr;
     grid-template-rows: 0.2fr 2.6fr 0.2fr;
@@ -169,11 +169,11 @@ table {
 
 .pageContent {
     grid-area: 2 / 3 / 3 / 5;
-}
+} */
 
 /* ~~~~~Grid Layout~~~~~ */
 
-h1 {
+/* h1 {
     font-size: 30px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -210,9 +210,9 @@ body {
     background-color: crimson;
     width: 100%;
     align-self: right;
-}
+} 
 
-/* The navigation menu links */
+
 .contentLeft a {
     padding: 3% 3% 3% 25%;
     text-decoration: none;
@@ -223,7 +223,6 @@ body {
     align-self: center;
 }
 
-/* When you mouse over the navigation links, change their color */
 .contentLeft a:hover {
     color: #f1f1f1;
 }
@@ -232,4 +231,189 @@ body {
     color: white;
     font-size: 30px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+.login-page {
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-page .content-mid-wrapper {
+    background-color: #eaeaea;
+    height: 1080px;
+    width: 1920px;
+}
+
+.login-page .content-mid {
+    height: 759px;
+    left: 764px;
+    position: relative;
+    top: 31px;
+    width: 392px;
+}
+
+.login-page .logo {
+    height: 353px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 392px;
+}
+
+.login-page .overlap-group {
+    height: 353px;
+    position: relative;
+}
+
+.login-page .logo-image {
+    height: 300px;
+    left: 46px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 300px;
+}
+
+.login-page .logo-text {
+    height: 126px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 227px;
+    width: 392px;
+}
+
+.login-page .login-form {
+    height: 390px;
+    left: 21px;
+    position: absolute;
+    top: 369px;
+    width: 352px;
+}
+
+.login-page .overlap {
+    background-color: #fafafa;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 390px;
+    position: relative;
+    width: 350px;
+}
+
+.login-page .text-login-header {
+    color: #222222;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    left: 132px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+}
+
+.login-page .username-input {
+    height: 50px;
+    left: 26px;
+    position: absolute;
+    top: 89px;
+    width: 302px;
+}
+
+.login-page .div-wrapper {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 50px;
+    position: relative;
+    width: 300px;
+}
+
+.login-page .text-username {
+    color: #a2a2a2;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 13px;
+    white-space: nowrap;
+}
+
+.login-page .password-input {
+    height: 50px;
+    left: 26px;
+    position: absolute;
+    top: 165px;
+    width: 302px;
+}
+
+.login-page .text-password {
+    color: #a2a2a2;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+}
+
+.login-page .login-button {
+    height: 50px;
+    left: 24px;
+    position: absolute;
+    top: 239px;
+    width: 302px;
+}
+
+.login-page .div {
+    background-color: #2e9de8;
+    border-radius: 25px;
+    height: 50px;
+    position: relative;
+    width: 300px;
+}
+
+.login-page .text-login-button {
+    color: #f7f6f9;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 115px;
+    letter-spacing: 1px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
+}
+
+.login-page .sign-up-button {
+    height: 50px;
+    left: 24px;
+    position: absolute;
+    top: 314px;
+    width: 302px;
+}
+
+.login-page .text-sign-up-button {
+    color: #f7f6f9;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
 }

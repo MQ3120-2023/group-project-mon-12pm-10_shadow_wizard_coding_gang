@@ -1,31 +1,19 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home.js";
+import LoginPage from "./LoginPage.js";
+import SignUpPage from "./SignUpPage.js";
 import "./App.css";
 
 function App() {
     return (
         <div class="mainContainer">
-            <div class="NavBar"></div>
             <div class="spaceLeft"></div>
             <Router>
-                <aside className="contentLeft">
-                    <h1>OnlyCars</h1>
-                    <nav className="innerNav">
-                        <Link className="links" to="/">
-                            Home
-                        </Link>
-                        <Link className="links" to="/">
-                            Cars
-                        </Link>
-                        <Link className="links" to="/">
-                            Creators
-                        </Link>
-                    </nav>
-                </aside>
-
                 <div class="pageContent">
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/LoginPage" element={<LoginPage />} />
+                        <Route path="/SignUpPage" element={<SignUpPage />} />
                     </Routes>
                 </div>
             </Router>
