@@ -4,9 +4,7 @@ import "./App.css";
 
 export const LoginPage = () => {
     return (
-        <div className="login-page">
-            <div className="content-mid-wrapper">
-                <div className="content-mid">
+                <div className="contentMid">
                     <div className="logo">
                         <div className="overlap-group">
                             <img className="logo-image" alt="Logo image" src="logo-image.png" />
@@ -45,8 +43,6 @@ export const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     );
 };
 
