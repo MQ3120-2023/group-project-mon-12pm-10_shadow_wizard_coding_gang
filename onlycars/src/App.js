@@ -6,37 +6,13 @@ import "./styles/LightMode.css";
 
 function App() {
     return (
-        <div id="main-container">
-
-            <Router>
-                    <Routes>
-                        <Route path="/Home" element={<HomePage />} />
-                        <Route path="/" element={<LoginPage />} />
-                        <Route path="/Signup" element={<SignUpPage />} />
-                    </Routes>
-            </Router>
-
-            <div id="logo-container">
-
-            </div>
-
-            <div id="search-container">
-
-            </div>
-
-            <div id="profile-container">
-
-            </div>
-
-            <div id="posts-container">
-
-            </div>
-
-            <div id="info-container">
-
-            </div>
-
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/Signup" element={<SignUpPage />} />
+            </Routes>
+        </Router>
     );
 }
 

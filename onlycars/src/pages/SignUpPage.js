@@ -25,7 +25,7 @@ const SignUpPage = () => {
         .then((data) => {
           if (data.message === 'Login successful') {
             // Redirect to home page or dashboard
-                        window.location.href = '/';
+                        window.location.href = '/Home';
           } else {
             alert('Registration failed');
           }
