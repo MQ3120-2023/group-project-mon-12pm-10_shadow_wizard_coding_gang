@@ -1,4 +1,4 @@
-const Home = () => {
+const HomePage = () => {
     return (
         <div >
             <div className="contentMid">
@@ -19,4 +19,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

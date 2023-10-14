@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Switch, Link } from "react-router-dom";
-import Home from "./Home.js";
-import LoginPage from "./LoginPage.js";
-import SignUpPage from "./SignUpPage.js";
+import HomePage from "./pages/HomePage.js";
+import LoginPage from "./pages/LoginPage.js";
+import SignUpPage from "./pages/SignUpPage.js";
 import "./App.css";
 
 function App() {
     return (
             <Router>
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/LoginPage" element={<LoginPage />} />
                         <Route path="/SignUpPage" element={<SignUpPage />} />
                     </Routes>
