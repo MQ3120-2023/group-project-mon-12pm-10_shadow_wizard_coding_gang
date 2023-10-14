@@ -1,0 +1,53 @@
+:root {
+  --background-colour: #F7F6F9;
+  --primary-colour: #FAFAFA;
+  --primary-hover: #FFFFFF;
+  --secondary-colour: #2F9EE9;
+  --secondary-hover: #47B5FF;
+  --tertiary-colour: #DDF1FF;
+  --tertiary-hover: #C3E7FF;
+  --text: #222222;
+  --text-hover: #000000;
+  --input-text: #A3A3A3;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--background-colour);
+  width: 100%;
+}
+
+#main-container {
+  width: 100%;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 0.7fr;
+  grid-template-rows: 10% 1fr;
+  row-gap: 3%;
+  grid-template-areas: 
+    "logo-container search-container ."
+    "profile-container posts-container info-container"; 
+}
+
+#logo-container {
+  grid-area: logo-container; 
+}
+
+#search-container {
+  grid-area: search-container; 
+}
+
+#posts-container {
+  grid-area: posts-container;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+#profile-container {
+  grid-area: profile-container;
+}
+
+#info-container {
+  grid-area: info-container;
+}
