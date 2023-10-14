@@ -6,6 +6,8 @@ import "./styles/LightMode.css";
 
 function App() {
     return (
+        <div>
+
         <Router>
             <Routes>
                 <Route path="/home" element={<HomePage />} />
@@ -13,6 +15,8 @@ function App() {
                 <Route path="/Signup" element={<SignUpPage />} />
             </Routes>
         </Router>
+        
+        </div>
     );
 }
 

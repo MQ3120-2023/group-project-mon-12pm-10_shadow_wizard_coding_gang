@@ -1,7 +1,7 @@
 function SearchBar () {
 
     return (
-        <input type="text" placeholder="Search"></input>
+        <input id="searchbar" type="text" placeholder="Search"></input>
     );
 }
 
