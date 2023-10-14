@@ -85,8 +85,9 @@ body {
   background-color: var(--input-bg);
   padding: 0 10px;
   color: var(--text);
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  font-size: 100%;
 }
 
 #searchbar:hover {
