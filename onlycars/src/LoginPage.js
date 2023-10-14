@@ -1,50 +1,50 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
 
-export const LoginPage = () => {
-    return (
-                <div className="contentMid">
-                    <div className="logo">
-                        <div className="overlap-group">
-                            <img className="logo-image" alt="Logo image" src="logo-image.png" />
-                            <img className="logo-text" alt="Logo text" src="logo-text.png" />
-                        </div>
-                    </div>
-                    <div className="login-form">
-                        <div className="overlap">
-                            <div className="text-login-header">Login</div>
-                            <div className="username-input">
-                                <div className="div-wrapper">
-                                    <div className="text-username">Username or email</div>
-                                </div>
-                            </div>
-                            <div className="password-input">
-                                <div className="div-wrapper">
-                                    <div className="text-password">Password</div>
-                                </div>
-                            </div>
-                            <div className="login-button">
-                                <div className="div">
-                                    <div className="text-login-button"><Link className="links" to="/">
-                                        Log In
-                                    </Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="sign-up-button">
-                                <div className="div">
-                                    <p className="text-sign-up-button"><Link className="links" to="/SignUpPage">
-                                    No login? Sign Up Here
-                                    </Link>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    );
+import React, { useState } from 'react';
+
+const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Backend authentication logic
+      console.log('Sending request:', { email, password });
+        fetch('http://localhost:3001/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === 'Login successful') {
+            // Redirect to home page or dashboard
+                        window.location.href = '/';
+          } else {
+            alert('Invalid credentials');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    console.log(`Email: ${email}, Password: ${password}`);
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <br />
+        <label>Password:</label>
+        <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <br />
+        <button type='submit'>Login</button>
+      </form>
+    </div>
+  );
 };
-
 
 export default LoginPage;
