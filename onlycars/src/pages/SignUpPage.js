@@ -1,56 +1,79 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    };
+    
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
-    // Backend registration logic
-        // For demonstration, we'll use the same /login endpoint
-        fetch('http://localhost:3001/login', {
-          method: 'POST',
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      const response = await fetch("http://localhost:3001/signup", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+              "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.message === 'Login successful') {
-            // Redirect to home page or dashboard
-                        window.location.href = '/Home';
-          } else {
-            alert('Registration failed');
-          }
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    console.log(`Email: ${email}, Password: ${password}`);
+          body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (data.message === "SignUp successful") {
+          navigate("/");
+      }
   };
 
-  return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <br />
-        <label>Password:</label>
-        <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <br />
-        <label>Confirm Password:</label>
-        <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-        <br />
-        <button type='submit'>Sign Up</button>
-      </form>
+return (
+    <div id="login-container">
+        <form onSubmit={handleSubmit}>
+            <div className="input-group">
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Username"
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div className="input-group">
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div className="input-group">
+                <label htmlFor="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <button type="submit">Sign Up</button>
+            <button
+                type="button"
+                onClick={() => (window.location.href = "/LoginPage")}
+            >
+                Already have an account? Login here
+            </button>
+        </form>
     </div>
   );
 };
