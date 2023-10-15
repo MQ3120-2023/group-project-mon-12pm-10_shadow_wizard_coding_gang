@@ -73,6 +73,7 @@ body {
     border-radius: 5px;
     background-color: var(--primary-colour);
     padding: 1em;
+    color: var(--text);
 }
 
 #card-container form {
@@ -97,6 +98,7 @@ form input {
     width: 15em;
     height: 2em;
     border-radius: 0.4em;
+    color: var(--text);
 }
 
 form button {

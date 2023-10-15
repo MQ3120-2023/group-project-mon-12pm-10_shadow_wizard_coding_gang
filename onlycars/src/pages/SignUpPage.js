@@ -70,7 +70,7 @@ const SignUpPage = () => {
                         <button
                             type="button"
                             onClick={() =>
-                                (window.location.href = "/LoginPage")
+                                (window.location.href = "/")
                             }
                         >
                             Already have an account? Login here
