@@ -5,9 +5,7 @@ const HomePage = () => {
         
         <div id="main-container">
             
-            <div id="header">
-                
-            </div>
+            <div id="header"></div>
 
             <div id="logo-container">
             </div>
@@ -22,7 +20,7 @@ const HomePage = () => {
             <div id="posts-container">
             </div>
 
-            <div id="-container">
+            <div id="info-container">
             </div>
 
         </div>

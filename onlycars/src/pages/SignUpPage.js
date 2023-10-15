@@ -33,10 +33,9 @@ const SignUpPage = () => {
     return (
         <div id="main-container">
             <div id="posts-container">
-                <div id="card-container">
-                <h2>Sign Up</h2>
+                <div id="form-container">
+                <p class="form-heading">Sign Up</p>
                     <form onSubmit={handleSubmit}>
-                        <div className="input-group">
                             <input
                                 type="text"
                                 id="username"
@@ -45,8 +44,6 @@ const SignUpPage = () => {
                                 onChange={handleChange}
                                 required
                             />
-                        </div>
-                        <div className="input-group">
                             <input
                                 type="email"
                                 id="email"
@@ -55,8 +52,6 @@ const SignUpPage = () => {
                                 onChange={handleChange}
                                 required
                             />
-                        </div>
-                        <div className="input-group">
                             <input
                                 type="password"
                                 id="password"
@@ -65,16 +60,16 @@ const SignUpPage = () => {
                                 onChange={handleChange}
                                 required
                             />
-                        </div>
                         <button type="submit">Sign Up</button>
-                        <button
+                        <a
                             type="button"
+                            class="text-button"
                             onClick={() =>
-                                (window.location.href = "/LoginPage")
+                                (window.location.href = "/")
                             }
                         >
                             Already have an account? Login here
-                        </button>
+                        </a>
                     </form>
                 </div>
             </div>

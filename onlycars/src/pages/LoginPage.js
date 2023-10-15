@@ -33,7 +33,7 @@ const LoginPage = () => {
     return (
         <div id="main-container">
             <div id="posts-container">
-                <div id="card-container">
+                <div id="form-container">
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <input

@@ -1,151 +1,187 @@
 :root {
-    --background-colour: #f7f6f9;
-    --primary-colour: #fafafa;
-    --primary-hover: #ffffff;
-    --secondary-colour: #2f9ee9;
-    --secondary-hover: #47b5ff;
-    --tertiary-colour: #ddf1ff;
-    --tertiary-hover: #c3e7ff;
-    --text: #222222;
-    --text-hover: #000000;
-    --input-text: #a3a3a3;
-    --input-bg: #f1f1f1;
+  --background-colour: #f7f6f9;
+  --primary-colour: #fafafa;
+  --primary-hover: #ffffff;
+  --secondary-colour: #2f9ee9;
+  --secondary-hover: #47b5ff;
+  --tertiary-colour: #ddf1ff;
+  --tertiary-hover: #c3e7ff;
+  --text: #222222;
+  --text-hover: #000000;
+  --input-text: #a3a3a3;
+  --input-bg: #f1f1f1;
+}
+
+h2 {
+  margin-top: 25px;
+  margin-bottom: 0;
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: var(--background-colour);
-    width: 100%;
-    margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--background-colour);
+  width: 100%;
+  margin: 0;
 }
 
 #main-container {
-    width: 100%;
-    max-width: 1320px;
-    display: grid;
-    grid-template-columns: 0.7fr 1fr 0.7fr;
-    grid-template-rows: 10% 1fr;
-    row-gap: 3%;
-    height: 100vh;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 0.7fr;
+  grid-template-rows: 10% 1fr;
+  row-gap: 3%;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 #header {
-    width: 100vw;
-    height: 7.5%;
-    background-color: var(--primary-colour);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  width: 100vw;
+  height: 7.5%;
+  background-color: var(--primary-colour);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 #logo-container {
-    grid-area: 1 / 1 / 2 / 2;
-    width: 100%;
-    height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
+  height: 100%;
 }
 
 #search-container {
-    grid-area: 1 / 2 / 2 / 3;
-    width: 100%;
-    height: 100%;
+  grid-area: 1 / 2 / 2 / 3;
+  width: 100%;
+  height: 100%;
 }
 
 #posts-container {
-    grid-area: 2 / 2 / 3 / 3;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  grid-area: 2 / 2 / 3 / 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-#card-container {
-    margin: 0 auto;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 15em;
-    border-radius: 5px;
-    background-color: var(--primary-colour);
-    padding: 1em;
+#form-container {
+  margin: 0 auto;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--primary-colour);
+  height: 35%;
+  max-height: 390px;
 }
 
-#card-container form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 85%;
+  width: 100%;
 }
 
-form {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1em;
-    justify-content: center;
+.form-heading {
+  color: var(--text);
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 25px;
+  margin-bottom: 0px;
 }
 
 form input {
-    border: none;
-    outline: none;
-    background-color: var(--input-bg);
-    color: var(--input-text);
-    width: 15em;
-    height: 2em;
-    border-radius: 0.4em;
+  border: none;
+  outline: none;
+  background-color: var(--input-bg);
+  color: var(--text);
+  width: 90%;
+  height: 100%;
+  border-radius: 0.4em;
+  font-size: 20px;
+  padding: 0 5%;
+  max-width: 240px;
+  max-height: 50px;
+  margin: 25px auto 0 auto;
 }
 
 form button {
-    background-color: var(--secondary-colour);
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 2em;
-    width: 15em;
-    height: 2em;
+  background-color: var(--secondary-colour);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2em;
+  width: 15em;
+  height: 2em;
+  margin: 25px auto 0 auto;
+}
+
+.text-button {
+  background-color: none;
+  border: none;
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2em;
+  width: 15em;
+  height: 2em;
+  transition: 0.15s;
+}
+
+.text-button:hover {
+  color: var(--secondary-colour);
 }
 
 #profile-container {
-    grid-area: 2 / 1 / 3 / 2;
-    width: 100%;
-    height: 100%;
+  grid-area: 2 / 1 / 3 / 2;
+  width: 100%;
+  height: 100%;
 }
 
 #info-container {
-    grid-area: 2 / 3 / 3 / 4;
-    width: 100%;
-    height: 100%;
+  grid-area: 2 / 3 / 3 / 4;
+  width: 100%;
+  height: 100%;
 }
 
 #searchbar {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 5px;
-    height: 30%;
-    margin: 0 auto;
-    margin-top: 4.5%;
-    border: solid var(--input-bg) 3px;
-    background-color: var(--input-bg);
-    padding: 0 10px;
-    color: var(--text);
-    transition: 0.15s;
-    -webkit-transition: 0.15s;
-    font-size: 100%;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 5px;
+  height: 30%;
+  margin: 0 auto;
+  margin-top: 4.5%;
+  border: solid var(--input-bg) 3px;
+  background-color: var(--input-bg);
+  padding: 0 10px;
+  color: var(--text);
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  font-size: 100%;
 }
 
 #searchbar:hover {
-    border: solid var(--input-text) 3px;
+  border: solid var(--input-text) 3px;
 }
 
 #searchbar:focus {
-    border: solid var(--input-text) 3px;
-    outline: none;
+  border: solid var(--input-text) 3px;
+  outline: none;
 }
