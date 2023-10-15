@@ -7,7 +7,7 @@ const SignUpPage = () => {
     username: "",
     email: "",
     password: "",
-    };
+    })
     
     const handleChange = (e) => {
       const { name, value } = e.target;
