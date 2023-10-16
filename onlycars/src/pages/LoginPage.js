@@ -33,8 +33,8 @@ const LoginPage = () => {
     return (
         <div id="main-container">
             <div id="posts-container">
-                <div id="card-container">
-                    <h2>Login</h2>
+                <div id="login-form" class="form-container">
+                <p class="form-heading">Login</p>
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
@@ -57,7 +57,7 @@ const LoginPage = () => {
                                 (window.location.href = "/signup")
                             }
                         >
-                            No login? Sign Up Here
+                            Sign Up
                         </button>
                     </form>
                 </div>
