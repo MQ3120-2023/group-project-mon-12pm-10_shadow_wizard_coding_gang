@@ -1,8 +1,8 @@
-function Post () {
+function Posts () {
 
     return (
         console.log("return")
     );
 }
 
-export default Post;
+export default Posts;

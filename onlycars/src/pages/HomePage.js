@@ -1,4 +1,5 @@
 import SearchBar from "../components/SearchBar";
+import Posts from "../components/Posts";
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
             </div>
 
             <div id="posts-container">
+                <Posts></Posts>
             </div>
 
             <div id="info-container">
