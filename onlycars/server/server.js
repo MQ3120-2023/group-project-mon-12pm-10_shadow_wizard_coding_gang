@@ -9,10 +9,27 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+const path = require('path');
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// Log static file requests
+app.use('/images', (req, res, next) => {
+  console.log(`Static file request for: ${req.url}`);
+  next();
+});
 
 // Read credentials from JSON file
 const credentialsData = JSON.parse(fs.readFileSync('./server/credentials.json', 'utf8'));
 const credentials = credentialsData.logins;
+
+// Read Posts from JSON file
+const postsData = JSON.parse(fs.readFileSync('./server/posts.json', 'utf8'));
+const posts = postsData.posts;
+
+// Endpoint to get all posts
+app.get('/getPosts', (req, res) => {
+  res.status(200).json(posts);
+});
 
 // Basic Authentication
 app.post('/login', (req, res) => {
@@ -28,6 +45,7 @@ app.post('/login', (req, res) => {
   }
 });
 
+// Credential Creation
 app.post('/signup', (req, res) => {
     const { username, email, password } = req.body;
     console.log('Received request:', req.body);
