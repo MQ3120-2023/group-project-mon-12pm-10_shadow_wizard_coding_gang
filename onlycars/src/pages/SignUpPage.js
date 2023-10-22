@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -31,8 +31,8 @@ const SignUpPage = () => {
     };
 
     return (
-        <div id="main-container">
-            <div id="posts-container">
+        <main id="main-container">
+            <section id="posts-container">
                 <div class="form-container">
                 <p class="form-heading">Sign Up</p>
                     <form onSubmit={handleSubmit}>
@@ -72,8 +72,8 @@ const SignUpPage = () => {
                         </a>
                     </form>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

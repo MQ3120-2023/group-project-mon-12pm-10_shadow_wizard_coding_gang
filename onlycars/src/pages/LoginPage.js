@@ -31,8 +31,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div id="main-container">
-            <div id="posts-container">
+        <main id="main-container">
+            <section id="posts-container">
                 <div id="login-form" class="form-container">
                 <p class="form-heading">Login</p>
                     <form onSubmit={handleSubmit}>
@@ -61,8 +61,8 @@ const LoginPage = () => {
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

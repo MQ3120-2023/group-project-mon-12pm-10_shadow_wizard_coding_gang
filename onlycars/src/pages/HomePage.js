@@ -4,28 +4,28 @@ import Posts from "../components/Posts";
 const HomePage = () => {
     return (
         
-        <div id="main-container">
+        <main id="main-container">
             
-            <div id="header"></div>
+            <section id="header"></section>
 
             <div id="logo-container">
             </div>
 
-            <div id="search-container">
+            <aside id="search-container">
                 <SearchBar></SearchBar>
-            </div>
+            </aside>
 
-            <div id="profile-container">
-            </div>
+            <nav id="profile-container">
+            </nav>
 
-            <div id="posts-container">
+            <section id="posts-container">
                 <Posts></Posts>
-            </div>
+            </section>
 
-            <div id="info-container">
-            </div>
+            <aside id="info-container">
+            </aside>
 
-        </div>
+        </main>
     );
 };
 
