@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Posts() {
+const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

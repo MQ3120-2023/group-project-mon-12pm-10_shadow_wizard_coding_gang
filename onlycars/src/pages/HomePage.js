@@ -1,5 +1,6 @@
 import SearchBar from "../components/SearchBar";
 import Posts from "../components/Posts";
+import Profile from "../components/Profile";
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
             </aside>
 
             <nav id="profile-container">
+                <Profile></Profile>
             </nav>
 
             <Posts></Posts>

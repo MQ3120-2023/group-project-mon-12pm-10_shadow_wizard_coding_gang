@@ -72,6 +72,7 @@ body {
     justify-content: flex-start;
     overflow-y: scroll;
     overflow-x: hidden;
+    margin: 0;
 }
 
 .form-container {
@@ -178,7 +179,7 @@ form button:hover {
 
 #searchbar {
     width: 100%;
-    max-width: 480px;
+    max-width: 526px;
     border-radius: 5px;
     height: 30%;
     margin: 0 auto;
@@ -202,12 +203,13 @@ form button:hover {
 }
 
 .post-container {
-    width: 480px;
+    width: 550px;
     background-color: var(--primary-colour);
     border-radius: 5px;
     align-self: center;
-    margin: auto;
+    margin: 0;
     margin-bottom: 1vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .post-container header {
@@ -234,7 +236,7 @@ form button:hover {
 }
 
 .post-user {
-    font-size: 20pt;
+    font-size: 1.5vh;
     align-self: center;
     padding-left: 1vw;
 }
@@ -245,6 +247,56 @@ form button:hover {
 }
 
 .post-images img {
-    max-width: 100%;
-    max-height: 30vh;
+    width: 100%;
+    max-height: 20vh;
+    background-color: var(--input-text);
+    align-self: center;
+    margin: auto;
+    object-fit: cover;
+}
+
+#profile-box {
+    width: 350px;
+}
+
+#profile-picture {
+    width: 200px;
+    border-radius: 100px;
+    margin: auto;
+    display: block;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#nav-box {
+    width: 350px;
+    background-color: var(--primary-colour);
+    margin-top: -100px;
+    padding-top: 10vh;
+    padding-bottom: 25px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#profile-name {
+    font-size: 22pt;
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-bottom: 2vh;
+    font-weight: 700;
+}
+
+.nav-links {
+    color: var(--text);
+    font-size: 18pt;
+    display: block;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    text-decoration: none;
+    transition: 0.15s;
+    font-weight: 500;
+}
+
+.nav-links:hover {
+    color: var(--secondary-colour);
 }
