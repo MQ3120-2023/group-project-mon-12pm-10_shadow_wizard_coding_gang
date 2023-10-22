@@ -6,7 +6,7 @@ const SignUpPage = () => {
     const [formData, setFormData] = useState({
         username: "",
         email: "",
-        password: "",
+        password: "", 
     });
 
     const handleChange = (e) => {
@@ -78,3 +78,4 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+ 
