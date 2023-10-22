@@ -32,7 +32,7 @@ const SignUpPage = () => {
 
     return (
         <main id="main-container">
-            <div id="posts-container">
+            <section id="posts-container">
                 <div class="form-container">
                 <p class="form-heading">Sign Up</p>
                     <form onSubmit={handleSubmit}>
@@ -72,7 +72,7 @@ const SignUpPage = () => {
                         </a>
                     </form>
                 </div>
-            </div>
+            </section>
         </main>
     );
 };
