@@ -1,6 +1,7 @@
 import SearchBar from "../components/SearchBar";
 import Posts from "../components/Posts";
 import Profile from "../components/Profile";
+import Info from "../components/Info";
 
 const HomePage = () => {
     return (
@@ -13,16 +14,17 @@ const HomePage = () => {
             </div>
 
             <aside id="search-container">
-                <SearchBar></SearchBar>
+                <SearchBar/>
             </aside>
 
             <nav id="profile-container">
-                <Profile></Profile>
+                <Profile/>
             </nav>
 
-            <Posts></Posts>
+            <Posts/>
 
             <aside id="info-container">
+                <Info infoType="Upcoming Events"/>
             </aside>
 
         </main>
