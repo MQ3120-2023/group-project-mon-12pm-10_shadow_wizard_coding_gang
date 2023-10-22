@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "project-server": "node server/server.js"
+    "project-server": "nodemon server/server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +41,8 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "nodemon": "^3.0.1"
   },
   "description": "The project requirements are in [REQUIREMENTS.md](REQUIREMENTS.md)",
   "main": "index.js",

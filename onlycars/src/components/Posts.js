@@ -19,7 +19,7 @@ function Posts () {
           {posts.map((post, index) => (
             <div key={index}>
                 <p>{post.user}</p>
-                <p>{post.carModel}</p>
+                <p>{post.carManufacturer} - {post.carModel} - {post.carYear}</p>
                 <p>{post.description}</p>
                 <p>{post.date}</p>
                 {post.images.map((image, imgIndex) => (

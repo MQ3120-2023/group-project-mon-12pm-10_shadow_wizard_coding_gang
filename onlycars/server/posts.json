@@ -3,14 +3,18 @@
         {
             "user": "user1",
             "date": "20/06/2023",
-            "carModel": "Toyota, Yarris",
+            "carManufacturer": "Toyota",
+            "carModel": "Yaris",
+            "carYear": "2020",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et enim dictum, accumsan felis vitae, gravida lectus. Morbi ornare laoreet velit a viverra. Sed a elit risus. Nullam viverra velit non suscipit pulvinar.",
             "images": ["car1.jpg", "car1.jpg", "car1.jpg"]
         },
         {
             "user": "user1",
             "date": "15/09/2023",
-            "carModel": "Honda, Civic",
+            "carManufacturer": "Honda",
+            "carModel": "Civic",
+            "carYear": "1998",
             "description": "This is a sample post made by user1. The car model is a Honda Civic and the post is dated 15th September 2023.",
             "images": [
                 "car1.jpg"
