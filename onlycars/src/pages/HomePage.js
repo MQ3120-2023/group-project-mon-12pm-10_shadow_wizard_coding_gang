@@ -4,7 +4,7 @@ import Posts from "../components/Posts";
 const HomePage = () => {
     return (
         
-        <div id="main-container">
+        <main id="main-container">
             
             <div id="header"></div>
 
@@ -25,7 +25,7 @@ const HomePage = () => {
             <div id="info-container">
             </div>
 
-        </div>
+        </main>
     );
 };
 

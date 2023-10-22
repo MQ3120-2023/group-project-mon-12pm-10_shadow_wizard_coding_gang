@@ -19,6 +19,7 @@ function Posts () {
           {posts.map((post, index) => (
             <div key={index}>
                 <p>{post.user}</p>
+                <img src={`http://localhost:3001/images/${post.userPFP}`} alt="User Profile Picture"/>
                 <p>{post.carManufacturer} - {post.carModel} - {post.carYear}</p>
                 <p>{post.description}</p>
                 <p>{post.date}</p>

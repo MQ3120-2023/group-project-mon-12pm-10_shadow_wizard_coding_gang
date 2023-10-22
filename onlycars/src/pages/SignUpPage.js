@@ -31,7 +31,7 @@ const SignUpPage = () => {
     };
 
     return (
-        <div id="main-container">
+        <main id="main-container">
             <div id="posts-container">
                 <div class="form-container">
                 <p class="form-heading">Sign Up</p>
@@ -73,7 +73,7 @@ const SignUpPage = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

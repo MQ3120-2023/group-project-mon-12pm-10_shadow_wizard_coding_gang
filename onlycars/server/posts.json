@@ -2,6 +2,7 @@
     "posts": [
         {
             "user": "user1",
+            "userPFP": "car1.jpg",
             "date": "20/06/2023",
             "carManufacturer": "Toyota",
             "carModel": "Yaris",
@@ -11,6 +12,7 @@
         },
         {
             "user": "user1",
+            "userPFP": "car1.jpg",
             "date": "15/09/2023",
             "carManufacturer": "Honda",
             "carModel": "Civic",

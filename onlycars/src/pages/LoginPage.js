@@ -31,7 +31,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div id="main-container">
+        <main id="main-container">
             <div id="posts-container">
                 <div id="login-form" class="form-container">
                 <p class="form-heading">Login</p>
@@ -62,7 +62,7 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 
