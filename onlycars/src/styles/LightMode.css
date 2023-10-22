@@ -200,3 +200,51 @@ form button:hover {
     border: solid var(--input-text) 3px;
     outline: none;
 }
+
+.post-container {
+    width: 480px;
+    background-color: var(--primary-colour);
+    border-radius: 5px;
+    align-self: center;
+    margin: auto;
+    margin-bottom: 1vh;
+}
+
+.post-container header {
+    height: 3vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: var(--tertiary-colour);
+    border-radius: 50px;
+    margin-left: 5%;
+    margin-top: 2vh;
+    width: 90%;
+}
+
+.post-container p {
+    margin: 1vw;
+}
+
+.post-pfp {
+    height: 5vh;
+    border-radius: 50px;
+    margin-top: -1vh;
+}
+
+.post-user {
+    font-size: 20pt;
+    align-self: center;
+    padding-left: 1vw;
+}
+
+.post-images {
+    max-width: 100%;
+    margin: 1vw;
+}
+
+.post-images img {
+    max-width: 100%;
+    max-height: 30vh;
+}

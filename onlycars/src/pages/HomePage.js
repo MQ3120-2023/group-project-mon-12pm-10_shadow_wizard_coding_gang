@@ -18,9 +18,7 @@ const HomePage = () => {
             <nav id="profile-container">
             </nav>
 
-            <section id="posts-container">
-                <Posts></Posts>
-            </section>
+            <Posts></Posts>
 
             <aside id="info-container">
             </aside>
