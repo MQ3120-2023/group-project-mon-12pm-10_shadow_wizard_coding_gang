@@ -23,9 +23,7 @@ const Profile = () => {
             <h1 class="profile-user">{user.username}</h1>
             <sub class="profile-location">{user.location}</sub>
           </header>
-            <p>
-              {user.description}
-            </p>
+            <p>{user.description}</p>
             <p>Cars Owned: {user.cars}</p>
             <p>Posts Made: {user.posts}</p>
         </section>

@@ -345,6 +345,16 @@ form button:hover {
 
 .sub-container p {
     margin: 1vw;
+    align-content: center;
+}
+
+.sub-left {
+    margin: auto;
+}
+
+.sub-right {
+    text-align: right;
+    margin: auto;
 }
 
 .sub-pfp {

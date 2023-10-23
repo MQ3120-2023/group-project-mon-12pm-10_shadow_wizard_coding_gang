@@ -7,10 +7,9 @@ const SubsPage = () => {
     return (
         <main id="main-container">
             
-            <section id="header"></section>
+            <section id="header"/>
 
-            <div id="logo-container">
-            </div>
+            <div id="logo-container"/>
 
             <aside id="search-container">
                 <SearchBar/>
@@ -20,7 +19,7 @@ const SubsPage = () => {
                 <NavBar/>
             </nav>
 
-            <Subs path="credentials"/>
+            <Subs path="getUser"/>
 
             <aside id="info-container">
                 <Info infoType="Manage Payment Details"/>
