@@ -3,8 +3,19 @@ import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import ButtonBarExplore from "../components/ButtonBarExplore";
+import { useEffect } from 'react';
 
 const ExplorePage = () => {
+    
+    const username = localStorage.getItem('username');
+    
+      useEffect(() => {
+        if (!username) {
+          // Redirect to login page if not logged in
+          window.location.href = '/login';
+        }
+      }, []);
+
     return (
         <main id="main-container">
             <section id="header"></section>

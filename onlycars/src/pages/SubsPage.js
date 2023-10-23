@@ -2,8 +2,19 @@ import SearchBar from "../components/SearchBar";
 import Subs from "../components/Subs";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
+import { useEffect } from 'react';
 
 const SubsPage = () => {
+
+    const username = localStorage.getItem('username');
+    
+      useEffect(() => {
+        if (!username) {
+          // Redirect to login page if not logged in
+          window.location.href = '/login';
+        }
+      }, []);
+
     return (
         <main id="main-container">
             

@@ -4,8 +4,19 @@ import Info from "../components/Info";
 import Profile from "../components/Profile";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 import Posts from "../components/Posts";
+import { useEffect } from 'react';
 
 const ProfilePage = () => {
+    
+    const username = localStorage.getItem('username');
+    
+      useEffect(() => {
+        if (!username) {
+          // Redirect to login page if not logged in
+          window.location.href = '/login';
+        }
+      }, []);
+
     return (
         <main id="main-container">
             <section id="header"></section>

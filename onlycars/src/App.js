@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Switch, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import LoginPage from "./pages/LoginPage.js";
 import SignUpPage from "./pages/SignUpPage.js";
 import HomePage from "./pages/HomePage.js";
@@ -9,6 +10,14 @@ import SettingsPage from "./pages/SettingsPage";
 import "./styles/LightMode.css";
 
 function App() {
+    const [username, setUsername] = useState(null);
+    
+      useEffect(() => {
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername) {
+          setUsername(storedUsername);
+        }
+      }, []);
     return (
         <div>
 

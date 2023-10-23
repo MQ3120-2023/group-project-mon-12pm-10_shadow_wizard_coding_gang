@@ -70,6 +70,15 @@ app.post('/signup', (req, res) => {
     }
 });
 
+// Session management
+const session = require('express-session');
+
+app.use(session({
+  secret: 'onlycars_secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 // Start the server
 const port = 3001;
 app.listen(port, () => {

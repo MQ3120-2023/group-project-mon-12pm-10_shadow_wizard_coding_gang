@@ -2,8 +2,18 @@ import SearchBar from "../components/SearchBar";
 import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
+import { useEffect } from 'react';
 
 const HomePage = () => {
+    const username = localStorage.getItem('username');
+    
+      useEffect(() => {
+        if (!username) {
+          // Redirect to login page if not logged in
+          window.location.href = '/login';
+        }
+      }, []);
+      
     return (
         
         <main id="main-container">

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+        localStorage.setItem('username', username);
 
     const handleSubmit = (e) => {
         e.preventDefault();

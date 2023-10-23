@@ -6,7 +6,7 @@ import SubsPage from "../pages/SubsPage";
 import SettingsPage from "../pages/SettingsPage";
 
 const NavBar = () => {
-
+    const username = localStorage.getItem('username');
     return(
         <section id="profile-box">
             <img id="profile-picture"
@@ -15,7 +15,7 @@ const NavBar = () => {
             />
             <nav id="nav-box">
 
-                <a id="profile-name">user1</a>
+                <a id="profile-name">{username}</a>
 
                 <Link className="nav-links" to="/home">Home</Link>
 
