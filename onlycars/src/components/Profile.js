@@ -1,46 +1,37 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Profile = () => {
+  const [Profile, setProfile] = useState([]);
 
-    return(
-        <section id="profile-box">
-            <img id="profile-picture"
-              src="http://localhost:3001/images/car1.jpg"
-              alt="User Profile Picture"
-            />
-            <nav id="nav-box">
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/getUser")
+      .then((response) => {
+        setProfile(response.data)
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error)
+      })
+  }, [])
 
-                <a id="profile-name">user1</a>
-
-                <Link className="nav-links" to="/home">Home</Link>
-
-                <Link className="nav-links" to="/profile">My Profile</Link>
-
-                <Link className="nav-links" to="/explore">Explore</Link>
-
-                <Link className="nav-links" to="/subscriptions">Subscriptions</Link>
-
-                <Link className="nav-links" to="/settings">Settings</Link>
-
-            </nav>
-
-            <Routes>
-
-                <Route path="/home" element={<HomePage/>}/>
-
-                <Route path="/profile" element={<HomePage/>}/>
-
-                <Route path="/explore" element={<HomePage/>}/>
-
-                <Route path="/subscriptions" element={<HomePage/>}/>
-
-                <Route path="/settings" element={<HomePage/>}/>
-
-            </Routes>
-
+  return (
+    <section>
+    {Profile.map((user, index) => (
+        <section class="profile-container" key={index}>
+          <header class="profile-header">
+            <h1 class="profile-user">{user.username}</h1>
+            <sub class="profile-location">{user.location}</sub>
+          </header>
+            <p>
+              {user.description}
+            </p>
+            <p>Cars Owned: {user.cars}</p>
+            <p>Posts Made: {user.posts}</p>
         </section>
-    )
+      ))}
+    </section>
+  );
 }
 
-export default Profile
+export default Profile;

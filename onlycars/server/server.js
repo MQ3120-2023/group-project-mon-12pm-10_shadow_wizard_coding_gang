@@ -22,6 +22,10 @@ app.use('/images', (req, res, next) => {
 const credentialsData = JSON.parse(fs.readFileSync('./server/credentials.json', 'utf8'));
 const credentials = credentialsData.logins;
 
+// Read Test credential from JSON file
+const testingData = JSON.parse(fs.readFileSync('./server/credentials.json', 'utf8'));
+const testing = testingData.testing;
+
 // Read Posts from JSON file
 const postsData = JSON.parse(fs.readFileSync('./server/posts.json', 'utf8'));
 const posts = postsData.posts;
@@ -29,6 +33,11 @@ const posts = postsData.posts;
 // Endpoint to get all posts
 app.get('/getPosts', (req, res) => {
   res.status(200).json(posts);
+});
+
+// Endpoint to get user info
+app.get('/getUser', (req, res) => {
+  res.status(200).json(testing);
 });
 
 // Basic Authentication

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Posts = ({path}) => {
-  const [posts, setPosts] = useState([]);
+const Subs = ({path}) => {
+  const [subs, setSubs] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/" + path)
       .then((response) => {
-        setPosts(response.data)
+        setSubs(response.data)
       })
       .catch((error) => {
         console.error("Error fetching data:", error)
@@ -17,22 +17,22 @@ const Posts = ({path}) => {
 
   return (
     <section id="posts-container">
-    {posts.map((post, index) => (
-        <section class="post-container" key={index}>
-          <header class="post-header">
-            <img class="post-pfp"
-              src={`http://localhost:3001/images/${post.userPFP}`}
+    {subs.map((sub, index) => (
+        <section class="sub-container" key={index}>
+          <header class="sub-header">
+            <img class="sub-pfp"
+              src={`http://localhost:3001/images/${sub.userPFP}`}
               alt="User Profile Picture"
             />
-            <a class="post-user">{post.user}</a>
+            <a class="sub-user">{sub.username}</a>
           </header>
             <p>
-              {post.carManufacturer} - {post.carModel} - {post.carYear}
+              {sub.carManufacturer} - {sub.carModel} - {sub.carYear}
             </p>
-            <p>{post.description}</p>
-            <p>{post.date}</p>
-          <figure class="post-images">
-          {post.images.map((image, imgIndex) => (
+            <p>{sub.description}</p>
+            <p>{sub.date}</p>
+          <figure class="sub-images">
+          {sub.images.map((image, imgIndex) => (
                   <img key={imgIndex} src={`http://localhost:3001/images/${image}`} alt={`Post image ${imgIndex + 1}`} />
                   ))}
           </figure>
@@ -42,4 +42,4 @@ const Posts = ({path}) => {
   );
 }
 
-export default Posts;
+export default Subs;

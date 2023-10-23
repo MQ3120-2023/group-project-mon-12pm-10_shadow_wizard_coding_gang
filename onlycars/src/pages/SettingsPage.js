@@ -3,9 +3,8 @@ import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 
-const HomePage = () => {
+const SettingsPage = () => {
     return (
-        
         <main id="main-container">
             
             <section id="header"></section>
@@ -31,4 +30,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default SettingsPage;

@@ -1,11 +1,10 @@
 import SearchBar from "../components/SearchBar";
-import Posts from "../components/Posts";
+import Subs from "../components/Subs";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 
-const HomePage = () => {
+const SubsPage = () => {
     return (
-        
         <main id="main-container">
             
             <section id="header"></section>
@@ -21,14 +20,14 @@ const HomePage = () => {
                 <NavBar/>
             </nav>
 
-            <Posts path='getPosts'/>
+            <Subs path="credentials"/>
 
             <aside id="info-container">
-                <Info infoType="Upcoming Events"/>
+                <Info infoType="Manage Payment Details"/>
             </aside>
 
         </main>
     );
 };
 
-export default HomePage;
+export default SubsPage;
