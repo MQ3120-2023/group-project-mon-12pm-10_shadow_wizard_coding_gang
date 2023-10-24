@@ -22,7 +22,7 @@ const Subs = ({ path }) => {
                     <div class="sub-left">
                         <img
                             class="sub-pfp"
-                            src={`http://localhost:3001/images/${sub.userPFP}`}
+                            src={`http://localhost:3001/images/car2.jpg`}
                             alt="User Profile Picture"
                         />
                         <a class="sub-user">{sub.username}</a>

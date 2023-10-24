@@ -239,6 +239,7 @@ form button:hover {
     background-color: var(--tertiary-colour);
     border-radius: 50px;
     width: 90%;
+    margin-left: 5%;
 }
 
 .profile-pfp {
@@ -247,15 +248,40 @@ form button:hover {
     margin-top: -1vh;
 }
 
+.profile-banner{
+    height: 8vw;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1vh;
+    object-fit: cover;
+}
+
+.profile-container p {
+    margin-top: 1vh;
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+    padding-bottom: 0.5vh;
+}
+
 .profile-user {
     font-size: 1.5vh;
     align-self: center;
     padding-left: 1vw;
+    text-align: center;
+}
+
+.profile-location{
+    font-size: 1.5vh;
+    align-self: center;
+    padding-left: 16vw;
+    text-align: center;
 }
 
 .profile-images {
     max-width: 100%;
-    margin: 1vw;
+    margin: 5vw;
 }
 
 .profile-images img {
@@ -358,8 +384,7 @@ form button:hover {
 }
 
 .sub-pfp {
-    height: 5vh;
-    border-radius: 50px;
+    height: 5vw;
     margin-top: -1vh;
 }
 
