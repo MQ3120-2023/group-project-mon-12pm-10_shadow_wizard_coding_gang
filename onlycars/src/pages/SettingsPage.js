@@ -7,13 +7,6 @@ import { useEffect } from 'react';
 const SettingsPage = () => {
 
     const username = localStorage.getItem('username');
-    
-      useEffect(() => {
-        if (!username) {
-          // Redirect to login page if not logged in
-          window.location.href = '/login';
-        }
-      }, []);
 
     return (
         <main id="main-container">

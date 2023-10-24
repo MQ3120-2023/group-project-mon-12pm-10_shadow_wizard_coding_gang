@@ -4,11 +4,18 @@ import axios from "axios";
 const Profile = () => {
   const [Profile, setProfile] = useState([]);
 
+  const username = localStorage.getItem('username');
+
   useEffect(() => {
     axios
-      .get("http://localhost:3001/getUser")
+      .get("http://localhost:3001/getCurrentUser", {
+        params: {
+          username: username
+        }
+      })
       .then((response) => {
         setProfile(response.data)
+        console.log(Profile);
       })
       .catch((error) => {
         console.error("Error fetching data:", error)

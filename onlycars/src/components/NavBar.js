@@ -26,6 +26,8 @@ const NavBar = () => {
                 <Link className="nav-links" to="/subscriptions">Subscriptions</Link>
 
                 <Link className="nav-links" to="/settings">Settings</Link>
+                
+                <Link className="nav-links" to="/" onClick={() => localStorage.clear()}>Logout</Link>
 
             </nav>
 

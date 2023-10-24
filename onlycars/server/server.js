@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -35,9 +34,15 @@ app.get('/getPosts', (req, res) => {
   res.status(200).json(posts);
 });
 
-// Endpoint to get user info
-app.get('/getUser', (req, res) => {
-  res.status(200).json(testing);
+// Endpoint to get the current user's info
+app.get('/getCurrentUser', (req, res) => {
+  const { username } = req.query;
+  const user = credentials.find(u => u.username === username);
+  if (user) {
+    res.status(200).json([user]);  // Wrap the user object in an array
+  } else {
+    res.status(404).json({ message: 'User not found' });
+  }
 });
 
 // Basic Authentication
