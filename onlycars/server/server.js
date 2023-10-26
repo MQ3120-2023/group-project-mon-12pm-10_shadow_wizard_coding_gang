@@ -5,7 +5,6 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 const app = express();
 
-
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
     userId: String,
@@ -47,7 +46,6 @@ const Post = mongoose.model("Post", postSchema);
 
 // MongoDB URI
 const uri =
-    process.env.MONGODB_URI ||
     "mongodb+srv://ShadowWizard:rFBiWdZ4jFRW6RMI@onlycars.rcvamax.mongodb.net/onlycars?retryWrites=true&w=majority";
 
 // Mongoose connection
@@ -73,18 +71,14 @@ app.use("/images", (req, res, next) => {
 
 // TODO: Replace this with MongoDB data retrieval
 
-// Importing data from data.json
-const data = require("./data.json");
-
-// Read users from data.json
-const users = data.users;
-
-// Read Posts from JSON file
-const posts = data.posts;
-
 // Endpoint to get all posts
-app.get("/getPosts", (req, res) => {
-    res.status(200).json(posts);
+app.get("/getPosts", async (req, res) => {
+    try {
+        const allPosts = await Post.find({});
+        res.status(200).json(allPosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching posts" });
+    }
 });
 
 // Endpoint to get the current user's info
@@ -101,39 +95,40 @@ app.get("/getCurrentUser", (req, res) => {
 // TODO: Replace this with MongoDB-based authentication
 
 // Basic Authentication
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     const { username, password } = req.body;
-    console.log("Received request:", req.body);
-    const user = users.find(
-        (u) => u.username === username && u.password === password
-    );
-    if (user) {
-        console.log("Sending response:", { message: "Login successful" });
-        res.status(200).json({ message: "Login successful" });
-    } else {
-        console.log("Sending response:", { message: "Invalid users" });
-        res.status(401).json({ message: "Invalid users" });
+    try {
+        const user = await User.find({ Users: { $type: 4 } });
+        {
+            Users: {
+                username: username;
+                password: password;
+            }
+        }
+        if (user) {
+            res.status(200).json({ message: "Login successful" });
+        } else {
+            res.status(401).json({ message: "Invalid users" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error during authentication" });
     }
 });
 
 // Credential Creation
-app.post("/signup", (req, res) => {
+app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
-    console.log("Received request:", req.body);
-    const user = users.find((u) => u.username === username);
-    if (user) {
-        console.log("Sending response:", {
-            message: "Username already exists",
-        });
-        res.status(409).json({ message: "Username already exists" });
-    } else {
-        users.push({ username, email, password });
-        fs.writeFileSync(
-            "./server/data.json",
-            JSON.stringify({ users: users, posts: posts })
-        );
-        console.log("Sending response:", { message: "SignUp successful" });
-        res.status(200).json({ message: "SignUp successful" });
+    try {
+        const existingUser = await User.findOne({ username: username });
+        if (existingUser) {
+            res.status(409).json({ message: "Username already exists" });
+        } else {
+            const newUser = new User({ username, email, password });
+            await newUser.save();
+            res.status(200).json({ message: "SignUp successful" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error during signup" });
     }
 });
 
