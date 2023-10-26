@@ -1,0 +1,671 @@
+{
+    "Users": [
+        {
+            "userId": "00000001",
+            "username": "user1",
+            "email": "user1@example.com",
+            "password": "password01",
+            "profilepic": "car01.jpg",
+            "location": "Sydney, Australia",
+            "description": "I'm a car enthusiast and I love using OnlyCars!",
+            "cars": 4,
+            "posts": 1,
+            "subscribers": 4000
+        },
+        {
+            "userId": "00000002",
+            "username": "user2",
+            "email": "user2@example.com",
+            "password": "password02",
+            "profilepic": "car02.jpg",
+            "location": "Sydney, Australia",
+            "description": "I'm a car enthusiast and I love using OnlyCars!",
+            "cars": 3,
+            "posts": 1,
+            "subscribers": 3000
+        },
+        {
+            "userId": "00000003",
+            "username": "user3",
+            "email": "user3@example.com",
+            "password": "password03",
+            "profilepic": "car03.jpg",
+            "location": "Melbourne, Australia",
+            "description": "Love to drive and explore!",
+            "cars": 2,
+            "posts": 1,
+            "subscribers": 2000
+        },
+        {
+            "userId": "00000004",
+            "username": "user4",
+            "email": "user4@example.com",
+            "password": "password04",
+            "profilepic": "car04.jpg",
+            "location": "Brisbane, Australia",
+            "description": "Speed is my second name.",
+            "cars": 3,
+            "posts": 1,
+            "subscribers": 3000
+        },
+        {
+            "userId": "00000005",
+            "username": "user5",
+            "email": "user5@example.com",
+            "password": "password05",
+            "profilepic": "car05.jpg",
+            "location": "Adelaide, Australia",
+            "description": "Life is too short to drive boring cars.",
+            "cars": 5,
+            "posts": 1,
+            "subscribers": 5000
+        },
+        {
+            "userId": "00000006",
+            "username": "user6",
+            "email": "user6@example.com",
+            "password": "password06",
+            "profilepic": "car06.jpg",
+            "location": "Perth, Australia",
+            "description": "Four wheels move the body, Two wheels move the soul.",
+            "cars": 1,
+            "posts": 1,
+            "subscribers": 1000
+        },
+        {
+            "userId": "00000007",
+            "username": "user7",
+            "email": "user7@example.com",
+            "password": "password07",
+            "profilepic": "car07.jpg",
+            "location": "Canberra, Australia",
+            "description": "Eat, Sleep, Drive, Repeat.",
+            "cars": 6,
+            "posts": 1,
+            "subscribers": 6000
+        },
+        {
+            "userId": "00000008",
+            "username": "user8",
+            "email": "user8@example.com",
+            "password": "password08",
+            "profilepic": "car08.jpg",
+            "location": "Hobart, Australia",
+            "description": "I don't drive fast, I just fly low.",
+            "cars": 7,
+            "posts": 1,
+            "subscribers": 7000
+        },
+        {
+            "userId": "00000009",
+            "username": "user9",
+            "email": "user9@example.com",
+            "password": "password09",
+            "profilepic": "car09.jpg",
+            "location": "Darwin, Australia",
+            "description": "To me, from me. #NewCar",
+            "cars": 8,
+            "posts": 1,
+            "subscribers": 8000
+        },
+        {
+            "userId": "00000010",
+            "username": "user10",
+            "email": "user10@example.com",
+            "password": "password10",
+            "profilepic": "car10.jpg",
+            "location": "Gold Coast, Australia",
+            "description": "If you can still hear your fears, shift a gear.",
+            "cars": 9,
+            "posts": 1,
+            "subscribers": 9000
+        }
+    ],
+
+    "Cars": [
+        {
+            "carId": "00000001",
+            "owner": "00000001",
+            "ownership": "4 years",
+            "brand-model": "Ford Mustang",
+            "year": "2017",
+            "modifications": "Stock",
+            "img": "car01.jpg"
+        },
+        {
+            "carId": "00000002",
+            "owner": "00000001",
+            "ownership": "3 years",
+            "brand-model": "Chevrolet Camaro",
+            "year": "2018",
+            "modifications": "Modified",
+            "img": "car02.jpg"
+        },
+        {
+            "carId": "00000003",
+            "owner": "00000001",
+            "ownership": "2 years",
+            "brand-model": "Dodge Challenger",
+            "year": "2019",
+            "modifications": "Stock",
+            "img": "car03.jpg"
+        },
+        {
+            "carId": "00000004",
+            "owner": "00000001",
+            "ownership": "1 year",
+            "brand-model": "Nissan 370Z",
+            "year": "2020",
+            "modifications": "Modified",
+            "img": "car04.jpg"
+        },
+        {
+            "carId": "00000005",
+            "owner": "00000002",
+            "ownership": "5 years",
+            "brand-model": "BMW M3",
+            "year": "2016",
+            "modifications": "Stock",
+            "img": "car05.jpg"
+        },
+        {
+            "carId": "00000006",
+            "owner": "00000002",
+            "ownership": "3 years",
+            "brand-model": "Audi RS5",
+            "year": "2018",
+            "modifications": "Modified",
+            "img": "car06.jpg"
+        },
+        {
+            "carId": "00000007",
+            "owner": "00000002",
+            "ownership": "2 years",
+            "brand-model": "Mercedes AMG",
+            "year": "2019",
+            "modifications": "Stock",
+            "img": "car07.jpg"
+        },
+        {
+            "carId": "00000008",
+            "owner": "00000003",
+            "ownership": "1 year",
+            "brand-model": "Porsche 911",
+            "year": "2020",
+            "modifications": "Modified",
+            "img": "car08.jpg"
+        },
+        {
+            "carId": "00000009",
+            "owner": "00000003",
+            "ownership": "3 months",
+            "brand-model": "Tesla Model S",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car09.jpg"
+        },
+        {
+            "carId": "00000010",
+            "owner": "00000004",
+            "ownership": "2 years",
+            "brand-model": "Chevrolet Camaro",
+            "year": "2019",
+            "modifications": "Modified",
+            "img": "car10.jpg"
+        },
+        {
+            "carId": "00000011",
+            "owner": "00000004",
+            "ownership": "1 year",
+            "brand-model": "Jaguar F-Type",
+            "year": "2020",
+            "modifications": "Stock",
+            "img": "car01.jpg"
+        },
+        {
+            "carId": "00000012",
+            "owner": "00000004",
+            "ownership": "6 months",
+            "brand-model": "Maserati GranTurismo",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car02.jpg"
+        },
+        {
+            "carId": "00000013",
+            "owner": "00000005",
+            "ownership": "4 years",
+            "brand-model": "Aston Martin Vantage",
+            "year": "2017",
+            "modifications": "Stock",
+            "img": "car03.jpg"
+        },
+        {
+            "carId": "00000014",
+            "owner": "00000005",
+            "ownership": "3 years",
+            "brand-model": "Ferrari 488",
+            "year": "2018",
+            "modifications": "Modified",
+            "img": "car04.jpg"
+        },
+        {
+            "carId": "00000015",
+            "owner": "00000005",
+            "ownership": "2 years",
+            "brand-model": "McLaren 720S",
+            "year": "2019",
+            "modifications": "Stock",
+            "img": "car05.jpg"
+        },
+        {
+            "carId": "00000016",
+            "owner": "00000005",
+            "ownership": "1 year",
+            "brand-model": "Rolls Royce Phantom",
+            "year": "2020",
+            "modifications": "Modified",
+            "img": "car06.jpg"
+        },
+        {
+            "carId": "00000017",
+            "owner": "00000005",
+            "ownership": "6 months",
+            "brand-model": "Bugatti Chiron",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car07.jpg"
+        },
+        {
+            "carId": "00000018",
+            "owner": "00000006",
+            "ownership": "2 years",
+            "brand-model": "Volkswagen Golf",
+            "year": "2019",
+            "modifications": "Stock",
+            "img": "car08.jpg"
+        },
+        {
+            "carId": "00000019",
+            "owner": "00000007",
+            "ownership": "4 years",
+            "brand-model": "Subaru WRX",
+            "year": "2017",
+            "modifications": "Modified",
+            "img": "car09.jpg"
+        },
+        {
+            "carId": "00000020",
+            "owner": "00000007",
+            "ownership": "3 years",
+            "brand-model": "Mitsubishi Lancer",
+            "year": "2018",
+            "modifications": "Stock",
+            "img": "car10.jpg"
+        },
+        {
+            "carId": "00000021",
+            "owner": "00000007",
+            "ownership": "2 years",
+            "brand-model": "Honda Civic",
+            "year": "2019",
+            "modifications": "Modified",
+            "img": "car01.jpg"
+        },
+        {
+            "carId": "00000022",
+            "owner": "00000007",
+            "ownership": "1 year",
+            "brand-model": "Mazda RX-7",
+            "year": "2020",
+            "modifications": "Stock",
+            "img": "car02.jpg"
+        },
+        {
+            "carId": "00000023",
+            "owner": "00000007",
+            "ownership": "6 months",
+            "brand-model": "Nissan 370Z",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car03.jpg"
+        },
+        {
+            "carId": "00000024",
+            "owner": "00000007",
+            "ownership": "3 months",
+            "brand-model": "Toyota 86",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car04.jpg"
+        },
+        {
+            "carId": "00000025",
+            "owner": "00000007",
+            "ownership": "1 month",
+            "brand-model": "Hyundai Veloster",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car05.jpg"
+        },
+        {
+            "carId": "00000026",
+            "owner": "00000007",
+            "ownership": "2 weeks",
+            "brand-model": "Kia Stinger",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car06.jpg"
+        },
+        {
+            "carId": "00000027",
+            "owner": "00000008",
+            "ownership": "4 years",
+            "brand-model": "Alfa Romeo Giulia",
+            "year": "2017",
+            "modifications": "Modified",
+            "img": "car07.jpg"
+        },
+        {
+            "carId": "00000028",
+            "owner": "00000008",
+            "ownership": "3 years",
+            "brand-model": "Jeep Wrangler",
+            "year": "2018",
+            "modifications": "Stock",
+            "img": "car08.jpg"
+        },
+        {
+            "carId": "00000029",
+            "owner": "00000008",
+            "ownership": "2 years",
+            "brand-model": "Land Rover Defender",
+            "year": "2019",
+            "modifications": "Modified",
+            "img": "car09.jpg"
+        },
+        {
+            "carId": "00000030",
+            "owner": "00000008",
+            "ownership": "1 year",
+            "brand-model": "Ford Bronco",
+            "year": "2020",
+            "modifications": "Stock",
+            "img": "car10.jpg"
+        },
+        {
+            "carId": "00000031",
+            "owner": "00000008",
+            "ownership": "6 months",
+            "brand-model": "Mercedes G-Class",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car01.jpg"
+        },
+        {
+            "carId": "00000032",
+            "owner": "00000008",
+            "ownership": "3 months",
+            "brand-model": "Audi Q8",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car02.jpg"
+        },
+        {
+            "carId": "00000033",
+            "owner": "00000008",
+            "ownership": "1 month",
+            "brand-model": "BMW X7",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car03.jpg"
+        },
+        {
+            "carId": "00000034",
+            "owner": "00000009",
+            "ownership": "4 years",
+            "brand-model": "Cadillac Escalade",
+            "year": "2017",
+            "modifications": "Stock",
+            "img": "car04.jpg"
+        },
+        {
+            "carId": "00000035",
+            "owner": "00000009",
+            "ownership": "3 years",
+            "brand-model": "Lincoln Navigator",
+            "year": "2018",
+            "modifications": "Modified",
+            "img": "car05.jpg"
+        },
+        {
+            "carId": "00000036",
+            "owner": "00000009",
+            "ownership": "2 years",
+            "brand-model": "GMC Yukon",
+            "year": "2019",
+            "modifications": "Stock",
+            "img": "car06.jpg"
+        },
+        {
+            "carId": "00000037",
+            "owner": "00000009",
+            "ownership": "1 year",
+            "brand-model": "Chevrolet Tahoe",
+            "year": "2020",
+            "modifications": "Modified",
+            "img": "car07.jpg"
+        },
+        {
+            "carId": "00000038",
+            "owner": "00000009",
+            "ownership": "6 months",
+            "brand-model": "Dodge Durango",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car08.jpg"
+        },
+        {
+            "carId": "00000039",
+            "owner": "00000009",
+            "ownership": "3 months",
+            "brand-model": "Ford Expedition",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car09.jpg"
+        },
+        {
+            "carId": "00000040",
+            "owner": "00000009",
+            "ownership": "1 month",
+            "brand-model": "Nissan Armada",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car10.jpg"
+        },
+        {
+            "carId": "00000041",
+            "owner": "00000010",
+            "ownership": "4 years",
+            "brand-model": "Tesla Model X",
+            "year": "2017",
+            "modifications": "Modified",
+            "img": "car01.jpg"
+        },
+        {
+            "carId": "00000042",
+            "owner": "00000010",
+            "ownership": "3 years",
+            "brand-model": "Jaguar I-PACE",
+            "year": "2018",
+            "modifications": "Stock",
+            "img": "car02.jpg"
+        },
+        {
+            "carId": "00000043",
+            "owner": "00000010",
+            "ownership": "2 years",
+            "brand-model": "Audi e-tron",
+            "year": "2019",
+            "modifications": "Modified",
+            "img": "car03.jpg"
+        },
+        {
+            "carId": "00000044",
+            "owner": "00000010",
+            "ownership": "1 year",
+            "brand-model": "Porsche Taycan",
+            "year": "2020",
+            "modifications": "Stock",
+            "img": "car04.jpg"
+        },
+        {
+            "carId": "00000045",
+            "owner": "00000010",
+            "ownership": "6 months",
+            "brand-model": "Mercedes EQC",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car05.jpg"
+        },
+        {
+            "carId": "00000046",
+            "owner": "00000010",
+            "ownership": "3 months",
+            "brand-model": "BMW iX3",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car06.jpg"
+        },
+        {
+            "carId": "00000047",
+            "owner": "00000010",
+            "ownership": "1 month",
+            "brand-model": "Nissan Ariya",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car07.jpg"
+        },
+        {
+            "carId": "00000048",
+            "owner": "00000010",
+            "ownership": "2 weeks",
+            "brand-model": "Volkswagen ID.4",
+            "year": "2021",
+            "modifications": "Stock",
+            "img": "car08.jpg"
+        },
+        {
+            "carId": "00000049",
+            "owner": "00000010",
+            "ownership": "1 week",
+            "brand-model": "Hyundai Ioniq 5",
+            "year": "2021",
+            "modifications": "Modified",
+            "img": "car09.jpg"
+        }
+    ],
+
+    "Posts": [
+        {
+            "postId": "00000001",
+            "userId": "00000001",
+            "carId": "00000002",
+            "date": "15/01/2023",
+            "description": "Took my Chevrolet Camaro for a spin around Sydney. The modifications really make a difference!",
+            "images": ["car02.jpg", "car02.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000002",
+            "userId": "00000002",
+            "carId": "00000005",
+            "date": "20/03/2023",
+            "description": "My BMW M3 still runs like a dream even after 5 years. Truly a masterpiece!",
+            "images": ["car05.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000003",
+            "userId": "00000003",
+            "carId": "00000009",
+            "date": "10/04/2023",
+            "description": "Just got a Tesla Model S. The future is here and it's electric!",
+            "images": ["car09.jpg", "car09.jpg", "car09.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000004",
+            "userId": "00000004",
+            "carId": "00000012",
+            "date": "25/05/2023",
+            "description": "The Maserati GranTurismo is not just a car, it's a statement. Loving the modifications!",
+            "images": ["car02.jpg", "car02.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000005",
+            "userId": "00000005",
+            "carId": "00000017",
+            "date": "12/06/2023",
+            "description": "Took the Bugatti Chiron to the track today. The speed is just mind-blowing!",
+            "images": ["car07.jpg", "car07.jpg", "car07.jpg", "car07.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000006",
+            "userId": "00000006",
+            "carId": "00000018",
+            "date": "05/07/2023",
+            "description": "My Volkswagen Golf may not be a supercar, but it's super to me.",
+            "images": ["car08.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000007",
+            "userId": "00000007",
+            "carId": "00000024",
+            "date": "22/08/2023",
+            "description": "The Toyota 86 is a joy to drive. Perfect for the streets of Canberra.",
+            "images": ["car04.jpg", "car04.jpg", "car04.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000008",
+            "userId": "00000008",
+            "carId": "00000030",
+            "date": "15/09/2023",
+            "description": "Off-roading in my Ford Bronco is the perfect weekend activity.",
+            "images": ["car10.jpg", "car10.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000009",
+            "userId": "00000009",
+            "carId": "00000039",
+            "date": "03/10/2023",
+            "description": "The Ford Expedition is a beast! Took it for a long drive around Darwin.",
+            "images": ["car09.jpg", "car09.jpg", "car09.jpg", "car09.jpg", "car09.jpg"],
+            "likes": 150,
+            "comments": 0
+        },
+        {
+            "postId": "00000010",
+            "userId": "00000010",
+            "carId": "00000049",
+            "date": "20/10/2023",
+            "description": "The Hyundai Ioniq 5 is a game changer in the electric vehicle market.",
+            "images": ["car09.jpg", "car09.jpg"],
+            "likes": 150,
+            "comments": 0
+        }
+    ]
+}

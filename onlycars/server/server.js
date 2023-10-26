@@ -17,17 +17,12 @@ app.use('/images', (req, res, next) => {
   next();
 });
 
-// Read credentials from JSON file
-const credentialsData = JSON.parse(fs.readFileSync('./server/credentials.json', 'utf8'));
-const credentials = credentialsData.logins;
-
-// Read Test credential from JSON file
-const testingData = JSON.parse(fs.readFileSync('./server/credentials.json', 'utf8'));
-const testing = testingData.testing;
 
 // Read Posts from JSON file
-const postsData = JSON.parse(fs.readFileSync('./server/posts.json', 'utf8'));
-const posts = postsData.posts;
+const data = JSON.parse(fs.readFileSync('./server/data.json', 'utf8'));
+const users = data.users;
+const cars = data.cars;
+const posts = data.posts;
 
 // Endpoint to get all posts
 app.get('/getPosts', (req, res) => {
@@ -36,8 +31,8 @@ app.get('/getPosts', (req, res) => {
 
 // Endpoint to get the current user's info
 app.get('/getCurrentUser', (req, res) => {
-  const { username } = req.query;
-  const user = credentials.find(u => u.username === username);
+  const { userId } = '00000001';
+  const user = users.find(u => u.userId === userId);
   if (user) {
     res.status(200).json([user]);  // Wrap the user object in an array
   } else {
@@ -49,7 +44,7 @@ app.get('/getCurrentUser', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   console.log('Received request:', req.body);
-  const user = credentials.find(u => u.username === username && u.password === password);
+  const user = users.find(u => u.username === username && u.password === password);
   if (user) {
     console.log('Sending response:', { message: 'Login successful' });
     res.status(200).json({ message: 'Login successful' });
