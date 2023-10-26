@@ -27,7 +27,7 @@ const Profile = () => {
     {Profile.map((user, index) => (
         <section class="profile-container" key={index}>
           <img class="profile-banner"
-              src="http://localhost:3001/images/car1.jpg"
+              src="http://localhost:3001/images/car01.jpg"
               alt="Profile Banner"
             />
           <header class="profile-header">

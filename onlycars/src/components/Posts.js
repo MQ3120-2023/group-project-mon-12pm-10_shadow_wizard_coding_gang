@@ -21,7 +21,7 @@ const Posts = ({path}) => {
         <section class="post-container" key={index}>
           <header class="post-header">
             <img class="post-pfp"
-              src={`http://localhost:3001/images/${post.userPFP}`}
+              src={`http://localhost:3001/images/car01.jpg`}
               alt="User Profile Picture"
             />
             <a class="post-user">{post.user}</a>
@@ -33,7 +33,7 @@ const Posts = ({path}) => {
             <p>{post.date}</p>
           <figure class="post-images">
           {post.images.map((image, imgIndex) => (
-                  <img key={imgIndex} src={`http://localhost:3001/images/${image}`} alt={`Post image ${imgIndex + 1}`} />
+                  <img key={imgIndex} src={`http://localhost:3001/images/car01.jpg`} alt={`Post image ${imgIndex + 1}`} />
                   ))}
           </figure>
         </section>
