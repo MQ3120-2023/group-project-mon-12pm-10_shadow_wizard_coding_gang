@@ -28,12 +28,12 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const currentPath = location.pathname;
-    if (!username && currentPath !== '/' && currentPath !== '/signup') {
-      window.location.href = '/';
-    }
-  }, [username, location]);
+  // useEffect(() => {
+  //   const currentPath = location.pathname;
+  //   if (!username && currentPath !== '/' && currentPath !== '/signup') {
+  //     window.location.href = '/';
+  //   }
+  // }, [username, location]);
 
   return (
     <div>
