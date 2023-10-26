@@ -119,9 +119,15 @@ app.post("/login", async (req, res) => {
 app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        const existingUser = await User.findOne({ username: username });
+        const existingUser = await User.find({ username: username });
+        {
+            Users: {
+                username: username;
+                email: email;
+            }
+        }
         if (existingUser) {
-            res.status(409).json({ message: "Username already exists" });
+            res.status(409).json({ message: "Username/Email already exists" });
         } else {
             const newUser = new User({ username, email, password });
             await newUser.save();
