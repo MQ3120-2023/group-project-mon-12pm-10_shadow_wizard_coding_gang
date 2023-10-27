@@ -18,16 +18,16 @@ const Subs = ({ path }) => {
     return (
         <section id="posts-container">
             {subs.map((sub, index) => (
-                <section class="sub-container" key={index}>
-                    <div class="sub-left">
+                <section className="sub-container" key={index}>
+                    <div className="sub-left">
                         <img
-                            class="sub-pfp"
+                            className="sub-pfp"
                             src={`http://localhost:3001/images/car2.jpg`}
                             alt="User Profile Picture"
                         />
-                        <a class="sub-user">{sub.username}</a>
+                        <a className="sub-user">{sub.username}</a>
                     </div>
-                    <div class="sub-right">
+                    <div className="sub-right">
                         <p>Posts Made: {sub.posts}</p>
                         <p>Subscribers: {sub.subscribers}</p>
                         <p>Cars Owned: {sub.cars}</p>

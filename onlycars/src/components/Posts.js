@@ -18,22 +18,22 @@ const Posts = ({path}) => {
   return (
     <section id="posts-container">
     {posts.map((post, index) => (
-        <section class="post-container" key={index}>
-          <header class="post-header">
-            <img class="post-pfp"
-              src={`http://localhost:3001/images/${post.userPFP}`}
+        <section className="post-container" key={index}>
+          <header className="post-header">
+            <img className="post-pfp"
+              src={`http://localhost:3001/images/car01.jpg`}
               alt="User Profile Picture"
             />
-            <a class="post-user">{post.user}</a>
+            <a className="post-user">{post.user}</a>
           </header>
             <p>
               {post.carManufacturer} - {post.carModel} - {post.carYear}
             </p>
             <p>{post.description}</p>
             <p>{post.date}</p>
-          <figure class="post-images">
+          <figure className="post-images">
           {post.images.map((image, imgIndex) => (
-                  <img key={imgIndex} src={`http://localhost:3001/images/${image}`} alt={`Post image ${imgIndex + 1}`} />
+                  <img key={imgIndex} src={`http://localhost:3001/images/car01.jpg`} alt={`Post image ${imgIndex + 1}`} />
                   ))}
           </figure>
         </section>

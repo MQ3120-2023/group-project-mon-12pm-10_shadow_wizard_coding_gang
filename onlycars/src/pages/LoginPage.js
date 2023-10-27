@@ -28,8 +28,8 @@ const LoginPage = () => {
     return (
         <main id="main-container">
             <section id="posts-container">
-                <div id="login-form" class="form-container">
-                    <p class="form-heading">Login</p>
+                <div id="login-form" className="form-container">
+                    <p className="form-heading">Login</p>
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"

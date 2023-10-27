@@ -25,14 +25,14 @@ const Profile = () => {
   return (
     <section>
     {Profile.map((user, index) => (
-        <section class="profile-container" key={index}>
-          <img class="profile-banner"
-              src="http://localhost:3001/images/car1.jpg"
+        <section className="profile-container" key={index}>
+          <img className="profile-banner"
+              src="http://localhost:3001/images/car01.jpg"
               alt="Profile Banner"
             />
-          <header class="profile-header">
-            <h1 class="profile-user">{user.username}</h1>
-            <sub class="profile-location">{user.location}</sub>
+          <header className="profile-header">
+            <h1 className="profile-user">{user.username}</h1>
+            <sub className="profile-location">{user.location}</sub>
           </header>
             <p>{user.description}</p>
             <p>Cars Owned: {user.cars}</p>

@@ -7,7 +7,7 @@ const app = express();
 
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
-    userId: String,
+    userId: Number,
     username: String,
     email: String,
     password: String,
@@ -22,8 +22,8 @@ const User = mongoose.model("User", userSchema);
 
 // Car Schema and Model
 const carSchema = new mongoose.Schema({
-    carId: String,
-    owner: String,
+    carId: Number,
+    owner: Number,
     ownership: String,
     brandModel: String,
     year: String,
@@ -34,8 +34,8 @@ const Car = mongoose.model("Car", carSchema);
 
 // Post Schema and Model
 const postSchema = new mongoose.Schema({
-    postId: String,
-    author: String,
+    postId: Number,
+    author: Number,
     content: String,
     img: String,
     likes: Number,
@@ -84,7 +84,7 @@ app.get("/getPosts", async (req, res) => {
 // Endpoint to get the current user's info
 app.get("/getCurrentUser", (req, res) => {
     const { username } = req.query;
-    const user = users.find((u) => u.username === username);
+    const user = User.find((u) => u.username === username);
     if (user) {
         res.status(200).json([user]); // Wrap the user object in an array
     } else {
@@ -106,6 +106,7 @@ app.post("/login", async (req, res) => {
             }
         }
         if (user) {
+            // req.session.user = user;
             res.status(200).json({ message: "Login successful" });
         } else {
             res.status(401).json({ message: "Invalid users" });
@@ -119,7 +120,7 @@ app.post("/login", async (req, res) => {
 app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        const existingUser = await User.find({ username: username });
+        const existingUser = await User.find({ Users: { $type: 4 } });
         {
             Users: {
                 username: username;
@@ -127,15 +128,35 @@ app.post("/signup", async (req, res) => {
             }
         }
         if (existingUser) {
-            res.status(409).json({ message: "Username/Email already exists" });
-        } else {
-            const newUser = new User({ username, email, password });
-            await newUser.save();
-            res.status(200).json({ message: "SignUp successful" });
-        }
-    } catch (error) {
-        res.status(500).json({ message: "Error during signup" });
-    }
+          res.status(409).json({ message: "Username/Email already exists" });
+      } else {
+          // Create a new user
+          const newUser = new User({
+              username,
+              email,
+              password, // Note: In a real-world application, make sure to hash the password before storing it
+              profilepic: "car01.jpg",
+              location: "Unknown",
+              description: "Hi, I'm new to OnlyCars!",
+              cars: 0,
+              posts: 0,
+              subscribers: 0
+          });
+          await newUser.save();
+          res.status(200).json({ message: "SignUp successful" });
+      }
+  } catch (error) {
+      console.error("Error during signup:", error);
+      res.status(500).json({ message: "Error during signup" });
+  }
+});
+
+// Import the middleware
+const { currentUser } = require("./middleware/currentUser");
+
+// Use the middleware in your routes
+app.get("/currentUser", currentUser, (req, res) => {
+    res.send({ currentUser: req.currentUser || null });
 });
 
 // Session management

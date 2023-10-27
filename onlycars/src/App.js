@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import LoginPage from "./pages/LoginPage.js";
 import SignUpPage from "./pages/SignUpPage.js";
 import HomePage from "./pages/HomePage.js";
@@ -17,23 +18,27 @@ function AppWrapper() {
   );
 }
 
+
+
 function App() {
-  const [username, setUsername] = useState(null);
   const location = useLocation();
   
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
+    const currentPath = location.pathname;
+    axios.get("http://localhost:3001/currentUser")
+    .then(response => {
+        const { currentUser } = response.data;
+        if (currentUser) {
+          // Do something with currentMember
+        }
+        else if (!currentUser && currentPath !== '/' && currentPath !== '/signup') {
+          window.location.href = '/';
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching current user:", error);
+    });
   }, []);
-
-  // useEffect(() => {
-  //   const currentPath = location.pathname;
-  //   if (!username && currentPath !== '/' && currentPath !== '/signup') {
-  //     window.location.href = '/';
-  //   }
-  // }, [username, location]);
 
   return (
     <div>
