@@ -4,26 +4,43 @@ import axios from "axios";
 const Profile = () => {
   const [Profile, setProfile] = useState([]);
 
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/getCurrentUser", {
         params: {
-          username: username
-        }
+          username: username,
+        },
       })
       .then((response) => {
-        setProfile(response.data)
+        setProfile(response.data);
         console.log(Profile);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error)
-      })
-  }, [])
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
-    <section>
+    // <section>
+    <section class="profile-container">
+      <img
+        class="profile-banner"
+        src="http://localhost:3001/images/car01.jpg"
+        alt="Profile Banner"
+      />
+      <header class="profile-header">
+        <h1 class="profile-user">User1</h1>
+        <sub class="profile-location">Somewhere</sub>
+      </header>
+      <p>Description Description Description Description</p>
+      <aside id="profile-info">
+        <p>Cars Owned: 2</p>
+        <p>Posts Made: 69</p>
+      </aside>
+
+      {/* </section>
     {Profile.map((user, index) => (
         <section class="profile-container" key={index}>
           <img class="profile-banner"
@@ -38,9 +55,9 @@ const Profile = () => {
             <p>Cars Owned: {user.cars}</p>
             <p>Posts Made: {user.posts}</p>
         </section>
-      ))}
+      ))} */}
     </section>
   );
-}
+};
 
 export default Profile;

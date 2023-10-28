@@ -17,6 +17,7 @@ const HomePage = () => {
             <section id="header"></section>
 
             <div id="logo-container">
+                <div id="text-logo"></div>
             </div>
 
             <aside id="search-container">

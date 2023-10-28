@@ -15,7 +15,9 @@ const ExplorePage = () => {
         <main id="main-container">
             <section id="header"></section>
 
-            <div id="logo-container"></div>
+            <div id="logo-container">
+                <div id="text-logo"></div>
+            </div>
 
             <aside id="search-container">
                 <SearchBar />

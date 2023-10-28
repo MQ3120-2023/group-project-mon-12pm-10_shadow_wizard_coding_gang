@@ -14,6 +14,7 @@ const SettingsPage = () => {
             <section id="header"></section>
 
             <div id="logo-container">
+                <div id="text-logo"></div>
             </div>
 
             <aside id="search-container">
@@ -24,7 +25,7 @@ const SettingsPage = () => {
                 <NavBar/>
             </nav>
 
-            <Posts path='getPosts'/>
+            {/* Do the funny invis shite */}
 
             <aside id="info-container">
                 <Info infoType="Upcoming Events"/>

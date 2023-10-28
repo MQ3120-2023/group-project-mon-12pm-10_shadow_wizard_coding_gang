@@ -15,7 +15,9 @@ const SubsPage = () => {
             
             <section id="header"/>
 
-            <div id="logo-container"/>
+            <div id="logo-container">
+                <div id="text-logo"></div>
+            </div>
 
             <aside id="search-container">
                 <SearchBar/>
