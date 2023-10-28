@@ -416,7 +416,6 @@ form button:hover {
 }
 
 .bar-box {
-    grid-area: 2 / 2 / 3 / 3;
     width: 100%;
     height: 10%;
     display: flex;
@@ -427,11 +426,35 @@ form button:hover {
 
 .bar-box button {
     background-color: var(--primary-colour);
-    border-radius: 5px;
     width: 100%;
-    min-height: 5vh;
+    height: 5vh;
     overflow-y: visible;
     margin: 0;
+    border: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.15s;
+    font-size: 16pt;
+    color: var(--text);
+}
+
+.bar-box button:hover {
+    background-color: var(--primary-hover);
+    color: var(--text-hover);
+}
+
+.bar-box button:focus {
+    background-color: var(--primary-hover);
+    color: var(--text-hover);
+}
+
+.left-button {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.right-button {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 #profile-box {
@@ -454,6 +477,7 @@ form button:hover {
     padding-bottom: 25px;
     border-radius: 25px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 5vh;
 }
 
 #profile-name {
@@ -489,11 +513,25 @@ form button:hover {
     padding: 0.25vw 0;
     border-radius: 25px;
     transition: 0.15s;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #logout-button:hover {
     background-color: var(--secondary-hover);
     color: var(--primary-hover);
+}
+
+.new-button {
+    width: 350px;
+    height: 50px;
+    font-size: 20pt;
+    font-weight: 600;
+    border: 0;
+    border-radius: 25px;
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+    margin-top: 1vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #info-box {

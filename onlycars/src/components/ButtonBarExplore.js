@@ -2,9 +2,9 @@ const ButtonBarExplore = ({boxType}) => {
 
     return(
         <div class="bar-box">
-                <button>Posts</button>
+                <button class="left-button">Posts</button>
                 <button>Users</button>
-                <button>Vehicles</button>
+                <button class="right-button">Vehicles</button>
         </div>
     )
 }
