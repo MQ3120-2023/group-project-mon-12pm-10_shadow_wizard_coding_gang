@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
     posts: Number,
     subscribers: Number,
 });
-const User = mongoose.model("User", userSchema);
+
+const User = mongoose.model("users", userSchema);
 
 // Car Schema and Model
 const carSchema = new mongoose.Schema({
@@ -46,7 +47,7 @@ const Post = mongoose.model("Post", postSchema);
 
 // MongoDB URI
 const uri =
-    "mongodb+srv://ShadowWizard:rFBiWdZ4jFRW6RMI@onlycars.rcvamax.mongodb.net/onlycars?retryWrites=true&w=majority";
+    "mongodb+srv://ShadowWizard:rFBiWdZ4jFRW6RMI@onlycars.rcvamax.mongodb.net/OnlyCars?retryWrites=true&w=majority";
 
 // Mongoose connection
 mongoose
@@ -58,7 +59,13 @@ mongoose
         console.log("Error connecting to MongoDB:", error.message);
     });
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    })
+);
+
 app.use(bodyParser.json());
 const path = require("path");
 app.use("/images", express.static(path.join(__dirname, "images")));
@@ -68,8 +75,6 @@ app.use("/images", (req, res, next) => {
     console.log(`Static file request for: ${req.url}`);
     next();
 });
-
-// TODO: Replace this with MongoDB data retrieval
 
 // Endpoint to get all posts
 app.get("/getPosts", async (req, res) => {
@@ -81,32 +86,18 @@ app.get("/getPosts", async (req, res) => {
     }
 });
 
-// Endpoint to get the current user's info
-app.get("/getCurrentUser", (req, res) => {
-    const { username } = req.query;
-    const user = User.find((u) => u.username === username);
-    if (user) {
-        res.status(200).json([user]); // Wrap the user object in an array
-    } else {
-        res.status(404).json({ message: "User not found" });
-    }
-});
-
-// TODO: Replace this with MongoDB-based authentication
-
 // Basic Authentication
 app.post("/login", async (req, res) => {
     const { username, password } = req.body;
     try {
-        const user = await User.find({ Users: { $type: 4 } });
-        {
-            Users: {
-                username: username;
-                password: password;
-            }
-        }
+        const user = await User.findOne({
+            username: username,
+            password: password,
+        });
+        console.log(user);
         if (user) {
-            // req.session.user = user;
+            console.log('currentUser: ' + user);
+            req.currentUser = user;
             res.status(200).json({ message: "Login successful" });
         } else {
             res.status(401).json({ message: "Invalid users" });
@@ -120,7 +111,7 @@ app.post("/login", async (req, res) => {
 app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        const existingUser = await User.find({ Users: { $type: 4 } });
+        const existingUser = await User.findOne({ Users: { $type: 4 } });
         {
             Users: {
                 username: username;
@@ -128,35 +119,28 @@ app.post("/signup", async (req, res) => {
             }
         }
         if (existingUser) {
-          res.status(409).json({ message: "Username/Email already exists" });
-      } else {
-          // Create a new user
-          const newUser = new User({
-              username,
-              email,
-              password, // Note: In a real-world application, make sure to hash the password before storing it
-              profilepic: "car01.jpg",
-              location: "Unknown",
-              description: "Hi, I'm new to OnlyCars!",
-              cars: 0,
-              posts: 0,
-              subscribers: 0
-          });
-          await newUser.save();
-          res.status(200).json({ message: "SignUp successful" });
-      }
-  } catch (error) {
-      console.error("Error during signup:", error);
-      res.status(500).json({ message: "Error during signup" });
-  }
-});
-
-// Import the middleware
-const { currentUser } = require("./middleware/currentUser");
-
-// Use the middleware in your routes
-app.get("/currentUser", currentUser, (req, res) => {
-    res.send({ currentUser: req.currentUser || null });
+            console.log(existingUser);
+            res.status(409).json({ message: "Username/Email already exists" });
+        } else {
+            // Create a new user
+            const newUser = new User({
+                username,
+                email,
+                password, // Note: In a real-world application, make sure to hash the password before storing it
+                profilepic: "car01.jpg",
+                location: "Unknown",
+                description: "Hi, I'm new to OnlyCars!",
+                cars: 0,
+                posts: 0,
+                subscribers: 0,
+            });
+            await newUser.save();
+            res.status(200).json({ message: "SignUp successful" });
+        }
+    } catch (error) {
+        console.error("Error during signup:", error);
+        res.status(500).json({ message: "Error during signup" });
+    }
 });
 
 // Session management
@@ -170,6 +154,15 @@ app.use(
         cookie: { secure: false },
     })
 );
+
+// Import the middleware
+const { currentUser } = require("./middleware/currentUser");
+
+// Use the middleware in your routes
+app.get("/currentUser", currentUser, (req, res) => {
+    console.log("currentUser route hit:" + currentUser);
+    res.send({ currentUser: req.currentUser || null });
+});
 
 // Start the server
 const port = 3001;

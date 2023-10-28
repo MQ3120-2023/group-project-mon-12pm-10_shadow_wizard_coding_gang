@@ -32,9 +32,9 @@ const Posts = ({path}) => {
             <p>{post.description}</p>
             <p>{post.date}</p>
           <figure className="post-images">
-          {post.images.map((image, imgIndex) => (
+          {/* {post.images.map((image, imgIndex) => (
                   <img key={imgIndex} src={`http://localhost:3001/images/car01.jpg`} alt={`Post image ${imgIndex + 1}`} />
-                  ))}
+                  ))} */}
           </figure>
         </section>
       ))}

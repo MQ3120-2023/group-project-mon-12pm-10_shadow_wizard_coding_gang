@@ -2,15 +2,12 @@ import SearchBar from "../components/SearchBar";
 import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
-import { useEffect } from 'react';
 
-const HomePage = () => {
-    const username = localStorage.getItem('username');
-      
+const HomePage = () => {      
     return (
         
         <main id="main-container">
-            
+
             <section id="header"></section>
 
             <div id="logo-container">

@@ -7,9 +7,6 @@ import Posts from "../components/Posts";
 import { useEffect } from 'react';
 
 const ProfilePage = () => {
-    
-    const username = localStorage.getItem('username');
-
     return (
         <main id="main-container">
             <section id="header"></section>

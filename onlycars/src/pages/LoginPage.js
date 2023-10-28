@@ -15,9 +15,11 @@ const LoginPage = () => {
             const { data } = response;
             if (data.message === "Login successful") {
                 // Redirect to home page or dashboard
+                console.log(data.message);
                 window.location.href = "/Home";
             } else {
                 alert("Invalid credentials");
+                console.log(data)
             }
         } catch (error) {
             console.error("Error during authentication:", error);

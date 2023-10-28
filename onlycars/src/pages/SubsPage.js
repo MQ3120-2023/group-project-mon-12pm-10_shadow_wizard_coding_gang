@@ -5,9 +5,6 @@ import Info from "../components/Info";
 import { useEffect } from 'react';
 
 const SubsPage = () => {
-
-    const username = localStorage.getItem('username');
-
     return (
         <main id="main-container">
             
