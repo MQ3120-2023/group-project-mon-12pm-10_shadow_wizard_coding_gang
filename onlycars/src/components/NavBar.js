@@ -10,7 +10,7 @@ const NavBar = () => {
     return(
         <section id="profile-box">
             <img id="profile-picture"
-              src="http://localhost:3001/images/car1.jpg"
+              src={`http://localhost:3001/images/car01.jpg`}
               alt="User Profile Picture"
             />
             <nav id="nav-box">
@@ -27,7 +27,7 @@ const NavBar = () => {
 
                 <Link className="nav-links" to="/settings">Settings</Link>
                 
-                <Link className="nav-links" to="/" onClick={() => localStorage.clear()}>Logout</Link>
+                <Link id="logout-button" className="nav-links" to="/" onClick={() => localStorage.clear()}>Logout</Link>
 
             </nav>
 

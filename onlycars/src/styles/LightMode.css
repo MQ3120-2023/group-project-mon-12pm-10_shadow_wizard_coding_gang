@@ -301,6 +301,12 @@ form button:hover {
     margin: 0;
     margin-bottom: 1vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.15s;
+}
+
+.post-container:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .post-container header {
@@ -344,6 +350,7 @@ form button:hover {
     align-self: center;
     margin: auto;
     object-fit: cover;
+    display: inline;
 }
 
 .sub-container {
@@ -471,6 +478,22 @@ form button:hover {
 
 .nav-links:hover {
     color: var(--secondary-colour);
+}
+
+#logout-button {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+    padding: 0.25vw 0;
+    border-radius: 25px;
+    transition: 0.15s;
+}
+
+#logout-button:hover {
+    background-color: var(--secondary-hover);
+    color: var(--primary-hover);
 }
 
 #info-box {
