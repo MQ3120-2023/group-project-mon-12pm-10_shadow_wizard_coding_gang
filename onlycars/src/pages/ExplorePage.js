@@ -3,6 +3,8 @@ import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import ButtonBarExplore from "../components/ButtonBarExplore";
+import NewPostButton from "../components/NewPostButton";
+import NewEventButton from "../components/NewEventButton";
 import { useEffect } from 'react';
 
 const ExplorePage = () => {
@@ -21,6 +23,8 @@ const ExplorePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
+                <NewPostButton/>
+                <NewEventButton/>
             </nav>
 
             <section id="mid-container">

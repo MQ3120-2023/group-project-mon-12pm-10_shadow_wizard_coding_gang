@@ -2,6 +2,8 @@ import SearchBar from "../components/SearchBar";
 import Subs from "../components/Subs";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
+import NewPostButton from "../components/NewPostButton";
+import NewEventButton from "../components/NewEventButton";
 import { useEffect } from 'react';
 
 const SubsPage = () => {
@@ -21,6 +23,8 @@ const SubsPage = () => {
 
             <nav id="navbar-container">
                 <NavBar/>
+                <NewPostButton/>
+                <NewEventButton/>
             </nav>
 
             <Subs path="getUser"/>

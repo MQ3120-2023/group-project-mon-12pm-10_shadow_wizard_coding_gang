@@ -4,6 +4,8 @@ import Info from "../components/Info";
 import Profile from "../components/Profile";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 import Posts from "../components/Posts";
+import NewPostButton from "../components/NewPostButton";
+import NewEventButton from "../components/NewEventButton";
 import { useEffect } from 'react';
 
 const ProfilePage = () => {
@@ -22,6 +24,8 @@ const ProfilePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
+                <NewPostButton/>
+                <NewEventButton/>
             </nav>
 
             <section id="mid-container">
