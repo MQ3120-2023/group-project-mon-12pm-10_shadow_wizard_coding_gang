@@ -5,15 +5,12 @@ import Info from "../components/Info";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
-import { useEffect } from 'react';
 
-const HomePage = () => {
-    const username = localStorage.getItem('username');
-      
+const HomePage = () => {      
     return (
         
         <main id="main-container">
-            
+
             <section id="header"></section>
 
             <div id="logo-container">

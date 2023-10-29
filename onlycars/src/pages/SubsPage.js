@@ -4,12 +4,8 @@ import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
-import { useEffect } from 'react';
 
 const SubsPage = () => {
-
-    const username = localStorage.getItem('username');
-
     return (
         <main id="main-container">
             

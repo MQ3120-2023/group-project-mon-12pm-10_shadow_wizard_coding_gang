@@ -6,12 +6,8 @@ import ButtonBarPosts from "../components/ButtonBarPosts";
 import Posts from "../components/Posts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
-import { useEffect } from 'react';
 
 const ProfilePage = () => {
-    
-    const username = localStorage.getItem('username');
-
     return (
         <main id="main-container">
             <section id="header"></section>

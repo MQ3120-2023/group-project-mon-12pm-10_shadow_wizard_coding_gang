@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Subs = ({ path }) => {
-    const [subs, setSubs] = useState([]);
+const CarsExplore = () => {
+    const [cars, setCars] = useState([]);
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/" + path)
+            .get("http://localhost:3001/CarsExplore")
             .then((response) => {
-                setSubs(response.data);
+                setCars(response.data);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
@@ -17,20 +17,20 @@ const Subs = ({ path }) => {
 
     return (
         <section id="posts-container">
-            {subs.map((sub, index) => (
+            {cars.map((car, index) => (
                 <section className="sub-container" key={index}>
                     <div className="sub-left">
                         <img
-                            class="sub-pfp"
-                            src={`http://localhost:3001/images/car02.jpg`}
-                            alt="User Profile Picture"
+                            className="sub-pfp"
+                            src={car.img}
+                            alt="User's Profile Picture"
                         />
-                        <a className="sub-user">{sub.username}</a>
+                        <a className="sub-user">{car.username}</a>
                     </div>
                     <div className="sub-right">
-                        <p>Posts Made: {sub.posts}</p>
-                        <p>Subscribers: {sub.subscribers}</p>
-                        <p>Cars Owned: {sub.cars}</p>
+                        <p>Posts Made: {car.posts}</p>
+                        <p>Subscribers: {car.subscribers}</p>
+                        <p>Cars Owned: {car.cars}</p>
                     </div>
                 </section>
             ))}
@@ -38,4 +38,4 @@ const Subs = ({ path }) => {
     );
 };
 
-export default Subs;
+export default CarsExplore;
