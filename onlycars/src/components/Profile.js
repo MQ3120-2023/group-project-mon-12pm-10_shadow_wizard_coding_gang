@@ -3,6 +3,8 @@ import axios from "axios";
 
 const Profile = () => {
     const [userData, setUserData] = useState(null); // Declare state variable
+    const user = 1;
+    const index = 1;
 
     useEffect(() => {
         const currentUser = async () => {
@@ -22,12 +24,12 @@ const Profile = () => {
 
     return (
         <section>
-            {userData &&
+            {/* {userData &&
                 userData.map(
                     (
                         user,
                         index // Check if userData is not null
-                    ) => (
+                    ) => ( */}
                         <section className="profile-container" key={index}>
                             <img
                                 className="profile-banner"
@@ -46,8 +48,8 @@ const Profile = () => {
                             <p>Cars Owned: {user.cars}</p>
                             <p>Posts Made: {user.posts}</p>
                         </section>
-                    )
-                )}
+                    {/* )
+                )} */}
         </section>
     );
 };

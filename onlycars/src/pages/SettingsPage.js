@@ -1,32 +1,43 @@
+import React, { useState } from 'react';
 import SearchBar from "../components/SearchBar";
-import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
+import ButtonBarSettings from "../components/ButtonBarSettings";
+import UserSettings from '../components/UserSettings';
+import ProfileSettings from '../components/ProfileSettings';
+import SecuritySettings from '../components/SecuritySettings';
 import Info from "../components/Info";
-import { useEffect } from 'react';
 
 const SettingsPage = () => {
+    const [activeButton, setActiveButton] = useState(1);
+    const handleButtonClick = (buttonId) => {
+        setActiveButton(buttonId);
+    };
+
     return (
         <main id="main-container">
-            
             <section id="header"></section>
 
-            <div id="logo-container">
-            </div>
+            <div id="logo-container"></div>
 
             <aside id="search-container">
-                <SearchBar/>
+                <SearchBar />
             </aside>
 
             <nav id="navbar-container">
-                <NavBar/>
+                <NavBar />
             </nav>
 
-            <Posts path='getPosts'/>
+            <section id="mid-container">
+                <ButtonBarSettings handleButtonClick={handleButtonClick} />
+
+                {activeButton === 1 && <UserSettings/>}
+                {activeButton === 2 && <ProfileSettings/>}
+                {activeButton === 3 && <SecuritySettings/>}
+            </section>
 
             <aside id="info-container">
-                <Info infoType="Upcoming Events"/>
+                <Info infoType="Upcoming Events" />
             </aside>
-
         </main>
     );
 };

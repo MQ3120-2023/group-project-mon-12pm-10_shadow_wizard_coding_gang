@@ -1,12 +1,11 @@
-const ButtonBarExplore = ({boxType}) => {
-
-    return(
+const ButtonBarExplore = (props) => {
+    return (
         <div class="bar-box">
-                <button>Posts</button>
-                <button>Users</button>
-                <button>Vehicles</button>
+            <button onClick={() => props.handleButtonClick(1)}>Posts</button>
+            <button onClick={() => props.handleButtonClick(2)}>Users</button>
+            <button onClick={() => props.handleButtonClick(3)}>Cars</button>
         </div>
-    )
-}
+    );
+};
 
-export default ButtonBarExplore
+export default ButtonBarExplore;

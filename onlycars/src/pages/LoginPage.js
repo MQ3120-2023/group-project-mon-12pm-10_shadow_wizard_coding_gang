@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { CurrentUserContext } from '../App';
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const { setCurrentUser } = useContext(CurrentUserContext);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -11,10 +14,10 @@ const LoginPage = () => {
             const response = await axios.post("http://localhost:3001/login", {
                 username,
                 password,
-            });
+            }, { withCredentials: true });
             const { data } = response;
             if (data.message === "Login successful") {
-                // Redirect to home page or dashboard
+                setCurrentUser(data);  // <-- This line sets the current user in the context
                 console.log(data.message);
                 window.location.href = "/Home";
             } else {
@@ -26,6 +29,7 @@ const LoginPage = () => {
             alert("An error occurred during login. Please try again.");
         }
     };
+    
 
     return (
         <main id="main-container">

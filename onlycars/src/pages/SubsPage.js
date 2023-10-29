@@ -2,7 +2,6 @@ import SearchBar from "../components/SearchBar";
 import Subs from "../components/Subs";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
-import { useEffect } from 'react';
 
 const SubsPage = () => {
     return (

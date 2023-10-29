@@ -4,7 +4,6 @@ import Info from "../components/Info";
 import Profile from "../components/Profile";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 import Posts from "../components/Posts";
-import { useEffect } from 'react';
 
 const ProfilePage = () => {
     return (

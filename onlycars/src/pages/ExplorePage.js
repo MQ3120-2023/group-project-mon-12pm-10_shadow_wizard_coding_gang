@@ -1,13 +1,17 @@
+import React, { useState } from 'react';
 import SearchBar from "../components/SearchBar";
-import Posts from "../components/Posts";
 import NavBar from "../components/NavBar";
-import Info from "../components/Info";
 import ButtonBarExplore from "../components/ButtonBarExplore";
-import { useEffect } from 'react';
+import PostsExplore from "../components/PostsExplore";
+import UsersExplore from "../components/UsersExplore";
+import CarsExplore from "../components/CarsExplore";
+import Info from "../components/Info";
 
 const ExplorePage = () => {
-    
-    const username = localStorage.getItem('username');
+    const [activeButton, setActiveButton] = useState(1);
+    const handleButtonClick = (buttonId) => {
+        setActiveButton(buttonId);
+    };
 
     return (
         <main id="main-container">
@@ -24,9 +28,11 @@ const ExplorePage = () => {
             </nav>
 
             <section id="mid-container">
-                <ButtonBarExplore/>
+                <ButtonBarExplore handleButtonClick={handleButtonClick} />
 
-                <Posts path='getPosts'/>
+                {activeButton === 1 && <PostsExplore/>}
+                {activeButton === 2 && <UsersExplore/>}
+                {activeButton === 3 && <CarsExplore/>}
             </section>
 
             <aside id="info-container">
