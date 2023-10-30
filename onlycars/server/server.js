@@ -80,7 +80,7 @@ app.use(
 app.use(bodyParser.json());
 const path = require("path");
 app.use("/images", express.static(path.join(__dirname, "images")));
-
+app.use(express.static("build"))
 // Log static file requests
 app.use("/images", (req, res, next) => {
     console.log(`Static file request for: ${req.url}`);
