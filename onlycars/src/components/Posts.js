@@ -33,7 +33,7 @@ const Posts = ({ path }) => {
                     <header className="post-header">
                         <img
                             className="post-pfp"
-                            src={`/images/car01.jpg`}
+                            src={`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
                             alt="User Profile Picture"
                         />
                         <a className="post-user">{post.user}User</a>
@@ -49,7 +49,7 @@ const Posts = ({ path }) => {
                             {/* {post.images.map((image, imgIndex) => ( */}
                                 <img
                                     // key={imgIndex}
-                                    src={`/images/car01.jpg`}
+                                    src={`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
                                     // alt={`Post image ${imgIndex + 1}`}
                                 />
                             {/* ))} */}

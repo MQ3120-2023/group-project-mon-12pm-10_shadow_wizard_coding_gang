@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import axios from "axios";
 import { CurrentUserContext } from "../App";
 
 const Profile = () => {
-    const currentUser = CurrentUserContext;
-    const [userData, setUserData] = useState(null); // Declare state variable
-    const user = 1;
-    const index = 1;
+    const currentUser = useContext(CurrentUserContext);
+    console.log(currentUser);
 
-    useEffect(() => {
+   /* useEffect(() => {
         const currentUser = async () => {
             const response = await axios.get(
                 "/currentUser",
@@ -22,7 +20,7 @@ const Profile = () => {
         };
 
         currentUser();
-    }, []);
+    }, []); */
 
     return (
         <section>
@@ -32,20 +30,20 @@ const Profile = () => {
                         user,
                         index // Check if userData is not null
                     ) => ( */}
-            <section className="profile-container" key={index}>
+            <section className="profile-container">
                 <img
                     className="profile-banner"
-                    src={user.profilepic}
+                    src={currentUser?.currentUser?.profilepic}
                     alt="Profile Banner"
                 />
                 <header className="profile-header">
-                    <h1 className="profile-user">{user.username}</h1>
-                    <sub className="profile-location">{user.location}</sub>
+                    <h1 className="profile-user">{currentUser?.currentUser?.username}</h1>
+                    <sub className="profile-location">{currentUser?.currentUser?.location}</sub>
                 </header>
-                <p>{user.description}</p>
+                <p>{currentUser?.currentUser?.description}</p>
                 <aside id="profile-info">
-                    <p>Cars Owned: {user.cars}</p>
-                    <p>Posts Made: {user.posts}</p>
+                    <p>Cars Owned: {currentUser?.currentUser?.cars}</p>
+                    <p>Posts Made: {currentUser?.currentUser?.posts}</p>
                 </aside>
             </section>
             {/* )
