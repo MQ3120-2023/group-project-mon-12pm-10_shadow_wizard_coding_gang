@@ -13,7 +13,7 @@ const NavBar = () => {
     useEffect(() => {
         const currentUser = async () => {
             const response = await axios.get(
-                "http://localhost:3001/currentUser",
+                "/currentUser",
                 {
                     timeout: 5000,
                     withCredentials: true,
@@ -28,7 +28,7 @@ const NavBar = () => {
     const handleLogout = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3001/logout",
+                "/logout",
                 {},
                 { withCredentials: true }
             );

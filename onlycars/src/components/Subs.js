@@ -6,7 +6,7 @@ const Subs = ({ path }) => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/" + path)
+            .get("/" + path)
             .then((response) => {
                 setSubs(response.data);
             })
@@ -22,7 +22,7 @@ const Subs = ({ path }) => {
                     <div className="sub-left">
                         <img
                             class="sub-pfp"
-                            src={`http://localhost:3001/images/car02.jpg`}
+                            src={`/images/car02.jpg`}
                             alt="User Profile Picture"
                         />
                         <a className="sub-user">{sub.username}</a>

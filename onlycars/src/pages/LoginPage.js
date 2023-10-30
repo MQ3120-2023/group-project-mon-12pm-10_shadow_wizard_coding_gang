@@ -11,7 +11,7 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3001/login",
+                "/login",
                 {
                     username,
                     password,
@@ -38,7 +38,7 @@ const LoginPage = () => {
             <section id="posts-container">
                 <img
                     id="logo-image"
-                    src="http://localhost:3001/images/Logo.png"
+                    src="/images/Logo.png"
                 />
                 <div id="login-form" class="form-container">
                     <p class="form-heading">Login</p>

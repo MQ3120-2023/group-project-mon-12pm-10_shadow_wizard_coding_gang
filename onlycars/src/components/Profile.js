@@ -9,7 +9,7 @@ const Profile = () => {
     useEffect(() => {
         const currentUser = async () => {
             const response = await axios.get(
-                "http://localhost:3001/currentUser",
+                "/currentUser",
                 {
                     timeout: 5000,
                     withCredentials: true,
@@ -30,25 +30,25 @@ const Profile = () => {
                         user,
                         index // Check if userData is not null
                     ) => ( */}
-                        <section className="profile-container" key={index}>
-                            <img
-                                className="profile-banner"
-                                src={user.profilepic}
-                                alt="Profile Banner"
-                            />
-                            <header className="profile-header">
-                                <h1 className="profile-user">
-                                    {user.username}
-                                </h1>
-                                <sub className="profile-location">
-                                    {user.location}
-                                </sub>
-                            </header>
-                            <p>{user.description}</p>
-                            <p>Cars Owned: {user.cars}</p>
-                            <p>Posts Made: {user.posts}</p>
-                        </section>
-                    {/* )
+            <section className="profile-container" key={index}>
+                <img
+                    className="profile-banner"
+                    src={user.profilepic}
+                    alt="Profile Banner"
+                />
+                <header className="profile-header">
+                    <h1 className="profile-user">
+                        {user.username}
+                    </h1>
+                    <sub className="profile-location">
+                        {user.location}
+                    </sub>
+                </header>
+                <p>{user.description}</p>
+                <p>Cars Owned: {user.cars}</p>
+                <p>Posts Made: {user.posts}</p>
+            </section>
+            {/* )
                 )} */}
         </section>
     );
