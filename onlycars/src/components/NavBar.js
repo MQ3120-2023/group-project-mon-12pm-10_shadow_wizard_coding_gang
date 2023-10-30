@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
@@ -9,7 +9,8 @@ import SettingsPage from "../pages/SettingsPage";
 import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
-    const currentUser = CurrentUserContext;
+    const currentUser = useContext(CurrentUserContext);
+    console.log(currentUser);
 
     const handleLogout = async () => {
         try {
@@ -27,9 +28,9 @@ const NavBar = () => {
 
     return (
         <section id="profile-box">
-            <img id="profile-picture" src={currentUser.profilepic} alt="User Profile Picture" />
+            <img id="profile-picture" src={currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
-                <a id="profile-name">{currentUser.username}</a>
+                <a id="profile-name">{currentUser?.currentUser?.username}</a>
                 <Link className="nav-links" to="/home">
                     Home
                 </Link>

@@ -5,60 +5,60 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Posts = ({ path }) => {
-  const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("/" + path)
-      .then((response) => {
-        setPosts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+    useEffect(() => {
+        axios
+            .get("http://localhost:3001/getAllPosts")
+            .then((response) => {
+                setPosts(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
 
-  return (
-    <section id="posts-container">
-      {posts.map((post, index) => (
-        <section className="post-container" key={index}>
-          <header className="post-header">
-            <img
-              className="post-pfp"
-              src={`/images/car01.jpg`}
-              alt="User Profile Picture"
-            />
-            <a className="post-user">{post.user}User</a>
-          </header>
-          <p>
-            {post.carManufacturer}Car Manu - {post.carModel}Model -{" "}
-            {post.carYear}Year
-          </p>
-          <p>{post.description}</p>
-          <p>{post.date}</p>
-          <figure className="post-images">
-            <Slider {...settings}>
-              {post.images.map((image, imgIndex) => (
-                <img
-                  key={imgIndex}
-                  src={`/images/car01.jpg`}
-                  alt={`Post image ${imgIndex + 1}`}
-                />
-              ))}
-            </Slider>
-          </figure>
+    return (
+        <section id="posts-container">
+            {posts.map((post, index) => (
+                <section className="post-container" key={index}>
+                    <header className="post-header">
+                        <img
+                            className="post-pfp"
+                            src={`/images/car01.jpg`}
+                            alt="User Profile Picture"
+                        />
+                        <a className="post-user">{post.user}User</a>
+                    </header>
+                    <p>
+                        {post.carManufacturer}Car Manu - {post.carModel}Model -{" "}
+                        {post.carYear}Year
+                    </p>
+                    <p>{post.description}</p>
+                    <p>{post.date}</p>
+                    <figure className="post-images">
+                        <Slider {...settings}>
+                            {/* {post.images.map((image, imgIndex) => ( */}
+                                <img
+                                    // key={imgIndex}
+                                    src={`/images/car01.jpg`}
+                                    // alt={`Post image ${imgIndex + 1}`}
+                                />
+                            {/* ))} */}
+                        </Slider>
+                    </figure>
+                </section>
+            ))}
         </section>
-      ))}
-    </section>
-  );
+    );
 };
 
 export default Posts;

@@ -21,20 +21,27 @@ export const CurrentUserContext = createContext(null);
 function AppWrapper() {
     const [currentUser, setCurrentUser] = useState(null);
 
-    const refreshCurrentUser = () => {
+    const refreshCurrentUser = async () => {
         try {
-            const user = axios;
+            const response = await axios.get("/currentUser");
+            const user = response.data;
             if (user) setCurrentUser(user);
             else {
-                window.location.href = "/";
+                if (window.location.pathname !== "/" && window.location.pathname !== "/signup")
+                    window.location.href = "/";
                 setCurrentUser(null)
             }
         } catch (error) {
             console.error("Error during signup:", error);
             alert("An error occurred during signup. Please try again.");
-            window.location.href = "/";
+            if (window.location.pathname !== "/" && window.location.pathname !== "/signup")
+                window.location.href = "/";
         }
     };
+
+    useEffect(() => {
+        refreshCurrentUser();
+    }, []);
 
     return (
         <Router>

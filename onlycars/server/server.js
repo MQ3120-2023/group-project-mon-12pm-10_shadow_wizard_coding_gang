@@ -72,9 +72,9 @@ app.use(
 app.use(
     session({
         secret: "onlycars_secret",
-        // resave: false,
-        // saveUninitialized: true,
-        //store: MongoStore.create(options),
+        resave: false,
+        saveUninitialized: true,
+        store: MongoStore.create({ mongoUrl: uri }),
         cookie: { secure: false },
     })
 );

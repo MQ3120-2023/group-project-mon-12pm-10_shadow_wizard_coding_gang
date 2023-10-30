@@ -6,7 +6,7 @@ const PostsExplore = () => {
 
   useEffect(() => {
     axios
-      .get("/PostsExplore")
+      .get("/getAllPosts")
       .then((response) => {
         setPosts(response.data)
       })
