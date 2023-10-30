@@ -39,7 +39,7 @@ function AppWrapper() {
     return (
         <Router>
             <CurrentUserContext.Provider
-                value={{ currentUser, refreshCurrentUser }}
+                value={{ currentUser, setCurrentUser, refreshCurrentUser }}
             >
                 <App />
             </CurrentUserContext.Provider>

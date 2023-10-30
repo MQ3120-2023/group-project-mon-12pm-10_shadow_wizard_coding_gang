@@ -29,14 +29,14 @@ const Posts = ({ path }) => {
   return (
     <section id="posts-container">
       {posts.map((post, index) => (
-        <section class="post-container" key={index}>
-          <header class="post-header">
+        <section className="post-container" key={index}>
+          <header className="post-header">
             <img
-              class="post-pfp"
+              className="post-pfp"
               src={`/images/car01.jpg`}
               alt="User Profile Picture"
             />
-            <a class="post-user">{post.user}User</a>
+            <a className="post-user">{post.user}User</a>
           </header>
           <p>
             {post.carManufacturer}Car Manu - {post.carModel}Model -{" "}
@@ -44,7 +44,7 @@ const Posts = ({ path }) => {
           </p>
           <p>{post.description}</p>
           <p>{post.date}</p>
-          <figure class="post-images">
+          <figure className="post-images">
             <Slider {...settings}>
               {post.images.map((image, imgIndex) => (
                 <img

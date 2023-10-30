@@ -39,9 +39,10 @@ const LoginPage = () => {
                 <img
                     id="logo-image"
                     src="/images/Logo.png"
+                    alt="OnlyCars' Logo"
                 />
-                <div id="login-form" class="form-container">
-                    <p class="form-heading">Login</p>
+                <div id="login-form" className="form-container">
+                    <p className="form-heading">Login</p>
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"

@@ -1,6 +1,6 @@
 const ButtonBarSettings = (props) => {
     return (
-        <div class="bar-box">
+        <div className="bar-box">
             <button className="left-button" onClick={() => props.handleButtonClick(1)}>User Settings</button>
             <button onClick={() => props.handleButtonClick(2)}>Profile</button>
             <button className="right-button" onClick={() => props.handleButtonClick(3)}>Security</button>

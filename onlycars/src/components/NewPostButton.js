@@ -1,7 +1,7 @@
 const NewPostButton = () => {
 
     return(
-        <button class="new-button">New Post</button>
+        <button className="new-button">New Post</button>
     )
 }
 

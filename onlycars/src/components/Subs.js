@@ -21,7 +21,7 @@ const Subs = ({ path }) => {
                 <section className="sub-container" key={index}>
                     <div className="sub-left">
                         <img
-                            class="sub-pfp"
+                            className="sub-pfp"
                             src={`/images/car02.jpg`}
                             alt="User Profile Picture"
                         />

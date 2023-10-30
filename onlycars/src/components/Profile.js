@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { CurrentUserContext } from "../App";
 
 const Profile = () => {
+    const currentUser = CurrentUserContext;
     const [userData, setUserData] = useState(null); // Declare state variable
     const user = 1;
     const index = 1;
