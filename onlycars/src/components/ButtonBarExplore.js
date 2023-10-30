@@ -1,9 +1,9 @@
 const ButtonBarExplore = (props) => {
     return (
         <div class="bar-box">
-            <button onClick={() => props.handleButtonClick(1)}>Posts</button>
+            <button className="left-button" onClick={() => props.handleButtonClick(1)}>Posts</button>
             <button onClick={() => props.handleButtonClick(2)}>Users</button>
-            <button onClick={() => props.handleButtonClick(3)}>Cars</button>
+            <button className="right-button" onClick={() => props.handleButtonClick(3)}>Cars</button>
         </div>
     );
 };

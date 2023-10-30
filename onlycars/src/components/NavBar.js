@@ -61,7 +61,7 @@ const NavBar = () => {
                 <Link className="nav-links" to="/settings">
                     Settings
                 </Link>
-                <Link className="nav-links" to="/" onClick={handleLogout}>
+                <Link className="nav-links" id="logout-button" to="/" onClick={handleLogout}>
                     Logout
                 </Link>
             </nav>
