@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
+} from "react-router-dom";
 import React, { useState, useEffect, createContext, useContext } from "react";
 import LoginPage from "./pages/LoginPage.js";
 import SignUpPage from "./pages/SignUpPage.js";
@@ -8,6 +13,7 @@ import ExplorePage from "./pages/ExplorePage";
 import SubsPage from "./pages/SubsPage";
 import SettingsPage from "./pages/SettingsPage";
 import "./styles/LightMode.css";
+import axios from "axios";
 
 // Create a context for the current user
 export const CurrentUserContext = createContext(null);
@@ -15,15 +21,31 @@ export const CurrentUserContext = createContext(null);
 function AppWrapper() {
     const [currentUser, setCurrentUser] = useState(null);
 
+    const refreshCurrentUser = () => {
+        try {
+            const user = axios;
+            if (user) setCurrentUser(user);
+            else {
+                window.location.href = "/";
+                setCurrentUser(null)
+            }
+        } catch (error) {
+            console.error("Error during signup:", error);
+            alert("An error occurred during signup. Please try again.");
+            window.location.href = "/";
+        }
+    };
+
     return (
         <Router>
-            <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+            <CurrentUserContext.Provider
+                value={{ currentUser, refreshCurrentUser }}
+            >
                 <App />
             </CurrentUserContext.Provider>
         </Router>
     );
 }
-
 
 function App() {
     const currentUser = useContext(CurrentUserContext);
