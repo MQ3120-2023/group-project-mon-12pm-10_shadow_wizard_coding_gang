@@ -6,24 +6,25 @@ import ProfilePage from "../pages/ProfilePage";
 import ExplorePage from "../pages/ExplorePage";
 import SubsPage from "../pages/SubsPage";
 import SettingsPage from "../pages/SettingsPage";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
-    const [userData, setUserData] = useState(null); // Declare state variable
+    const currentUser = CurrentUserContext;
 
-    useEffect(() => {
-        const currentUser = async () => {
-            const response = await axios.get(
-                "/currentUser",
-                {
-                    timeout: 5000,
-                    withCredentials: true,
-                }
-            );
-            console.log("NavBar " + response.data);
-            setUserData(response.data); // Update state variable
-        };
-        currentUser();
-    }, []);
+    // useEffect(() => {
+    //     const currentUser = async () => {
+    //         const response = await axios.get(
+    //             "http://localhost:3001/currentUser",
+    //             {
+    //                 timeout: 5000,
+    //                 withCredentials: true,
+    //             }
+    //         );
+    //         console.log("NavBar " + response.data);
+    //         setUserData(response.data); // Update state variable
+    //     };
+    //     currentUser();
+    // }, []);
 
     const handleLogout = async () => {
         try {
@@ -33,8 +34,7 @@ const NavBar = () => {
                 { withCredentials: true }
             );
             if (response.status === 200) {
-                setUserData(null); // Clear the user data from state
-                sessionStorage.clear(); // Clear session storage
+                currentUser.refreshCurrentUser();
             }
         } catch (error) {
             console.error("Error during logout:", error);
@@ -43,9 +43,9 @@ const NavBar = () => {
 
     return (
         <section id="profile-box">
-            <img id="profile-picture" src={userData?.profilepic} alt="User Profile Picture" />
+            <img id="profile-picture" src={currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
-                <a id="profile-name">{userData?.username}</a>
+                <a id="profile-name">{currentUser?.username}</a>
                 <Link className="nav-links" to="/home">
                     Home
                 </Link>
