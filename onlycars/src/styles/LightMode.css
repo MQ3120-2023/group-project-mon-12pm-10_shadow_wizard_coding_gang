@@ -343,8 +343,10 @@ form button:hover {
 
 .post-pfp {
     height: 5vh;
+    width: 5vh;
     border-radius: 50px;
     margin-top: -1vh;
+    object-fit: cover;
 }
 
 .post-user {
@@ -455,11 +457,13 @@ form button:hover {
 .bar-box button:hover {
     background-color: var(--primary-hover);
     color: var(--text-hover);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .bar-box button:focus {
     background-color: var(--primary-hover);
     color: var(--text-hover);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 .left-button {
@@ -478,10 +482,12 @@ form button:hover {
 
 #profile-picture {
     width: 200px;
+    height: 200px;
     border-radius: 100px;
     margin: auto;
     display: block;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
 }
 
 #nav-box {
@@ -547,6 +553,13 @@ form button:hover {
     color: var(--primary-colour);
     margin-top: 1vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.15s;
+}
+
+.new-button:hover {
+    background-color: var(--secondary-hover);
+    color: var(--primary-hover);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 #info-box {

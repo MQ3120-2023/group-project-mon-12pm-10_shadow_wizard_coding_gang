@@ -33,7 +33,7 @@ const Profile = () => {
             <section className="profile-container">
                 <img
                     className="profile-banner"
-                    src={currentUser?.currentUser?.profilepic}
+                    src={/*currentUser?.currentUser?.profilepic*/`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
                     alt="Profile Banner"
                 />
                 <header className="profile-header">
