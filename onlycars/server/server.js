@@ -67,6 +67,16 @@ app.use(
     })
 );
 
+// Use the middleware for session management
+app.use(
+    session({
+        secret: "onlycars_secret",
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false },
+    })
+);
+
 app.use(bodyParser.json());
 const path = require("path");
 app.use("/images", express.static(path.join(__dirname, "images")));
@@ -145,16 +155,6 @@ app.post("/signup", async (req, res) => {
         res.status(500).json({ message: "Error during signup" });
     }
 });
-
-// Use the middleware for session management
-app.use(
-    session({
-        secret: "onlycars_secret",
-        resave: false,
-        saveUninitialized: true,
-        cookie: { secure: false },
-    })
-);
 
 // Use the middleware to inject currentUser
 app.use(currentUser);

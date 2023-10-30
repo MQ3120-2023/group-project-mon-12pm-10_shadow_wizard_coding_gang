@@ -25,6 +25,11 @@ const SignUpPage = () => {
         }
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
     return (
         <main id="main-container">
             <section id="posts-container">
