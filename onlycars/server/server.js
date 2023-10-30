@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const currentUser = require("./middleware/currentUser"); // Make sure the path is correct
 const app = express();
+const MongoStore = require('connect-mongo');
 
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
@@ -71,8 +72,9 @@ app.use(
 app.use(
     session({
         secret: "onlycars_secret",
-        resave: false,
-        saveUninitialized: true,
+        // resave: false,
+        // saveUninitialized: true,
+        //store: MongoStore.create(options),
         cookie: { secure: false },
     })
 );
@@ -156,21 +158,10 @@ app.post("/signup", async (req, res) => {
     }
 });
 
-// Use the middleware to inject currentUser
-app.use(currentUser);
-
-// Use the middleware to set req.session.user
-app.use((req, res, next) => {
-    if (req.session && req.session.user) {
-        req.session.user = req.session.user;
-    } else {
-        req.session.user = null;
-    }
-    next();
-});
-
 // Endpoint to get the current user based on the session
 app.get("/currentUser", (req, res) => {
+    console.log(req.session);
+    console.log(req.session.currentUser)
     if (req.session && req.session.currentUser) {
         res.status(200).json(req.session.currentUser);
     } else {
