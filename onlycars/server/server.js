@@ -180,6 +180,11 @@ app.post("/logout", (req, res) => {
     });
 });
 
+app.get('*', function (req, res) {
+    res.sendFile('index.html', { root: path.join(__dirname, '../build/') });
+});
+
+
 // Start the server
 const port = 3001;
 app.listen(port, () => {
