@@ -43,9 +43,9 @@ const NavBar = () => {
 
     return (
         <section id="profile-box">
-            <img id="profile-picture" src={userData.profilepic} alt="User Profile Picture" />
+            <img id="profile-picture" src={userData?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
-                <a id="profile-name">{userData.username}</a>
+                <a id="profile-name">{userData?.username}</a>
                 <Link className="nav-links" to="/home">
                     Home
                 </Link>

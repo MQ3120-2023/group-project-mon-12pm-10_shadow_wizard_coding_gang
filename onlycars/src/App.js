@@ -29,15 +29,15 @@ function App() {
     const currentUser = useContext(CurrentUserContext);
     const location = useLocation();
 
-    useEffect(() => {
-        const currentPath = location.pathname;
-        if (currentUser) {
-            console.log("User logged in");
-        } else if (!currentUser && currentPath !== "/" && currentPath !== "/signup") {
-            console.log("No User logged in");
-            window.location.href = "/";
-        }
-    }, [currentUser, location]);
+    // useEffect(() => {
+    //     const currentPath = location.pathname;
+    //     if (currentUser) {
+    //         console.log("User logged in");
+    //     } else if (!currentUser && currentPath !== "/" && currentPath !== "/signup") {
+    //         console.log("No User logged in");
+    //         window.location.href = "/";
+    //     }
+    // }, [currentUser, location]);
 
     return (
         <div>
