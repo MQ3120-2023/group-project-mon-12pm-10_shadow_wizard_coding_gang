@@ -6,7 +6,7 @@ const CarsExplore = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/CarsExplore")
+            .get("/CarsExplore")
             .then((response) => {
                 setCars(response.data);
             })

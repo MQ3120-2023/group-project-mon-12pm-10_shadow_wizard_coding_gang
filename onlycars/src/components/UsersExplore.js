@@ -6,7 +6,7 @@ const UsersExplore = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/UsersExplore")
+            .get("/UsersExplore")
             .then((response) => {
                 setUsers(response.data);
             })

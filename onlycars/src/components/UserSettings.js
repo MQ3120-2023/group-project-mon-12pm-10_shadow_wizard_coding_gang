@@ -12,7 +12,7 @@ const UserSettings = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3001/userSettings",
+                "/userSettings",
                 {
                     email,
                     location,

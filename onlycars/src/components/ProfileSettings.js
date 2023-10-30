@@ -9,7 +9,7 @@ const ProfileSettings = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3001/profileSettings",
+                "/profileSettings",
                 {
                     username,
                     description,

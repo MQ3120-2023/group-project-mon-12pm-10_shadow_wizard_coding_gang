@@ -82,7 +82,7 @@ app.use(
 app.use(bodyParser.json());
 const path = require("path");
 app.use("/images", express.static(path.join(__dirname, "images")));
-
+app.use(express.static("build"))
 // Log static file requests
 app.use("/images", (req, res, next) => {
     console.log(`Static file request for: ${req.url}`);
@@ -179,6 +179,11 @@ app.post("/logout", (req, res) => {
         }
     });
 });
+
+app.get('*', function (req, res) {
+    res.sendFile('index.html', { root: path.join(__dirname, '../build/') });
+});
+
 
 // Start the server
 const port = 3001;

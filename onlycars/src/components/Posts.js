@@ -9,7 +9,7 @@ const Posts = ({ path }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/" + path)
+      .get("/" + path)
       .then((response) => {
         setPosts(response.data);
       })
@@ -33,7 +33,7 @@ const Posts = ({ path }) => {
           <header class="post-header">
             <img
               class="post-pfp"
-              src={`http://localhost:3001/images/car01.jpg`}
+              src={`/images/car01.jpg`}
               alt="User Profile Picture"
             />
             <a class="post-user">{post.user}User</a>
@@ -49,7 +49,7 @@ const Posts = ({ path }) => {
               {post.images.map((image, imgIndex) => (
                 <img
                   key={imgIndex}
-                  src={`http://localhost:3001/images/car01.jpg`}
+                  src={`/images/car01.jpg`}
                   alt={`Post image ${imgIndex + 1}`}
                 />
               ))}

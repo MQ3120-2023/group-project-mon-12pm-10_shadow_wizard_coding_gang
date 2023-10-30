@@ -6,12 +6,12 @@ const SignUpPage = () => {
         username: "",
         email: "",
         password: "",
-    });  
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3001/signup", formData);
+            const response = await axios.post("/signup", formData);
             const { data } = response;
             if (data.message === "SignUp successful") {
                 // Redirect to home page or dashboard
@@ -33,7 +33,7 @@ const SignUpPage = () => {
     return (
         <main id="main-container">
             <section id="posts-container">
-        <img id="logo-image" src="http://localhost:3001/images/Logo.png" />
+                <img id="logo-image" src="/images/Logo.png" />
                 <div className="form-container">
                     <p className="form-heading">Sign Up</p>
                     <form onSubmit={handleSubmit}>

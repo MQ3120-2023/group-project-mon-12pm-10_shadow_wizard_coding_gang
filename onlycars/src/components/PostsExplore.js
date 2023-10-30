@@ -6,7 +6,7 @@ const PostsExplore = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/PostsExplore")
+      .get("/PostsExplore")
       .then((response) => {
         setPosts(response.data)
       })
@@ -17,22 +17,22 @@ const PostsExplore = () => {
 
   return (
     <section id="posts-container">
-    {posts.map((post, index) => (
+      {posts.map((post, index) => (
         <section className="post-container" key={index}>
           <header className="post-header">
             <img className="post-pfp"
-              src={`http://localhost:3001/images/car01.jpg`}
+              src={`/images/car01.jpg`}
             />
             <a className="post-user">{post.user}</a>
           </header>
-            <p>
-              {post.carManufacturer} - {post.carModel} - {post.carYear}
-            </p>
-            <p>{post.description}</p>
-            <p>{post.date}</p>
+          <p>
+            {post.carManufacturer} - {post.carModel} - {post.carYear}
+          </p>
+          <p>{post.description}</p>
+          <p>{post.date}</p>
           <figure className="post-images">
-          {/* {post.images.map((image, imgIndex) => (
-                  <img key={imgIndex} src={`http://localhost:3001/images/car01.jpg`} alt={`Post image ${imgIndex + 1}`} />
+            {/* {post.images.map((image, imgIndex) => (
+                  <img key={imgIndex} src={`/images/car01.jpg`} alt={`Post image ${imgIndex + 1}`} />
                   ))} */}
           </figure>
         </section>
