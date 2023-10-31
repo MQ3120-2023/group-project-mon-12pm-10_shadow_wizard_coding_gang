@@ -38,7 +38,7 @@ const LoginPage = () => {
             <section id="posts-container">
                 <img
                     id="logo-image"
-                    src="/images/Logo.png"
+                    src="https://res.cloudinary.com/dv8lielzo/image/upload/v1698751760/Logo_pxftp4.png"
                     alt="OnlyCars' Logo"
                 />
                 <div id="login-form" className="form-container">
