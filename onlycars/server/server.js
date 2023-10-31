@@ -91,16 +91,38 @@ app.use("/images", (req, res, next) => {
     next();
 });
 
-// Endpoint to get all posts
-app.get("/getAllPosts", async (req, res) => {
+// New endpoint to get all posts along with their cars and users
+app.get("/getPostData", async (req, res) => {
     try {
         const allPosts = await Post.find({});
-        res.status(200).json(allPosts);
-        console.log(allPosts);
+        const carIds = allPosts.map((post) => post.carId);
+        const userIds = allPosts.map((post) => post.userId);
+
+        const allCars = await Car.find({ 'carId': { $in: carIds } });
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
+
+        const carMap = {};
+        allCars.forEach((car) => {
+            carMap[car.carId] = car;
+        });
+
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        const enrichedPosts = allPosts.map((post) => ({
+            ...post._doc,
+            car: carMap[post.carId],
+            user: userMap[post.userId],
+        }));
+
+        res.status(200).json(enrichedPosts);
     } catch (error) {
-        res.status(500).json({ message: "Error fetching posts" });
+        res.status(500).json({ message: "Error fetching data" });
     }
 });
+
 
 // Basic Authentication
 app.post("/login", async (req, res) => {
@@ -110,9 +132,7 @@ app.post("/login", async (req, res) => {
             username: username,
             password: password,
         });
-        console.log(user);
         if (user) {
-            console.log("currentUser: " + user);
             req.currentUser = user;
             req.session.currentUser = user;
             res.status(200).json({ message: "Login successful" });
@@ -162,8 +182,6 @@ app.post("/signup", async (req, res) => {
 
 // Endpoint to get the current user based on the session
 app.get("/currentUser", (req, res) => {
-    console.log(req.session);
-    console.log(req.session.currentUser)
     if (req.session && req.session.currentUser) {
         res.status(200).json(req.session.currentUser);
     } else {

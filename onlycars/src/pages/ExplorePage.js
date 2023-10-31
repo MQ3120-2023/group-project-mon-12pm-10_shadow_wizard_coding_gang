@@ -7,6 +7,7 @@ import NewEventButton from "../components/NewEventButton";
 import PostsExplore from "../components/PostsExplore";
 import UsersExplore from "../components/UsersExplore";
 import CarsExplore from "../components/CarsExplore";
+import EventsExplore from "../components/EventsExplore";
 import Info from "../components/Info";
 
 const ExplorePage = () => {
@@ -39,6 +40,7 @@ const ExplorePage = () => {
                 {activeButton === 1 && <PostsExplore/>}
                 {activeButton === 2 && <UsersExplore/>}
                 {activeButton === 3 && <CarsExplore/>}
+                {activeButton === 4 && <EventsExplore/>}
             </section>
 
             <aside id="info-container">
