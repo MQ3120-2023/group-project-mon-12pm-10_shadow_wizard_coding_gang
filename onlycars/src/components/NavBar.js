@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import React, { useEffect, useState, useContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState, useContext} from "react";
 import axios from "axios";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
@@ -10,6 +10,7 @@ import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
     const currentUser = useContext(CurrentUserContext);
+    const location = useLocation();
 
     const handleLogout = async () => {
         try {
@@ -30,19 +31,19 @@ const NavBar = () => {
             <img id="profile-picture" src={currentUser?.currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
                 <a id="profile-name">{currentUser?.currentUser?.username}</a>
-                <Link className="nav-links" to="/home">
+                <Link className={`nav-links ${location.pathname === '/home' ? 'active' : ''}`} to="/home">
                     Home
                 </Link>
-                <Link className="nav-links" to="/profile">
+                <Link className={`nav-links ${location.pathname === '/profile' ? 'active' : ''}`} to="/profile">
                     My Profile
                 </Link>
-                <Link className="nav-links" to="/explore">
+                <Link className={`nav-links ${location.pathname === '/explore' ? 'active' : ''}`} to="/explore">
                     Explore
                 </Link>
-                <Link className="nav-links" to="/subscriptions">
+                <Link className={`nav-links ${location.pathname === '/subscriptions' ? 'active' : ''}`} to="/subscriptions">
                     Subscriptions
                 </Link>
-                <Link className="nav-links" to="/settings">
+                <Link className={`nav-links ${location.pathname === '/settings' ? 'active' : ''}`} to="/settings">
                     Settings
                 </Link>
                 <Link className="nav-links" id="logout-button" to="/" onClick={handleLogout}>

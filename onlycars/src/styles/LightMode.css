@@ -33,6 +33,11 @@ body {
     margin: 0;
 }
 
+.active {
+    font-weight: bold;
+    color: blue;  /* or any other styling you prefer */
+}
+
 #main-container {
     width: 100%;
     max-width: 1320px;

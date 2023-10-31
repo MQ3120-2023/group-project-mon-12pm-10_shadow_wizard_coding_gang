@@ -21,7 +21,6 @@ const PostsProfile = ({ path }) => {
         fetchPostData();
     }, []);
     
-
     const settings = {
         dots: true,
         infinite: true,

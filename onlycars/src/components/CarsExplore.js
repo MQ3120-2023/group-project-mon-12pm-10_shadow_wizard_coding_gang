@@ -19,6 +19,7 @@ const CarsExplore = () => {
     
         fetchCarData();
     }, []);
+    
     const settings = {
         dots: false,
         infinite: true,
