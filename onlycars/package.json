@@ -55,7 +55,7 @@
   "description": "The project requirements are in [REQUIREMENTS.md](REQUIREMENTS.md)",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Shadow Wizard Coding Gang",
   "license": "ISC",
   "proxy": "http://localhost:3001"
 }

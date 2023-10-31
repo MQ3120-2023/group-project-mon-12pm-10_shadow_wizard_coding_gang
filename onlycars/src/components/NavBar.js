@@ -28,7 +28,7 @@ const NavBar = () => {
 
     return (
         <section id="profile-box">
-            <img id="profile-picture" src={/*src={currentUser?.currentUser?.profilepic}*/`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`} alt="User Profile Picture" />
+            <img id="profile-picture" src={currentUser?.currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
                 <a id="profile-name">{currentUser?.currentUser?.username}</a>
                 <Link className="nav-links" to="/home">

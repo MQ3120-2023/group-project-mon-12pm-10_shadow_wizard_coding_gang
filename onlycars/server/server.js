@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     description: String,
     cars: Number,
     posts: Number,
-    subscribers: Number,
+    subscribers: [String],
 });
 const User = mongoose.model("users", userSchema);
 
@@ -28,22 +28,24 @@ const carSchema = new mongoose.Schema({
     carId: Number,
     owner: Number,
     ownership: String,
-    brandModel: String,
+    brand: String,
+    model: String,
     year: String,
     modifications: String,
-    img: String,
+    images: [String],
 });
 const Car = mongoose.model("Car", carSchema);
 
 // Post Schema and Model
 const postSchema = new mongoose.Schema({
-    postId: Number,
-    author: Number,
-    content: String,
-    img: String,
+    postId: String,
+    userId: String,
+    carId: String,
+    date: String,
+    description: String,
+    images: [String],
     likes: Number,
     comments: Number,
-    shares: Number,
 });
 const Post = mongoose.model("Post", postSchema);
 
@@ -142,7 +144,7 @@ app.post("/signup", async (req, res) => {
                 username,
                 email,
                 password, // Note: In a real-world application, make sure to hash the password before storing it
-                profilepic: "car01.jpg",
+                profilepic: "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`",
                 location: "Unknown",
                 description: "Hi, I'm new to OnlyCars!",
                 cars: 0,

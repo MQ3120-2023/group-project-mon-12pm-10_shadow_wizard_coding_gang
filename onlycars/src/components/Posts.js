@@ -36,7 +36,7 @@ const Posts = ({ path }) => {
                             src={`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
                             alt="User Profile Picture"
                         />
-                        <a className="post-user">{post.user}User</a>
+                        <a className="post-user">{post.user}</a>
                     </header>
                     <p>
                         {post.carManufacturer}Car Manu - {post.carModel}Model -{" "}

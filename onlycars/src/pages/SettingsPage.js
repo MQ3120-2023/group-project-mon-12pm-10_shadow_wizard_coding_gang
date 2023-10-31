@@ -38,7 +38,7 @@ const SettingsPage = () => {
             </section>
 
             <aside id="info-container">
-                <Info infoType="Upcoming Events" />
+                <Info infoType="Account Statistics" />
             </aside>
         </main>
     );
