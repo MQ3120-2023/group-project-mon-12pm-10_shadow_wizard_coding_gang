@@ -5,7 +5,7 @@
             "username": "Driftking27",
             "email": "catchmeifyoucan@gmail.com",
             "password": "password01",
-            "profilepic": "car01.jpg",
+            "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721021/Users%20Profile%20Pic/DriftDPP_gwpmpf.png",
             "location": "Sydney, Australia",
             "description": "Adventurous road tripper, always chasing the horizon. Join me on my journey through life's open roads and discover the world one mile at a time.",
             "cars": 6,
