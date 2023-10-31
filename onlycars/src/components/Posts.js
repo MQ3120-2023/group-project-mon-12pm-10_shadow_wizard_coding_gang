@@ -8,15 +8,18 @@ const Posts = ({ path }) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:3001/getAllPosts")
-            .then((response) => {
+        const fetchPostData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3001/getPostData");
                 setPosts(response.data);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error("Error fetching data:", error);
-            });
+            }
+        };
+    
+        fetchPostData();
     }, []);
+    
 
     const settings = {
         dots: true,
@@ -28,35 +31,43 @@ const Posts = ({ path }) => {
 
     return (
         <section id="posts-container">
-            {posts.map((post, index) => (
-                <section className="post-container" key={index}>
-                    <header className="post-header">
-                        <img
-                            className="post-pfp"
-                            src={`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
-                            alt="User Profile Picture"
-                        />
-                        <a className="post-user">{post.user}</a>
-                    </header>
-                    <p>
-                        {post.carManufacturer}Car Manu - {post.carModel}Model -{" "}
-                        {post.carYear}Year
-                    </p>
-                    <p>{post.description}</p>
-                    <p>{post.date}</p>
-                    <figure className="post-images">
-                        <Slider {...settings}>
-                            {/* {post.images.map((image, imgIndex) => ( */}
-                                <img
-                                    // key={imgIndex}
-                                    src={`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
-                                    // alt={`Post image ${imgIndex + 1}`}
-                                />
-                            {/* ))} */}
-                        </Slider>
-                    </figure>
-                </section>
-            ))}
+            {posts.map((post, index) => {
+                const car = post.car;
+                const user = post.user;
+                return (
+                    <section className="post-container" key={index}>
+                        <header className="post-header">
+                            <img
+                                className="post-pfp"
+                                src={user.profilepic}
+                                alt="User Profile Picture"
+                            />
+                            <a className="post-user">{user.username}</a>
+                        </header>
+                        {car ? (
+                        <p>
+                            Brand: {car.brand} - Model: {car.model} -
+                            Year: {car.year}
+                        </p>
+                    ) : (
+                        <p>No car information available.</p>
+                    )}
+                        <p>{post.description}</p>
+                        <p>{post.date}</p>
+                        <figure className="post-images">
+                            <Slider {...settings}>
+                                {post.images.map((image, imgIndex) => (
+                                    <img
+                                        key={imgIndex}
+                                        src={image}
+                                        alt={`Post image ${imgIndex + 1}`}
+                                    />
+                                ))}
+                            </Slider>
+                        </figure>
+                    </section>
+                );
+            })}
         </section>
     );
 };

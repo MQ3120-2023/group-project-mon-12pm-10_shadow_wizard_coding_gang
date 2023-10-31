@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { CurrentUserContext } from "../App";
 
@@ -6,21 +6,21 @@ const Profile = () => {
     const currentUser = useContext(CurrentUserContext);
     console.log(currentUser);
 
-   /* useEffect(() => {
-        const currentUser = async () => {
-            const response = await axios.get(
-                "/currentUser",
-                {
-                    timeout: 5000,
-                    withCredentials: true,
-                }
-            );
-            console.log("Profile " + response.data);
-            setUserData(response.data); // Update state variable
-        };
-
-        currentUser();
-    }, []); */
+    /* useEffect(() => {
+         const currentUser = async () => {
+             const response = await axios.get(
+                 "/currentUser",
+                 {
+                     timeout: 5000,
+                     withCredentials: true,
+                 }
+             );
+             console.log("Profile " + response.data);
+             setUserData(response.data); // Update state variable
+         };
+ 
+         currentUser();
+     }, []); */
 
     return (
         <section>
@@ -33,7 +33,7 @@ const Profile = () => {
             <section className="profile-container">
                 <img
                     className="profile-banner"
-                    src={/*currentUser?.currentUser?.profilepic*/`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`}
+                    src={currentUser?.currentUser?.profilepic}
                     alt="Profile Banner"
                 />
                 <header className="profile-header">
