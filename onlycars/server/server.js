@@ -256,12 +256,12 @@ app.post("/signup", async (req, res) => {
                 username,
                 email,
                 password, // Note: In a real-world application, make sure to hash the password before storing it
-                profilepic: "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698653910/ProfileTest.png`",
+                profilepic: "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721019/Users%20Profile%20Pic/Default3PP_efi8gb.png`",
                 location: "Unknown",
                 description: "Hi, I'm new to OnlyCars!",
                 cars: 0,
                 posts: 0,
-                subscribers: 0,
+                subscribers: "",
             });
             await newUser.save();
             res.status(200).json({ message: "SignUp successful" });
