@@ -233,7 +233,8 @@
             "model": "Skyline R32 GTR",
             "year": "1994",
             "modifications": "Stock",
-            "img": "car01.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721700/CarPhotos/r32%20Gtr/r32_Gtr_1_exrnkv.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721700/CarPhotos/r32%20Gtr/r32_gtr_2_gwrdwj.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721699/CarPhotos/r32%20Gtr/r32_gtr_3_carkbh.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721699/CarPhotos/r32%20Gtr/r32_gtr_4_jzfn7b.jpg`"
+            
         },
         {
             "carId": "2",
@@ -243,7 +244,7 @@
             "model": "Camaro",
             "year": "2018",
             "modifications": "Modified",
-            "img": "car02.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721593/CarPhotos/Camero/Camero_1_mkmdoj.webp`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721592/CarPhotos/Camero/Camero_4_ihiri3.webp`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721591/CarPhotos/Camero/Camero_3_az3s4t.webp`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721589/CarPhotos/Camero/Camero_2_ig2jxh.webp`"
         },
         {
             "carId": "3",
@@ -253,7 +254,7 @@
             "model": "Challenger",
             "year": "2019",
             "modifications": "Stock",
-            "img": "car03.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721598/CarPhotos/Challenger/Dodge_1_zguluo.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721597/CarPhotos/Challenger/Dodge_2_hf2pm1.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721595/CarPhotos/Challenger/Dodge_4_bjguoh.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721594/CarPhotos/Challenger/Dodge_5_ijwdrv.jpg`"
         },
         {
             "carId": "4",
@@ -263,7 +264,7 @@
             "model": "370Z",
             "year": "2020",
             "modifications": "Modified",
-            "img": "car04.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721581/CarPhotos/370%20Z/370_Z_2_t10stg.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721568/CarPhotos/370%20Z/370_Z_3_ut8ece.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721563/CarPhotos/370%20Z/370_Z_4_ni5pqs.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721556/CarPhotos/370%20Z/370_Z_5_rtcyld.png`"
         },
         {
             "carId": "5",
@@ -273,7 +274,7 @@
             "model": "M3",
             "year": "2016",
             "modifications": "Stock",
-            "img": "car05.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721741/CarPhotos/BMW%20M3/BMW_M3_1_cgls2d.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721741/CarPhotos/BMW%20M3/BMW_M3_2_dekfjx.jpg`"
         },
         {
             "carId": "6",
@@ -283,7 +284,7 @@
             "model": "RS5",
             "year": "2018",
             "modifications": "Modified",
-            "img": "car06.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721741/CarPhotos/RS5/rs5_1_qdo8uk.png`,`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721737/CarPhotos/RS5/rs5_4_daaf4z.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721736/CarPhotos/RS5/rs5_2_hln1hb.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721743/CarPhotos/RS5/rs5_3_tpfiul.png`"
         },
         {
             "carId": "7",
@@ -293,7 +294,7 @@
             "model": "AMG",
             "year": "2019",
             "modifications": "Stock",
-            "img": "car07.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721541/CarPhotos/AMG%20GT/AMG_GT_3_k2i8r2.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721540/CarPhotos/AMG%20GT/AMG_GT_2_v6hoza.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721539/CarPhotos/AM"
         },
         {
             "carId": "8",
@@ -303,7 +304,7 @@
             "model": "911",
             "year": "2020",
             "modifications": "Modified",
-            "img": "car08.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721816/CarPhotos/911%20porsche/911_1_jty5ok.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721820/CarPhotos/911%20porsche/911_3_kxt6wr.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721819/CarPhotos/911%20porsche/911_2_fi7a2f.png`"
         },
         {
             "carId": "9",
@@ -313,18 +314,9 @@
             "model": "Model S",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car09.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721682/CarPhotos/Tesla%20Model%20S/Telsa_1_unrm8w.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721677/CarPhotos/Tesla%20Model%20S/Tesla_2_nexask.png`"
         },
-        {
-            "carId": "10",
-            "owner": "4",
-            "ownership": "2 years",
-            "brand": "Chevrolet ",
-            "model": "Camaro",
-            "year": "2019",
-            "modifications": "Modified",
-            "img": "car10.jpg"
-        },
+
         {
             "carId": "11",
             "owner": "4",
@@ -333,7 +325,7 @@
             "model": "F-Type",
             "year": "2020",
             "modifications": "Stock",
-            "img": "car01.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721748/CarPhotos/Jaguar%20Ipace/I_pace_2_syayei.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721743/CarPhotos/Jaguar%20Ipace/i_pace_3_prqsiy.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721742/CarPhotos/Jaguar%20Ipace/I_pace_1_lfinuz.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721745/CarPhotos/Jaguar%20Ipace/I_pace_4_jtlznc.png`"
         },
         {
             "carId": "12",
@@ -343,7 +335,7 @@
             "model": "GranTurismo",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car02.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721673/CarPhotos/Grand%20Torismo/Maserati_GT_phflmo.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721665/CarPhotos/Grand%20Torismo/Maserati_GT_2_clbnys.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721668/CarPhotos/Grand%20Torismo/Maserati_GT_3_zvmayb.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721666/CarPhotos/Grand%20Torismo/Maserati_GT_4_b9qyms.png`"
         },
         {
             "carId": "13",
@@ -353,7 +345,7 @@
             "model": "Vantage",
             "year": "2017",
             "modifications": "Stock",
-            "img": "car03.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721722/CarPhotos/Aston%20Martin/ASton_Martin_2_c6b2uy.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721721/CarPhotos/Aston%20Martin/ASton_Martin_4_ovd7wx.png`, `https://res.cloudinary.com/dv8liel"
         },
         {
             "carId": "14",
@@ -363,7 +355,7 @@
             "model": "488",
             "year": "2018",
             "modifications": "Modified",
-            "img": "car04.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721703/CarPhotos/488/488_1_yrrvnd.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721702/CarPhotos/488/488_3_ra3nxu.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721702/CarPhotos/488/488_2_wbdvno.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721701/CarPhotos/488/488_4_c8xkws.png`"
         },
         {
             "carId": "15",
@@ -373,7 +365,7 @@
             "model": "720S",
             "year": "2019",
             "modifications": "Stock",
-            "img": "car05.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721582/CarPhotos/720%20s/Screenshot_2023-10-27_at_6.51.42_pm_v3cihp.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721581/CarPhotos/720%20s/Screenshot_2023-10-27_at_6.51.25_pm_ripub0.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721578/CarPhotos/720%20s/Screenshot_2023-10-27_at_6.51.33"
         },
         {
             "carId": "16",
@@ -383,7 +375,7 @@
             "model": "Phantom",
             "year": "2020",
             "modifications": "Modified",
-            "img": "car06.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721738/CarPhotos/Rolls%20Royce/rr_5_ylnhl0.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721733/CarPhotos/Rolls%20Royce/rr_1_oyyw4v.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721731/CarPhotos/Rolls%20Royce/rr_2_rqfjys.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721731/CarPhotos/Rolls%20Royce/rr_4_gqmfeh.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721727/CarPhotos/Rolls%20Royce/rr_3_wsilio.png`"
         },
         {
             "carId": "17",
@@ -393,7 +385,7 @@
             "model": "Chiron",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car07.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721693/CarPhotos/Bugatti%20chrion/Bugatti_Chrion_2_qobgbz.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721690/CarPhotos/Bugatti%20chrion/Bugatti_Chrion_1_ufzmny.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721689/CarPhotos/Bugatti%20chrion/Bugatti_Chrion_3_jbwxvs.webp`"
         },
         {
             "carId": "18",
@@ -403,7 +395,7 @@
             "model": "Golf GTI",
             "year": "2019",
             "modifications": "Stock",
-            "img": "car08.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721698/CarPhotos/Golf%20GTI/Golf_GTI_2_impclt.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721695/CarPhotos/Golf%20GTI/Golf_GTI_1_qxpk2j.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721686/CarPhotos/Golf%20GTI/Golf_GTI_4_s2sfa7.jpg`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721685/CarPhotos/Golf%20GTI/Golf_GTI_3_dkybpx.webp`"
         },
         {
             "carId": "19",
@@ -413,7 +405,7 @@
             "model": "WRX",
             "year": "2017",
             "modifications": "Modified",
-            "img": "car09.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721759/CarPhotos/WRX/WRX_1_n123uj.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721755/CarPhotos/WRX/WRX_4_wlpgdf.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721752/CarPhotos/WRX/WRX_2_qiofxq.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721749/CarPhotos/WRX/WRX_3_bynsjn.png`"
         },
         {
             "carId": "20",
@@ -423,7 +415,7 @@
             "model": "Lancer",
             "year": "2018",
             "modifications": "Stock",
-            "img": "car10.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721672/CarPhotos/Lancer/Lancer_1_yqpuks.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721668/CarPhotos/Lancer/Lancer_2_dpepao.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721664/CarPhotos/Lancer/Lancer_3_jzmmxx.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721655/CarPhotos/Lancer/Lancer_4_je1zrp.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721663/CarPhotos/Lancer/Lancer_5_jaekjz.png`"
         },
         {
             "carId": "21",
@@ -433,7 +425,7 @@
             "model": "Civic",
             "year": "2019",
             "modifications": "Modified",
-            "img": "car01.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721534/CarPhotos/Civic/Civic_1_jvksdu.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721532/CarPhotos/Civic/Civic_2_ruojwq.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721529/CarPhotos/Civic/Civic_6_py06yl.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721527/CarPhotos/Civic/Civic_5_zizsyj.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721534/CarPhotos/Civic/Civic_3_cyz5vo.png`"
         },
         {
             "carId": "22",
@@ -443,18 +435,9 @@
             "model": "RX-7",
             "year": "2020",
             "modifications": "Stock",
-            "img": "car02.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721711/CarPhotos/RX7/rx7_1_b4zqxz.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721711/CarPhotos/RX7/rx7_2_azuiu0.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721710/CarPhotos/RX7/rx7_4_vzh6yx.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721707/CarPhotos/RX7/rx7_3_uyjy2p.png`"
         },
-        {
-            "carId": "23",
-            "owner": "7",
-            "ownership": "6 months",
-            "brand": "Nissan",
-            "model": "370Z",
-            "year": "2021",
-            "modifications": "Modified",
-            "img": "car03.jpg"
-        },
+
         {
             "carId": "24",
             "owner": "7",
@@ -463,7 +446,7 @@
             "model": "86",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car04.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721656/CarPhotos/Toyota%2086/Toyota_86_2_nvieh8.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721649/CarPhotos/Toyota%2086/Toyota_86_3_rcsw6e.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721624/CarPhotos/Toyota%2086/Toyota_86_4_glfnkg.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721619/CarPhotos/Toyota%2086/Toyota_86_1_dx5rbh.png`"
         },
         {
             "carId": "25",
@@ -473,7 +456,7 @@
             "model": "Veloster",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car05.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721654/CarPhotos/Velsoter/Velsoter_1_sqp18u.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721613/CarPhotos/Velsoter/Velsoter_2_avowyd.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721612/CarPhotos/Velsoter/Velsoter_3_skb3az.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721614/CarPhotos/Velsoter/Velsoter_5_gl7dxp.png`, `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721616/CarPhotos/Velsoter/Velsoter_4_bkeqya.png`"
         },
         {
             "carId": "26",
@@ -483,7 +466,7 @@
             "model": "Stinger",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car06.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721825/CarPhotos/Kia%20Stinger/Kia_Stinger_5_ok3b0o.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721813/CarPhotos/Kia%20Stinger/Kia_Stinger_2_gb6b0o.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721762/CarPhotos/Kia%20Stinger/Kia_Stinger_4_wjyuad.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721761/CarPhotos/Kia%20Stinger/Kia_Stinger_1_g47chb.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721758/CarPhotos/Kia%20Stinger/Kia_Stinger_3_mlby1x.png`"
         },
         {
             "carId": "27",
@@ -493,7 +476,7 @@
             "model": "Giulia",
             "year": "2017",
             "modifications": "Modified",
-            "img": "car07.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721663/CarPhotos/Alfa%20Romeo%20Giulia/Alfa_Romeo_Giulia_3_yyejwi.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721661/CarPhotos/Alfa%20Romeo%20Giulia/Alfa_Romeo_Giulia_2_tmxnie.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721654/CarPhotos/Alfa%20Romeo%20Giulia/Alfa_Romeo_Giulia_1_vaafaz.png`"
         },
         {
             "carId": "28",
@@ -503,7 +486,7 @@
             "model": "Wrangler",
             "year": "2018",
             "modifications": "Stock",
-            "img": "car08.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721589/CarPhotos/Wrangler/Wrangler_3_zpajqs.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721587/CarPhotos/Wrangler/Wrangler_1_m76wko.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721587/CarPhotos/Wrangler/Wrangler_4_sf9qae.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721586/CarPhotos/Wrangler/Wrangler_2_zleybv.png`"
         },
         {
             "carId": "29",
@@ -513,7 +496,7 @@
             "model": "Defender",
             "year": "2019",
             "modifications": "Modified",
-            "img": "car09.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721561/CarPhotos/Deffender/Deffender_3_fyurhh.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721547/CarPhotos/Deffender/Deffender_1_jhxqt9.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721542/CarPhotos/Deffender/Deffender_2_scvgo2.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721542/CarPhotos/Deffender/Deffender_4_bjyqap.png`"
         },
         {
             "carId": "30",
@@ -523,7 +506,7 @@
             "model": "Bronco",
             "year": "2020",
             "modifications": "Stock",
-            "img": "car10.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721643/CarPhotos/Bronco/Bronco_4_ecpkul.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721641/CarPhotos/Bronco/Bronco_2_zytynn.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721640/CarPhotos/Bronco/Bronco_3_jmwbp5.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721636/CarPhotos/Bronco/Bronco_1_avkjmo.png`"
         },
         {
             "carId": "31",
@@ -533,7 +516,7 @@
             "model": "G-Class",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car01.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721520/CarPhotos/Gclass/G_class_1_waileb.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721520/CarPhotos/Gclass/G_class_3_nqma6s.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721519/CarPhotos/Gclass/G_class_2_q37wkm.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721518/CarPhotos/Gclass/G_class_4_b7f8fx.png`"
         },
         {
             "carId": "32",
@@ -543,7 +526,7 @@
             "model": "Q8",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car02.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721571/CarPhotos/Audi%20Audi%20Q8/Audi_Q8_4_y2t6ee.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721569/CarPhotos/Audi%20Audi%20Q8/Audi_Q8_2_kfi1mr.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721568/CarPhotos/Audi%20Audi%20Q8/Audi_Q8_3_n1mxmj.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721568/CarPhotos/Audi%20Audi%20Q8/Audi_Q8_1_blx14n.png`"
         },
         {
             "carId": "33",
@@ -553,7 +536,7 @@
             "model": "X7",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car03.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721640/CarPhotos/X7/X7_4_f30hfk.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721627/CarPhotos/X7/X7_1_ubvapn.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721622/CarPhotos/X7/X7_3_zayc2c.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721622/CarPhotos/X7/X7_2_emmaex.png`"
         },
         {
             "carId": "34",
@@ -563,7 +546,7 @@
             "model": "Escalade",
             "year": "2017",
             "modifications": "Stock",
-            "img": "car04.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721540/CarPhotos/Cadillac%20Escalade/Cadillac_Escalade_3_oueogd.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721536/CarPhotos/Cadillac%20Escalade/Cadillac_Escalade_2_z21w9m.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721536/CarPhotos/Cadillac%20Escalade/Cadillac_Escalade_1_qmzb1m.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721533/CarPhotos/Cadillac%20Escalade/Cadillac_Escalade_4_siuvrd.png`"
         },
         {
             "carId": "35",
@@ -573,7 +556,7 @@
             "model": "Navigator",
             "year": "2018",
             "modifications": "Modified",
-            "img": "car05.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721712/CarPhotos/Navigator/Navigator_1_smogmw.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721710/CarPhotos/Navigator/Navigator_3_drhp7z.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721710/CarPhotos/Navigator/Navigator_2_s3vgxp.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721709/CarPhotos/Navigator/Navigator_4_qa9n5v.png`"
         },
         {
             "carId": "36",
@@ -583,7 +566,7 @@
             "model": "Yukon",
             "year": "2019",
             "modifications": "Stock",
-            "img": "car06.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721576/CarPhotos/Yukon/Yukon_4_eifrdn.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721572/CarPhotos/Yukon/Yukon_1_kdxzft.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721572/CarPhotos/Yukon/Yukon_3_rxqg1z.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721572/CarPhotos/Yukon/Yukon_2_ygenvi.png`"
         },
         {
             "carId": "37",
@@ -593,7 +576,7 @@
             "model": "Tahoe",
             "year": "2020",
             "modifications": "Modified",
-            "img": "car07.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721679/CarPhotos/Tahoe/Tahoe_4_kn1cxy.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721676/CarPhotos/Tahoe/Tahoe_1_krn2ga.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721676/CarPhotos/Tahoe/Tahoe_3_qdyzyf.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721676/CarPhotos/Tahoe/Tahoe_2_uumhcm.png`"
         },
         {
             "carId": "38",
@@ -603,7 +586,7 @@
             "model": "Durango",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car08.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721609/CarPhotos/Dodge%20Durango/Durango_2_hs4aoc.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721607/CarPhotos/Dodge%20Durango/Durango_4_zwhhay.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721605/CarPhotos/Dodge%20Durango/Durango_1_p2ktjh.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721603/CarPhotos/Dodge%20Durango/Durango_3_vcvqgr.png`"
         },
         {
             "carId": "39",
@@ -613,7 +596,7 @@
             "model": "Expedition",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car09.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721504/CarPhotos/Expedition/Expedition_1_kbsc1p.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721504/CarPhotos/Expedition/Expedition_2_godthu.png`"
         },
         {
             "carId": "40",
@@ -623,7 +606,7 @@
             "model": "Armada",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car10.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721755/CarPhotos/Armada/Armada_2_a3awwd.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721753/CarPhotos/Armada/Armada_4_ayxryw.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721752/CarPhotos/Armada/Armada_1_zcm2jv.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721752/CarPhotos/Armada/Armada_3_cv9q6w.png`"
         },
         {
             "carId": "41",
@@ -633,7 +616,7 @@
             "model": "Model X",
             "year": "2017",
             "modifications": "Modified",
-            "img": "car01.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721602/CarPhotos/Model%20X/Model_X_4_ohsghw.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721602/CarPhotos/Model%20X/Model_X_1_ncwe7o.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721600/CarPhotos/Model%20X/Model_X_3_zcx0w5.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721599/CarPhotos/Model%20X/Model_X_2_z3aaf9.png`"
         },
         {
             "carId": "42",
@@ -643,7 +626,7 @@
             "model": "I-PACE",
             "year": "2018",
             "modifications": "Stock",
-            "img": "car02.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721748/CarPhotos/Jaguar%20Ipace/I_pace_2_syayei.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721745/CarPhotos/Jaguar%20Ipace/I_pace_4_jtlznc.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721743/CarPhotos/Jaguar%20Ipace/i_pace_3_prqsiy.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721742/CarPhotos/Jaguar%20Ipace/I_pace_1_lfinuz.png`"
         },
         {
             "carId": "43",
@@ -653,7 +636,7 @@
             "model": "e-tron",
             "year": "2019",
             "modifications": "Modified",
-            "img": "car03.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721585/CarPhotos/Etron%20Gt/Etron_gt3_gdon0f.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721585/CarPhotos/Etron%20Gt/Etron_gt4_mwnaph.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721585/CarPhotos/Etron%20Gt/Etron_gt_1_bjbsmd.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721581/CarPhotos/Etron%20Gt/Etron_gt_2_gtyneq.png`"
         },
         {
             "carId": "44",
@@ -663,7 +646,7 @@
             "model": "Taycan",
             "year": "2020",
             "modifications": "Stock",
-            "img": "car04.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721705/CarPhotos/Porsche%20Tycan/Tycan1_wcsfji.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721705/CarPhotos/Porsche%20Tycan/Tycan_2_qaow40.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721704/CarPhotos/Porsche%20Tycan/Tycan_4_oiy8xz.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721704/CarPhotos/Porsche%20Tycan/Tycan_3_yytb2h.png`"
         },
         {
             "carId": "45",
@@ -673,7 +656,7 @@
             "model": "EQC",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car05.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721743/CarPhotos/EQC/EQC_3_aictki.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721740/CarPhotos/EQC/EQC_4_n2euu3.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721740/CarPhotos/EQC/EQC_1_dlysq7.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721738/CarPhotos/EQC/EQC_2_ckp71w.png`"
         },
         {
             "carId": "46",
@@ -683,7 +666,7 @@
             "model": "iX3",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car06.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721743/CarPhotos/EQC/EQC_3_aictki.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721740/CarPhotos/EQC/EQC_4_n2euu3.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721740/CarPhotos/EQC/EQC_1_dlysq7.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721738/CarPhotos/EQC/EQC_2_ckp71w.png`"
         },
         {
             "carId": "47",
@@ -693,7 +676,7 @@
             "model": "Ariya",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car07.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721716/CarPhotos/Nissan%20A/Nissan_A_3_suyevh.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721715/CarPhotos/Nissan%20A/Nissan_A_4_fvd4kr.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721714/CarPhotos/Nissan%20A/Nissan_A_1_xqys5g.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721712/CarPhotos/Nissan%20A/Nissan_A_2_jmjpyy.png`"
         },
         {
             "carId": "48",
@@ -703,7 +686,7 @@
             "model": "Golf R",
             "year": "2021",
             "modifications": "Stock",
-            "img": "car08.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721613/CarPhotos/Golf%20R/Golf_R_3_g2yfc4.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721611/CarPhotos/Golf%20R/Golf_r_4_bfwvop.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721609/CarPhotos/Golf%20R/Golf_R_1_fuct2z.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721607/CarPhotos/Golf%20R/Golf_r_2_llrffw.png` "
         },
         {
             "carId": "49",
@@ -713,7 +696,7 @@
             "model": "I30",
             "year": "2021",
             "modifications": "Modified",
-            "img": "car09.jpg"
+            "img": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698721581/CarPhotos/I30/i30_3_lmavj7.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721578/CarPhotos/I30/i30_1_klpkgi.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721576/CarPhotos/I30/i30_4_e4zjjf.png` `https://res.cloudinary.com/dv8lielzo/image/upload/v1698721574/CarPhotos/I30/i30_2_agvrzt.png`"
         }
     ],
 
