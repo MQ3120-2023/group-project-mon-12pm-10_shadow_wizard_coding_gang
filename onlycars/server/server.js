@@ -7,6 +7,7 @@ const session = require("express-session");
 const currentUser = require("./middleware/currentUser"); // Make sure the path is correct
 const app = express();
 const MongoStore = require('connect-mongo');
+const path = require('path');
 
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
