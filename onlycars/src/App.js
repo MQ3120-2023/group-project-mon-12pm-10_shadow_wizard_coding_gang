@@ -32,8 +32,8 @@ function AppWrapper() {
                 setCurrentUser(null)
             }
         } catch (error) {
-            console.error("Error during signup:", error);
-            alert("An error occurred during signup. Please try again.");
+            console.error("Error during user refresh:", error);
+            //alert("An error occurred during signup. Please try again.");
             if (window.location.pathname !== "/" && window.location.pathname !== "/signup")
                 window.location.href = "/";
         }

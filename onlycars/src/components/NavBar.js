@@ -31,19 +31,19 @@ const NavBar = () => {
             <img id="profile-picture" src={currentUser?.currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
                 <a id="profile-name">{currentUser?.currentUser?.username}</a>
-                <Link className={`nav-links ${location.pathname === '/home' ? 'active' : ''}`} to="/home">
+                <Link className="nav-links" to="/home">
                     Home
                 </Link>
-                <Link className={`nav-links ${location.pathname === '/profile' ? 'active' : ''}`} to="/profile">
+                <Link className="nav-links" to="/profile">
                     My Profile
                 </Link>
-                <Link className={`nav-links ${location.pathname === '/explore' ? 'active' : ''}`} to="/explore">
+                <Link className="nav-links" to="/explore">
                     Explore
                 </Link>
-                <Link className={`nav-links ${location.pathname === '/subscriptions' ? 'active' : ''}`} to="/subscriptions">
+                <Link className="nav-links" to="/subscriptions">
                     Subscriptions
                 </Link>
-                <Link className={`nav-links ${location.pathname === '/settings' ? 'active' : ''}`} to="/settings">
+                <Link className="nav-links" to="/settings">
                     Settings
                 </Link>
                 <Link className="nav-links" id="logout-button" to="/" onClick={handleLogout}>

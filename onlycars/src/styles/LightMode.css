@@ -184,7 +184,8 @@ form button:hover {
 }
 
 .text-button {
-    background-color: none;
+    background-color: var(--primary-colour);
+    font-size: 16px;
     border: none;
     color: var(--text);
     text-align: center;
@@ -194,6 +195,7 @@ form button:hover {
 }
 
 .text-button:hover {
+    background-color: var(--primary-colour);
     color: var(--secondary-colour);
     cursor: pointer;
 }

@@ -63,7 +63,7 @@ const SignUpPage = () => {
                         />
                         <button type="submit">Sign Up</button>
                         <button
-                            type="button"
+                            className="text-button"
                             onClick={() => (window.location.href = "/")}
                         >
                             Already have an account? Login here
