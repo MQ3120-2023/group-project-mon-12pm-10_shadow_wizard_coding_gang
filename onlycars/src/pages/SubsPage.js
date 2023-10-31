@@ -25,7 +25,7 @@ const SubsPage = () => {
                 <NewEventButton/>
             </nav>
 
-            <Subs path="getUser"/>
+            <Subs path="getAllUsers"/>
 
             <aside id="info-container">
                 <Info infoType="Manage Payment Details"/>

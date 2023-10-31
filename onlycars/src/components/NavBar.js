@@ -10,7 +10,6 @@ import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
     const currentUser = useContext(CurrentUserContext);
-    console.log(currentUser);
 
     const handleLogout = async () => {
         try {

@@ -82,16 +82,42 @@ app.use(
 );
 
 app.use(bodyParser.json());
-const path = require("path");
-app.use("/images", express.static(path.join(__dirname, "images")));
-app.use(express.static("build"))
-// Log static file requests
-app.use("/images", (req, res, next) => {
-    console.log(`Static file request for: ${req.url}`);
-    next();
+
+//
+// Endpoint to fetch Data from MongoDB
+//
+
+// Endpoint to get all posts
+app.get("/getAllPosts", async (req, res) => {
+    try {
+        const allPosts = await Post.find({});
+        res.status(200).json(allPosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching posts" });
+    }
 });
 
-// New endpoint to get all posts along with their cars and users
+// Endpoint to get all users
+app.get("/getAllUsers", async (req, res) => {
+    try {
+        const allUsers = await User.find({});
+        res.status(200).json(allUsers);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching posts" });
+    }
+});
+
+// Endpoint to get all cars
+app.get("/getAllCars", async (req, res) => {
+    try {
+        const allCars = await Car.find({});
+        res.status(200).json(allCars);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching posts" });
+    }
+});
+
+// Endpoint to get all posts along with their cars and users
 app.get("/getPostData", async (req, res) => {
     try {
         const allPosts = await Post.find({});
@@ -123,6 +149,72 @@ app.get("/getPostData", async (req, res) => {
     }
 });
 
+// Endpoint to get all profile posts along with their cars and users
+app.get("/getProfilePosts", async (req, res) => {
+    try {
+        // Assuming the currentUser's ID is stored in the session
+        const currentUserId = req.session.currentUser.userId;
+
+        // Fetch posts related to the currentUser
+        const profilePosts = await Post.find({ 'userId': currentUserId });
+
+        const carIds = profilePosts.map((post) => post.carId);
+
+        // Fetch related cars and users
+        const allCars = await Car.find({ 'carId': { $in: carIds } });
+        const allUsers = await User.find({ 'userId': currentUserId });
+
+        const carMap = {};
+        allCars.forEach((car) => {
+            carMap[car.carId] = car;
+        });
+
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        // Enrich posts with car and user data
+        const enrichedProfilePosts = profilePosts.map((post) => ({
+            ...post._doc,
+            car: carMap[post.carId],
+            user: userMap[post.userId],
+        }));
+
+        res.status(200).json(enrichedProfilePosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching profile posts" });
+    }
+});
+
+
+// Endpoint to get all cars along with their users
+app.get("/getCarData", async (req, res) => {
+    try {
+        const allCars = await Car.find({});
+        const ownerIds = allCars.map((car) => car.owner);
+
+        const allUsers = await User.find({ 'userId': { $in: ownerIds } });
+
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        const enrichedCars = allCars.map((car) => ({
+            ...car._doc,
+            user: userMap[car.owner],
+        }));
+
+        res.status(200).json(enrichedCars);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching data" });
+    }
+});
+
+//
+// User Authentication
+//
 
 // Basic Authentication
 app.post("/login", async (req, res) => {

@@ -38,7 +38,7 @@ const ExplorePage = () => {
                 <ButtonBarExplore handleButtonClick={handleButtonClick} />
 
                 {activeButton === 1 && <PostsExplore/>}
-                {activeButton === 2 && <UsersExplore/>}
+                {activeButton === 2 && <UsersExplore path="getAllUsers"/>}
                 {activeButton === 3 && <CarsExplore/>}
                 {activeButton === 4 && <EventsExplore/>}
             </section>

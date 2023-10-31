@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const UsersExplore = () => {
+const UsersExplore = ({ path }) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
         axios
-            .get("/UsersExplore")
+            .get("/" + path)
             .then((response) => {
                 setUsers(response.data);
             })
