@@ -33,7 +33,7 @@ const SignUpPage = () => {
     return (
         <main id="main-container">
             <section id="posts-container">
-                <img id="logo-image" src="/images/Logo.png" />
+                <img id="logo-image" src="https://res.cloudinary.com/dv8lielzo/image/upload/v1698751760/Logo_pxftp4.png" />
                 <div className="form-container">
                     <p className="form-heading">Sign Up</p>
                     <form onSubmit={handleSubmit}>

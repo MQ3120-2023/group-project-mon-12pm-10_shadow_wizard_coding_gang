@@ -65,7 +65,7 @@ body {
 #text-logo {
     width: 350px;
     height: 75%;
-    background-image: url("../../server/images/Text Logo.svg");
+    background-image: url("https://res.cloudinary.com/dv8lielzo/image/upload/v1698751768/Text_Logo_dcnekw.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
