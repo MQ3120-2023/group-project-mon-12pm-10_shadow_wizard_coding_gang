@@ -79,7 +79,7 @@ const ExploreEvents = () => {
                                 alt="Event Banner"
                             />
                             <header className="event-header">
-                                <p className="event-name">{/*event.name*/}Event Name</p>
+                                <p className="event-name">{event.title}</p>
                                 <p className="event-location">{event.location}</p>
                             </header>
                             <p className="event-user">Organised by {user.username}</p>

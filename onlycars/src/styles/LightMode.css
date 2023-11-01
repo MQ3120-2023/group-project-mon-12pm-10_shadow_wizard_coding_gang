@@ -728,15 +728,17 @@ form button:hover {
     margin-left: 5%;
 }
 
-.event-info p{
+.event-info {
     width: 50%;
+    font-weight: 600;
 }
 
-.event-info div{
-    width: 50%;
+.event-info{
+    width: 100%;
 }
 
 #event-date {
     text-align: right;
     margin-right: 5%;
+    margin-left: auto;
 }

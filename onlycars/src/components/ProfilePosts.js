@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import moment from"moment";
+
 
 const ProfilePosts = ({ path }) => {
     const [posts, setPosts] = useState([]);
@@ -70,7 +72,7 @@ const ProfilePosts = ({ path }) => {
                                 <p>No car information available.</p>
                             )}
                             <p>{post.description}</p>
-                            <p>{post.date}</p>
+                            <p>{moment(post.date).format('MMMM Do YYYY, h:mm a')}</p>
                             <figure className="post-images">
                                 <Slider {...settings}>
                                     {post.images.map((image, imgIndex) => (
