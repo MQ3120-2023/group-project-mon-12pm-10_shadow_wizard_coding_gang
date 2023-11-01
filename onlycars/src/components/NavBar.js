@@ -31,29 +31,38 @@ const NavBar = () => {
         }
     };
 
+    const styles = {
+
+        largeIcon: {
+          width: 60,
+          height: 60,
+        },
+      
+      }
+
     return (
         <section id="profile-box">
             <img id="profile-picture" src={currentUser?.currentUser?.profilepic} alt="User Profile Picture" />
             <nav id="nav-box">
                 <a id="profile-name">{currentUser?.currentUser?.username}</a>
                 <Link className="nav-links" to="/home">
-                    <HomeIcon className="nav-icon"/>
+                    <HomeIcon className="nav-icon" style={{ fontSize: 40 }}/>
                     Home
                 </Link>
                 <Link className="nav-links" to="/profile">
-                    <AccountBoxIcon className="nav-icon"/>
+                    <AccountBoxIcon className="nav-icon" style={{ fontSize: 40 }}/>
                     My Profile
                 </Link>
                 <Link className="nav-links" to="/explore">
-                    <ExploreIcon className="nav-icon"/>
+                    <ExploreIcon className="nav-icon" style={{ fontSize: 40 }}/>
                     Explore
                 </Link>
                 <Link className="nav-links" to="/subscriptions">
-                    <PersonAddIcon className="nav-icon"/>
+                    <PersonAddIcon className="nav-icon" style={{ fontSize: 40 }}/>
                     Subscriptions
                 </Link>
                 <Link className="nav-links" to="/settings">
-                    <SettingsApplicationsIcon className="nav-icon"/>
+                    <SettingsApplicationsIcon className="nav-icon" style={{ fontSize: 40 }}/>
                     Settings
                 </Link>
                 <Link className="nav-links" id="logout-button" to="/" onClick={handleLogout}>
