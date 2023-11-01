@@ -686,3 +686,57 @@ form button:hover {
     width: 350px;
     margin-left: 35px;
 }
+
+.event-container {
+    width: 550px;
+    background-color: var(--primary-colour);
+    border-radius: 5px;
+    margin-bottom: 2vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-bottom: 1vh;
+}
+
+.event-banner {
+    width: 100%;
+    object-fit: contain;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.event-header {
+    width: 90%;
+    margin: 1vh 0;
+    margin-left: 5%;
+    background-color: var(--tertiary-colour);
+    border-radius: 5px;
+    padding: 0.5vh 0;
+}
+
+.event-name, .event-location {
+    font-weight: 500;
+}
+
+.event-name {
+    font-size: 20px;
+}
+
+.event-container p {
+    margin-left: 5%;
+}
+
+.event-container a {
+    margin-left: 5%;
+}
+
+.event-info p{
+    width: 50%;
+}
+
+.event-info div{
+    width: 50%;
+}
+
+#event-date {
+    text-align: right;
+    margin-right: 5%;
+}

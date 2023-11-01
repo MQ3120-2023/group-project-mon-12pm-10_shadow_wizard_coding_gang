@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import moment from"moment";
 
 const ExploreEvents = () => {
     const [events, setEvents] = useState([]);
@@ -38,6 +39,26 @@ const ExploreEvents = () => {
             });
     }, []);
 
+    const SmartText = ({ text, length = 300 }) => {
+        const [showLess, setShowLess] = useState(true);
+      
+        if (text.length < length) {
+          return <p className="event-details">{text}</p>;
+        }
+      
+        return (
+          <div>
+            <p>{ showLess ? `${text.slice(0, length)}...` : text }</p>
+            <a
+              style={{ color: "blue", cursor: "pointer" }}
+              onClick={() => setShowLess(!showLess)}
+            >
+              &nbsp;Show {showLess ? "More" : "Less"}
+            </a>
+          </div>
+        );
+      };
+
     return (
         <section id="posts-container">
             <InfiniteScroll
@@ -58,15 +79,14 @@ const ExploreEvents = () => {
                                 alt="Event Banner"
                             />
                             <header className="event-header">
-                                <h1 className="event-user">{user.username}</h1>
-                                <sub className="event-location">
-                                    {event.location}
-                                </sub>
+                                <p className="event-name">{/*event.name*/}Event Name</p>
+                                <p className="event-location">{event.location}</p>
                             </header>
-                            <p>{event.description}</p>
+                            <p className="event-user">Organised by {user.username}</p>
+                            <SmartText text={event.description}/>
                             <aside id="event-info">
-                                <p>People Going: {event.attendees}</p>
-                                <p>Date and Time: {event.date}</p>
+                                <a>People Going: {event.attendees}</a>
+                                <a id="event-date">Date and Time: {moment(event.date).format("DD/MM/YYYY")}</a>
                             </aside>
                         </section>
                     );
