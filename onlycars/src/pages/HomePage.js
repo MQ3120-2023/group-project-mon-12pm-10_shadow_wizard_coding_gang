@@ -30,7 +30,7 @@ const HomePage = () => {
             <section id="mid-container">
                 <ButtonBarPosts/>
 
-                <Posts path="getPosts"/>
+                <Posts/>
             </section>
 
             <aside id="info-container">
