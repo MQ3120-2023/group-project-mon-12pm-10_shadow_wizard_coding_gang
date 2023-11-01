@@ -46,6 +46,7 @@ const Posts = () => {
                 hasMore={hasMore}
                 loader={<h4>Loading...</h4>}
                 scrollableTarget="posts-container"
+                id="infinite-scroll"
             >
                 {posts.map((post, index) => {
                     const car = post.car;
