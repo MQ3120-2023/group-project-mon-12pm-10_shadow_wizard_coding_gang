@@ -1175,7 +1175,6 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721699/CarPhotos/r32%20Gtr/r32_gtr_4_jzfn7b.jpg"
             ],
             "likes": ["5", "6", "1", "7", "2", "9", "8", "4", "3", "10"],
-
             "comments": 2
         },
         {
@@ -1231,7 +1230,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721689/CarPhotos/Bugatti%20chrion/Bugatti_Chrion_3_jbwxvs.webp"
             ],
             "likes":["4", "1", "7", "5", "10", "2", "9", "8", "3", "6"],
-            "comments": 7
+            "comments": 4
         },
         {
             "postId": "6",
@@ -1246,7 +1245,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721685/CarPhotos/Golf%20GTI/Golf_GTI_3_dkybpx.webp"
             ],
             "likes":["9", "3", "7", "1", "4", "8", "6", "10", "2", "5"],
-            "comments": 1
+            "comments": 2
         },
         {
             "postId": "7",
@@ -1348,7 +1347,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721521/CarPhotos/Hurracan/Hurrancan_3_vxxxqu.png"
             ],
             "likes": ["7", "5", "3", "8", "9", "6", "2", "4", "10", "1"],
-            "comments": 7
+            "comments": 2
         },
         {
             "postId": "14",
@@ -1422,7 +1421,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721585/CarPhotos/GTSR/GTSR_3_xyv7ky.png"
             ],
             "likes":["2", "5", "7", "4", "1", "6", "8", "9", "10", "3"],
-            "comments": 0
+            "comments": 3
         },
         {
             "postId": "19",
@@ -1437,7 +1436,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721691/CarPhotos/Ford%20Falcon/Falcon_3_uhzwp7.png"
             ],
             "likes": ["3", "7", "6", "2", "1", "4", "8", "9", "10", "5"],
-            "comments": 0
+            "comments": 3
         },
         {
             "postId": "20",
@@ -1452,7 +1451,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721512/CarPhotos/Mazda%20Sp25/SP35_3_nz2xsp.png"
             ],
             "likes":["10", "6", "3", "1", "8", "9", "4", "7", "5", "2"],
-            "comments": 1
+            "comments": 2
         },
         {
             "postId": "21",
@@ -1539,7 +1538,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720914/Shops/Pacortech/Pacortech3_yapcpw.png"
             ],
             "likes": ["6", "1", "9", "10", "3", "8", "5", "2", "7", "4"],
-            "comments": 4
+            "comments": 3
         },
         {
             "postId": "27",
@@ -1567,7 +1566,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720924/Shops/JEM/JEM_6_yn3few.jpg"
             ],
             "likes": ["7", "2", "8", "3", "4", "5", "1", "9", "6", "10"],
-            "comments": 6
+            "comments": 2
         },
         {
             "postId": "29",
@@ -1581,7 +1580,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720922/Shops/Matooks%20Racing/Matooks_racing_1_u2chbj.jpg"
             ],
             "likes": ["3", "5", "2", "1", "7", "10", "8", "4", "9", "6"],
-            "comments": 7
+            "comments": 4
         },
         {
             "postId": "30",
@@ -1595,7 +1594,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720921/Shops/Matooks%20Racing/Matooks_racing_7_nyxtit.jpg"
             ],
             "likes": ["1", "6", "9", "4", "8", "7", "5", "2", "10", "3"],
-            "comments": 1
+            "comments": 2
         },
         {
             "postId": "31",
@@ -1609,7 +1608,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720909/Shops/Carbon%20Autohaus/Carbon_A_8_ldxzwm.jpg"
             ],
             "likes": ["5", "6", "8", "4", "2", "1", "9", "7", "3", "10"],
-            "comments": 4
+            "comments": 2
         },
         {
             "postId": "32",
@@ -1651,7 +1650,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720917/Shops/JustDipIt/Just_Dip_it_5_q4yejs.jpg"
             ],
             "likes": ["6", "2", "8", "5", "7", "4", "3", "10", "1", "9"],
-            "comments": 4
+            "comments": 3
         },
         {
             "postId": "35",
@@ -1680,7 +1679,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720923/Shops/TigerrD/Tigerr_Detailing_1_rrumjf.jpg"
             ],
             "likes": ["10", "4", "9", "8", "1", "7", "2", "5", "6", "3"],
-            "comments": 7
+            "comments": 2
         },
         {
             "postId": "37",
@@ -1750,7 +1749,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720920/Shops/Cams%20Leather/Cams_leather_6_wldoar.jpg"
             ],
             "likes":["9", "8", "3", "6", "10", "4", "7", "1", "2", "5"],
-            "comments": 0
+            "comments": 3
         },
         {
             "postId": "42",
@@ -1764,7 +1763,7 @@
                 "https://res.cloudinary.com/dv8lielzo/image/upload/v1698720920/Shops/Cams%20Leather/Cams_leather_2_enpo89.jpg"
             ],
             "likes": ["3", "7", "2", "1", "8", "6", "4", "9", "5", "10"],
-            "comments": 0
+            "comments": 2
         }
     ],
 
@@ -1823,6 +1822,18 @@
             "description": "Rev Up at Chullora Auto Fest!\n\nJoin us for an adrenaline-pumping car event that will leave you breathless. Get ready to be a part of Chullora Auto Fest, where automotive enthusiasts come together to celebrate their love for cars!\n\nEvent Highlights:\nA spectacular showcase of classic cars, modern marvels, and exotic imports.\nThrilling car competitions with incredible prizes.\nMouthwatering food stalls to satisfy your cravings.\nEngaging workshops and demonstrations for car enthusiasts.\nA family-friendly atmosphere with entertainment for all.\n\nWhether you're a car owner looking to show off your pride and joy or simply a fan of all things automotive, Chullora Auto Fest has something for everyone. So mark the date on your calendar and get ready for a day of high-octane excitement!",
             "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698810124/Events/6_pfaoy3.jpg",
             "attendees": ["10", "8", "7", "3", "1", "2"]
+        }
+    ],
+
+    "comments": [
+        {
+            "eventId": "1",
+            "userId": "1",
+            "location": "",
+            "date": "",
+            "description": "",
+            "banner": "",
+            "attendees": ["1", "3", "4", "8", "9", "7"]
         }
     ]
 }
