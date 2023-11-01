@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Posts = ({ path }) => {
     const [posts, setPosts] = useState([]);
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         const fetchPostData = async () => {

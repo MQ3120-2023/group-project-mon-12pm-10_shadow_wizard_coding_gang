@@ -6,6 +6,7 @@ import ButtonBarPosts from "../components/ButtonBarPosts";
 import PostsProfile from "../components/PostsProfile";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
+import NewCarButton from "../components/NewCarButton";
 
 const ProfilePage = () => {
     return (
@@ -36,6 +37,7 @@ const ProfilePage = () => {
 
             <aside id="info-container">
                 <Info infoType="User's Cars" />
+                <NewCarButton/>
             </aside>
         </main>
     );
