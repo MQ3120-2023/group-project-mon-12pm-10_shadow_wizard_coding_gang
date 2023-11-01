@@ -131,7 +131,7 @@ app.get("/getAllCars", async (req, res) => {
 });
 
 // Endpoint to get all posts along with their cars and users
-app.get("/getPostData", async (req, res) => {
+app.get("/getHomePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = 10; // Number of posts per page
 
@@ -170,14 +170,17 @@ app.get("/getPostData", async (req, res) => {
 
 // Endpoint to get all profile posts along with their cars and users
 app.get("/getProfilePosts", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of posts per page
+
     try {
         // Assuming the currentUser's ID is stored in the session
         const currentUserId = req.session.currentUser.userId;
 
         // Fetch posts related to the currentUser
-        const profilePosts = await Post.find({ 'userId': currentUserId });
-
-        const carIds = profilePosts.map((post) => post.carId);
+        const profilePosts = await Post.find({ 'userId': currentUserId })
+            .skip((page - 1) * limit)
+            .limit(limit);
 
         // Fetch related cars and users
         const allCars = await Car.find({ 'carId': { $in: carIds } });
@@ -206,11 +209,67 @@ app.get("/getProfilePosts", async (req, res) => {
     }
 });
 
+app.get("/getExplorePosts", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of posts per page
+
+    try {
+        const allPosts = await Post.find({})
+            .skip((page - 1) * limit)
+            .limit(limit);
+
+        const carIds = allPosts.map((post) => post.carId);
+        const userIds = allPosts.map((post) => post.userId);
+
+        const allCars = await Car.find({ 'carId': { $in: carIds } });
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
+
+        const carMap = {};
+        allCars.forEach((car) => {
+            carMap[car.carId] = car;
+        });
+
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        const enrichedPosts = allPosts.map((post) => ({
+            ...post._doc,
+            car: carMap[post.carId],
+            user: userMap[post.userId],
+        }));
+
+        res.status(200).json(enrichedPosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching data" });
+    }
+});
+
+// Endpoint to get all users
+app.get("/getExploreUsers", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of users per page
+
+    try {
+        const allUsers = await User.find({})
+            .skip((page - 1) * limit)
+            .limit(limit);
+        res.status(200).json(allUsers);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching users" });
+    }
+});
 
 // Endpoint to get all cars along with their users
-app.get("/getCarData", async (req, res) => {
+app.get("/getExploreCars", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of cars per page
+
     try {
-        const allCars = await Car.find({});
+        const allCars = await Car.find({})
+            .skip((page - 1) * limit)
+            .limit(limit);
         const ownerIds = allCars.map((car) => car.owner);
 
         const allUsers = await User.find({ 'userId': { $in: ownerIds } });
@@ -230,6 +289,42 @@ app.get("/getCarData", async (req, res) => {
         res.status(500).json({ message: "Error fetching data" });
     }
 });
+
+// Endpoint to get all events along with their users
+app.get("/getExploreEvents", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of events per page
+
+    try {
+        // Fetch all events with pagination
+        const allEvents = await Event.find({})
+            .skip((page - 1) * limit)
+            .limit(limit);
+
+        // Extract userIds from the events
+        const userIds = allEvents.map((event) => event.userId);
+
+        // Fetch all related users
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
+
+        // Create a map for quick lookup of user data
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        // Enrich events with user data
+        const enrichedEvents = allEvents.map((event) => ({
+            ...event._doc,
+            user: userMap[event.userId],
+        }));
+
+        res.status(200).json(enrichedEvents);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching events" });
+    }
+});
+
 
 //
 // User Authentication

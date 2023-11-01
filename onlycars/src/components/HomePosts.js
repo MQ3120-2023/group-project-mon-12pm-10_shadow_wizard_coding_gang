@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Posts = () => {
+const HomePosts = () => {
     const [posts, setPosts] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -13,7 +13,7 @@ const Posts = () => {
     const fetchMoreData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3001/getPostData?page=${page}`
+                `http://localhost:3001/getHomePosts?page=${page}`
             );
             if (response.data.length > 0) {
                 setPosts([...posts, ...response.data]);
@@ -98,4 +98,4 @@ const Posts = () => {
     );
 };
 
-export default Posts;
+export default HomePosts;
