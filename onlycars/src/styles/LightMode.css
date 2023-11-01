@@ -363,6 +363,7 @@ form button:hover {
 .post-images {
     max-width: 100%;
     margin: 1vw;
+    height: 100%;
 }
 
 .post-images img {
@@ -448,7 +449,7 @@ form button:hover {
     justify-content: center;
 }
 
-.slick-list {
+.sub-left.slick-list {
     max-height: 10vh;
     max-width: 14vw;
     object-fit: cover;
