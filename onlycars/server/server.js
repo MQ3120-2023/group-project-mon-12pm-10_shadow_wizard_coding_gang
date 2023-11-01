@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const currentUser = require("./middleware/currentUser"); // Make sure the path is correct
 const app = express();
 const MongoStore = require('connect-mongo');
 const path = require('path');
@@ -120,8 +119,14 @@ app.get("/getAllCars", async (req, res) => {
 
 // Endpoint to get all posts along with their cars and users
 app.get("/getPostData", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of posts per page
+
     try {
-        const allPosts = await Post.find({});
+        const allPosts = await Post.find({})
+            .skip((page - 1) * limit)
+            .limit(limit);
+
         const carIds = allPosts.map((post) => post.carId);
         const userIds = allPosts.map((post) => post.userId);
 
@@ -296,7 +301,6 @@ app.post("/logout", (req, res) => {
 app.get('*', function (req, res) {
     res.sendFile('index.html', { root: path.join(__dirname, '../build/') });
 });
-
 
 // Start the server
 const port = 3001;
