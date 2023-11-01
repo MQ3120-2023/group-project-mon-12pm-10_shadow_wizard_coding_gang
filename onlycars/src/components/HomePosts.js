@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const HomePosts = () => {
+const HomePosts = ({ sortType }) => {
     const [posts, setPosts] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -13,7 +13,7 @@ const HomePosts = () => {
     const fetchMoreData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3001/getHomePosts?page=${page}`
+                `http://localhost:3001/getHomePosts?page=${page}&sortType=${sortType}`
             );
             if (response.data.length > 0) {
                 setPosts([...posts, ...response.data]);
@@ -25,10 +25,12 @@ const HomePosts = () => {
             console.error("Error fetching more data:", error);
         }
     };
+    
 
     useEffect(() => {
         fetchMoreData(); // Initial fetch
-    }, []);
+        //console.log("Posts after initial fetch:", posts);
+    }, [sortType]);
 
     const settings = {
         dots: true,
@@ -70,8 +72,10 @@ const HomePosts = () => {
                                 <p>No car information available.</p>
                             )}
                             <p>{post.description}</p>
-                            <p>{post.date}</p>
+                            <p>{post.date}</p>  
                             <figure className="post-images">
+                            {post && post.images && (
+                                console.log("Rendering images for post:", post.images),
                                 <Slider {...settings}>
                                     {post.images.map((image, imgIndex) => (
                                         <img
@@ -81,6 +85,7 @@ const HomePosts = () => {
                                         />
                                     ))}
                                 </Slider>
+                            )}
                             </figure>
                             <div className="post-button-container">
                                 <button id="like-button" className="post-button">
