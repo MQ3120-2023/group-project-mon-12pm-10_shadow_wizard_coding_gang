@@ -82,6 +82,14 @@ const ExplorePosts = ({ path }) => {
                                     ))}
                                 </Slider>
                             </figure>
+                            <div className="post-button-container">
+                                <button id="like-button" className="post-button">
+                                    Like
+                                </button>
+                                <button id="comment-button" className="post-button">
+                                    Comment
+                                </button>
+                            </div>
                         </section>
                     );
                 })}
