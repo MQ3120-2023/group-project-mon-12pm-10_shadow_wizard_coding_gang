@@ -85,8 +85,8 @@ const ExploreEvents = () => {
                             <p className="event-user">Organised by {user.username}</p>
                             <SmartText text={event.description}/>
                             <aside id="event-info">
-                                <a>People Going: {event.attendees}</a>
-                                <a id="event-date">Date and Time: {moment(event.date).format('MMMM Do YYYY, h:mm a')}</a>
+                                <p>People Going: {event.attendees}</p>
+                                <p id="event-date">Date and Time: {moment(event.date).format('MMMM Do YYYY, h:mm a')}</p>
                             </aside>
                         </section>
                     );
