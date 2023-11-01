@@ -17,6 +17,7 @@
     width: 0px;
     color: #00000000;
     background-color: #00000000;
+    scrollbar-width: none;
   }
 
 p {
