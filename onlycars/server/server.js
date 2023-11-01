@@ -58,7 +58,7 @@ const eventSchema = new mongoose.Schema({
     date: String,
     description: String,
     banner: String,
-    attendees: [number],
+    attendees: [Number],
 });
 const Event = mongoose.model("Event", eventSchema);
 
