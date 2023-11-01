@@ -722,6 +722,7 @@ form button:hover {
 
 .event-container p {
     margin-left: 5%;
+    margin-right: 5%;
 }
 
 .event-container a {
@@ -738,7 +739,5 @@ form button:hover {
 }
 
 #event-date {
-    text-align: right;
-    margin-right: 5%;
-    margin-left: auto;
+    text-align: left;
 }
