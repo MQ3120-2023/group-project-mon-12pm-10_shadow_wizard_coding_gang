@@ -570,6 +570,11 @@ form button:hover {
     color: var(--secondary-colour);
 }
 
+.nav-icon {
+    padding-right: 1em;
+    margin-bottom: -0.1em;
+}
+
 #logout-button {
     text-align: center;
     margin: auto;
