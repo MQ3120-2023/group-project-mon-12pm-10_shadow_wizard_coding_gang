@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ProfileSettings = () => {
+const SettingsProfile = () => {
     const [username, setUsername] = useState("");
     const [description, setDescription] = useState("");
 
@@ -9,7 +9,7 @@ const ProfileSettings = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "/profileSettings",
+                "/SettingsProfile",
                 {
                     username,
                     description,
@@ -57,4 +57,4 @@ const ProfileSettings = () => {
     );
 };
 
-export default ProfileSettings;
+export default SettingsProfile;

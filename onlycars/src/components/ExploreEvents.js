@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const UsersExplore = ({ path }) => {
-    const [users, setUsers] = useState([]);
+const ExploreEvents = () => {
+    const [cars, setCars] = useState([]);
 
     useEffect(() => {
         axios
-            .get("/" + path)
+            .get("/CarsExplore")
             .then((response) => {
-                setUsers(response.data);
+                setCars(response.data);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
@@ -17,20 +17,20 @@ const UsersExplore = ({ path }) => {
 
     return (
         <section id="posts-container">
-            {users.map((user, index) => (
+            {cars.map((car, index) => (
                 <section className="sub-container" key={index}>
                     <div className="sub-left">
                         <img
                             className="sub-pfp"
-                            src={user.profilepic}
+                            src={car.img}
                             alt="User's Profile Picture"
                         />
-                        <a className="sub-user">{user.username}</a>
+                        <a className="sub-user">{car.username}</a>
                     </div>
                     <div className="sub-right">
-                        <p>Posts Made: {user.posts}</p>
-                        <p>Subscribers: {user.subscribers}</p>
-                        <p>Cars Owned: {user.cars}</p>
+                        <p>Posts Made: {car.posts}</p>
+                        <p>Subscribers: {car.subscribers}</p>
+                        <p>Cars Owned: {car.cars}</p>
                     </div>
                 </section>
             ))}
@@ -38,4 +38,4 @@ const UsersExplore = ({ path }) => {
     );
 };
 
-export default UsersExplore;
+export default ExploreEvents;

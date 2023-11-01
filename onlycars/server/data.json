@@ -1766,10 +1766,8 @@
             "date": "15/01/2023",
             "description": "FUcking go-karts",
             "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721700/CarPhotos/r32%20Gtr/r32_Gtr_1_exrnkv.jpg",
-            "attendees": ["",""]
-       
+            "attendees": ["", ""]
         },
-
         {
             "eventId": "",
             "userId": "",
@@ -1777,45 +1775,43 @@
             "date": "",
             "description": "",
             "banner": "",
-            "attendees": ["",""]
-            },
-
-            {
-                "eventId": "",
-                "userId": "",
-                "location": "",
-                "date": "",
-                "description": "",
-                "banner": "",
-                "attendees": ["",""]
-                },
-                {
-                    "eventId": "",
-                    "userId": "",
-                    "location": "",
-                    "date": "",
-                    "description": "",
-                    "banner": "",
-                    "attendees": ["",""]
-                    },
-                    {
-                        "eventId": "",
-                        "userId": "",
-                        "location": "",
-                        "date": "",
-                        "description": "",
-                        "banner": "",
-                        "attendees": ["",""]
-                        },
-                        {
-                            "eventId": "",
-                            "userId": "",
-                            "location": "",
-                            "date": "",
-                            "description": "",
-                            "banner": "",
-                            "attendees": ["",""]
-                            }     
-            
+            "attendees": ["", ""]
+        },
+        {
+            "eventId": "",
+            "userId": "",
+            "location": "",
+            "date": "",
+            "description": "",
+            "banner": "",
+            "attendees": ["", ""]
+        },
+        {
+            "eventId": "",
+            "userId": "",
+            "location": "",
+            "date": "",
+            "description": "",
+            "banner": "",
+            "attendees": ["", ""]
+        },
+        {
+            "eventId": "",
+            "userId": "",
+            "location": "",
+            "date": "",
+            "description": "",
+            "banner": "",
+            "attendees": ["", ""]
+        },
+        {
+            "eventId": "",
+            "userId": "",
+            "location": "",
+            "date": "",
+            "description": "",
+            "banner": "",
+            "attendees": ["", ""]
+        }
     ]
 }

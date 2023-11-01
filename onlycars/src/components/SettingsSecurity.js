@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SecuritySettings = () => {
+const SettingsSecurity = () => {
     const [password, setPassword] = useState("");
     const [conPassword, setConPassword] = useState("");
 
@@ -9,7 +9,7 @@ const SecuritySettings = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "/securitySettings",
+                "/SettingsSecurity",
                 {
                     password,
                 }
@@ -54,4 +54,4 @@ const SecuritySettings = () => {
     );
 };
 
-export default SecuritySettings;
+export default SettingsSecurity;

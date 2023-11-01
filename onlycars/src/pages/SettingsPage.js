@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import SearchBar from "../components/SearchBar";
 import NavBar from "../components/NavBar";
 import ButtonBarSettings from "../components/ButtonBarSettings";
-import UserSettings from '../components/UserSettings';
-import ProfileSettings from '../components/ProfileSettings';
-import SecuritySettings from '../components/SecuritySettings';
+import SettingsUser from '../components/SettingsUser';
+import SettingsProfile from '../components/SettingsProfile';
+import SettingsSecurity from '../components/SettingsSecurity';
 import Info from "../components/Info";
 
 const SettingsPage = () => {
@@ -32,9 +32,9 @@ const SettingsPage = () => {
             <section id="mid-container">
                 <ButtonBarSettings handleButtonClick={handleButtonClick} />
 
-                {activeButton === 1 && <UserSettings/>}
-                {activeButton === 2 && <ProfileSettings/>}
-                {activeButton === 3 && <SecuritySettings/>}
+                {activeButton === 1 && <SettingsUser/>}
+                {activeButton === 2 && <SettingsProfile/>}
+                {activeButton === 3 && <SettingsSecurity/>}
             </section>
 
             <aside id="info-container">

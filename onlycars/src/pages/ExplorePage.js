@@ -4,10 +4,10 @@ import NavBar from "../components/NavBar";
 import ButtonBarExplore from "../components/ButtonBarExplore";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
-import PostsExplore from "../components/PostsExplore";
-import UsersExplore from "../components/UsersExplore";
-import CarsExplore from "../components/CarsExplore";
-import EventsExplore from "../components/EventsExplore";
+import ExplorePosts from "../components/ExplorePosts";
+import ExploreUsers from "../components/ExploreUsers";
+import ExploreCars from "../components/ExploreCars";
+import ExploreEvents from "../components/ExploreEvents";
 import Info from "../components/Info";
 
 const ExplorePage = () => {
@@ -37,10 +37,10 @@ const ExplorePage = () => {
             <section id="mid-container">
                 <ButtonBarExplore handleButtonClick={handleButtonClick} />
 
-                {activeButton === 1 && <PostsExplore/>}
-                {activeButton === 2 && <UsersExplore path="getAllUsers"/>}
-                {activeButton === 3 && <CarsExplore/>}
-                {activeButton === 4 && <EventsExplore/>}
+                {activeButton === 1 && <ExplorePosts/>}
+                {activeButton === 2 && <ExploreUsers path="getAllUsers"/>}
+                {activeButton === 3 && <ExploreCars/>}
+                {activeButton === 4 && <ExploreEvents/>}
             </section>
 
             <aside id="info-container">
