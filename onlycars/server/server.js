@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     description: String,
     cars: Number,
     posts: Number,
-    subscribers: [String],
+    subscribers: [Number],
 });
 const User = mongoose.model("users", userSchema);
 
@@ -45,8 +45,8 @@ const postSchema = new mongoose.Schema({
     date: String,
     description: String,
     images: [String],
-    likes: Number,
-    comments: Number,
+    likes: [Number],
+    comments: [Number],
 });
 const Post = mongoose.model("Post", postSchema);
 
@@ -58,7 +58,7 @@ const eventSchema = new mongoose.Schema({
     date: String,
     description: String,
     banner: String,
-    attendees: [String],
+    attendees: [Number],
 });
 const Event = mongoose.model("Event", eventSchema);
 
