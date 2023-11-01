@@ -7,6 +7,7 @@ const session = require("express-session");
 const app = express();
 const MongoStore = require('connect-mongo');
 const path = require('path');
+app.use(express.static("build"))
 
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
