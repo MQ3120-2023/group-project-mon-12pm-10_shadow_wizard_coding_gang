@@ -53,17 +53,12 @@ const ExploreCars = () => {
           return (
             <section className="explore-car-container" key={index}>
               <div className="sub-left">
-                <Slider {...settings}>
-                  {car.images.map((image, imgIndex) => (
-                    <img
-                      className="explore-car-img"
-                      key={imgIndex}
-                      src={image}
-                      alt={`Car Image ${imgIndex + 1}`}
-                    />
-                  ))}
-                </Slider>
-                <a className="sub-user">{user.username}</a>
+                <img
+                  className="explore-car-img"
+                  key={0}
+                  src={car.images[0]}
+                  alt={`Car Image 1`}
+                />
               </div>
               <div className="sub-right">
                 <p>
