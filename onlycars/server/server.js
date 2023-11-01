@@ -42,20 +42,21 @@ const postSchema = new mongoose.Schema({
     postId: Number,
     userId: Number,
     carId: Number,
-    date: String,
+    date: Date,
     description: String,
     images: [String],
     likes: [Number],
-    comments: [Number],
+    comments: Number,
 });
 const Post = mongoose.model("Post", postSchema);
 
-// Post Schema and Model
+// Event Schema and Model
 const eventSchema = new mongoose.Schema({
     eventId: Number,
     userId: Number,
+    title: String,
     location: String,
-    date: String,
+    date: Date,
     description: String,
     banner: String,
     attendees: [Number],
@@ -133,12 +134,40 @@ app.get("/getAllCars", async (req, res) => {
 // Endpoint to get all posts along with their cars and users
 app.get("/getHomePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
+    const sortType = req.query.sortType;
     const limit = 10; // Number of posts per page
 
+    let sortQuery = {};
+
+    if (sortType === "latest") {
+        sortQuery = { date: -1 }; // Sort by latest date
+    }
+
     try {
-        const allPosts = await Post.find({})
-            .skip((page - 1) * limit)
-            .limit(limit);
+        let allPosts;
+        if (sortType === "popular") {
+            allPosts = await Post.aggregate([
+                {
+                    $addFields: {
+                        likesCount: { $size: "$likes" },
+                    },
+                },
+                {
+                    $sort: { likesCount: -1 },
+                },
+                {
+                    $skip: (page - 1) * limit,
+                },
+                {
+                    $limit: limit,
+                },
+            ]);
+        } else {
+            allPosts = await Post.find({})
+                .sort(sortQuery)
+                .skip((page - 1) * limit)
+                .limit(limit);
+        }
 
         const carIds = allPosts.map((post) => post.carId);
         const userIds = allPosts.map((post) => post.userId);
@@ -209,6 +238,7 @@ app.get("/getProfilePosts", async (req, res) => {
     }
 });
 
+
 app.get("/getExplorePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = 10; // Number of posts per page
@@ -270,9 +300,9 @@ app.get("/getExploreCars", async (req, res) => {
         const allCars = await Car.find({})
             .skip((page - 1) * limit)
             .limit(limit);
-        const ownerIds = allCars.map((car) => car.owner);
+        const userIds = allCars.map((car) => car.userId);
 
-        const allUsers = await User.find({ 'userId': { $in: ownerIds } });
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
 
         const userMap = {};
         allUsers.forEach((user) => {
