@@ -17,7 +17,6 @@
     width: 0px;
     color: #00000000;
     background-color: #00000000;
-    scrollbar-width: none;
   }
 
 p {
@@ -34,6 +33,7 @@ body {
     background-color: var(--background-colour);
     width: 100%;
     margin: 0;
+    scrollbar-width: none;
 }
 
 #main-container {
