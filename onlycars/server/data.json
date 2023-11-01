@@ -1762,68 +1762,14 @@
         {
             "eventId": "1",
             "userId": "1",
-<<<<<<< Updated upstream
-            "location": "Down Unda",
-            "date": "15/01/2023",
-            "description": "FUcking go-karts",
-            "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721700/CarPhotos/r32%20Gtr/r32_Gtr_1_exrnkv.jpg",
-            "attendees": ["", ""]
-=======
             "location": "Entertainment Park Building 20/361 Milperra Road, 2200",
             "date": "28/11/2023",
             "description": "We're back for another exciting edition of NSW Cars & Culture at Entertainment Park!\n\nHere's what to expect: \nDiverse Car Lineup (Super Cars, Custom Cars, JDM's, Classics, 4x4's, Bikes) \nLive DJ Food & Drink by Entertainment Park \nHome Video Friends Marketplace Notifications Menu \nLive DJ \nFood & Drink by Entertainment Park • Go Karting, Arcade, Bowling, Racing Sims and so much more! \n\nAs always, everyone is welcome!\n\nMake sure to register for free and be in the draw to win 50 entries (Diamond Package) into any of our giveaways! \n\nIPP- If you'd like a VIP spot at the front of the venue, please send us a message (VIP's will have to arrive between 8:00am-8:30am to secure their spot) \n\nLooking forward to seeing you all there! \n\nNOTE: Please respect the venue, no BYO alcohol, skids or reckless behaviour, security cameras will be recording.",
             "banner": "`https://res.cloudinary.com/dv8lielzo/image/upload/v1698810126/Events/1_ojuuri.png`",
             "attendees": ["",""]
        
->>>>>>> Stashed changes
         },
         {
-<<<<<<< Updated upstream
-            "eventId": "",
-            "userId": "",
-            "location": "",
-            "date": "",
-            "description": "",
-            "banner": "",
-            "attendees": ["", ""]
-        },
-        {
-            "eventId": "",
-            "userId": "",
-            "location": "",
-            "date": "",
-            "description": "",
-            "banner": "",
-            "attendees": ["", ""]
-        },
-        {
-            "eventId": "",
-            "userId": "",
-            "location": "",
-            "date": "",
-            "description": "",
-            "banner": "",
-            "attendees": ["", ""]
-        },
-        {
-            "eventId": "",
-            "userId": "",
-            "location": "",
-            "date": "",
-            "description": "",
-            "banner": "",
-            "attendees": ["", ""]
-        },
-        {
-            "eventId": "",
-            "userId": "",
-            "location": "",
-            "date": "",
-            "description": "",
-            "banner": "",
-            "attendees": ["", ""]
-        }
-=======
             "eventId": "2",
             "userId": "2",
             "location": "Sydney Motorsport Park",
@@ -1870,6 +1816,5 @@
                             "attendees": ["",""]
                             }     
             
->>>>>>> Stashed changes
     ]
 }
