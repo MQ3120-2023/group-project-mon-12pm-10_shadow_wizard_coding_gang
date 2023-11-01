@@ -571,8 +571,13 @@ form button:hover {
 }
 
 .nav-icon {
-    padding-right: 1em;
-    margin-bottom: -0.1em;
+    padding-right: 15px;
+    margin-bottom: -0.3em;
+}
+
+.new-button-icon {
+    padding-right: 15px;
+    margin-bottom: -0.2em;
 }
 
 #logout-button {

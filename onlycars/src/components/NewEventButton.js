@@ -1,7 +1,9 @@
+import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+
 const NewEventButton = () => {
 
     return(
-        <button className="new-button">New Event</button>
+        <button className="new-button"><EditCalendarIcon className="new-button-icon" style={{ fontSize: 40 }}/>New Event</button>
     )
 }
 
