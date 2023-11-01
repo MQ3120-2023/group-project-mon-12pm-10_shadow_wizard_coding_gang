@@ -1,5 +1,5 @@
 import SearchBar from "../components/SearchBar";
-import Posts from "../components/Posts";
+import HomePosts from "../components/HomePosts";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import ButtonBarPosts from "../components/ButtonBarPosts";
@@ -30,7 +30,7 @@ const HomePage = () => {
             <section id="mid-container">
                 <ButtonBarPosts/>
 
-                <Posts/>
+                <HomePosts/>
             </section>
 
             <aside id="info-container">

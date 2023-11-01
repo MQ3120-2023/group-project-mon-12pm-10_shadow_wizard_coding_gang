@@ -1791,29 +1791,29 @@
                 {
                     "eventId": "4",
                     "userId": "3",
-                    "location": "",
-                    "date": "",
-                    "description": "",
-                    "banner": "",
-                    "attendees": ["",""]
+                    "location": "Sydney Motorsport Park",
+                    "date": "8/10/2023 (7PM - 11PM)",
+                    "description": "We TAKEOVER Sydney Motorsport Park for 1 HUGE night.\n\n\nGP circuit, Drift/Grip.\n+ Figure 8.\n+Live DJ.\n+Tuned MONSTER Car Meet behind the grandstand.\n+ More.\n\n*If you damage the track, track edges, or grass we have no choice but to end your event.\n* If you can not stay on track or look out of control you will be removed.\n*You do not drive slowly, It is not a race but it is not a cruise.\n*You need to be moving and not slowing down in the corners to do power skids on the straights.\nNO POWER SKIDS. NO BURNOUTS.\n*Cars are allowed to Drift, while in the drift zones only.\n* NO Drift zones being the main straight, turn 1 and turn 6.\nIf you can not follow the rules you will be removed.\n* Your car meets or exceeds the scrutiny requirements.\n\nEntry Costs\nGP circuit early entry fee Members $380 nonmembers $420.\nEntries after Midnight 1st of October will be + $50 for late entry.\n\nNote we only have access to 36 garages. The first 36 people booked and paid will get the front \nand back of a garage. You can share with a mate if you like.\nOthers will have to pit in one of the 25 carports or north paddock.\nCarports are first in on the day will get the first choice.\nSo much happening at this event you don't want to miss it.\nSpectator Cost: $25 Per Person (Cash only - Payable upon entry at the gate)\nNo online ticket sales.",
+                    "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698810124/Events/4_pdf3pr.png",
+                    "attendees": ["1","3","4","8","9","7","5","2"]
                     }, 
                     {
-                        "eventId": "",
-                        "userId": "",
-                        "location": "",
-                        "date": "",
-                        "description": "",
-                        "banner": "",
-                        "attendees": ["",""]
+                        "eventId": "5",
+                        "userId": "9",
+                        "location": "Sydney Motorsport Park",
+                        "date": "17/11/2023 (5PM - 11PM",
+                        "description": "Roll Racing at Sydney Motorsport Park! Supported by Gulf Western Oils!\n\nSpectator tickets are only $20 per person if pre-purchased online by 4pm on the event day. $25 after 4pm or at the Gate. Kids 12 and under are Free!\n\nCash & Eftpos at the gate or purchase online using a credit card.\n\nGates open at 5:00pm and close at 11pm sharp! The track action is from 6:30pm-10:30pm.\n\nSpectators also have the chance to ride along if they have a friend or partner driving. It’s $20 for a Passenger band and you need to be OVER 18, have ID to prove you are over 18, sign a waiver, have a helmet, long sleeve shirt, Long pants, and enclosed shoes, no exceptions.\n\nSecond driver entry can be purchased at the accreditation office on the night of the event for only $40! This entry also allows you to ride along as a passenger.\n\nWe cap the event at 150 cars with a couple of special vehicles thrown in the mix to make ensure that all drivers get lots of races throughout the night and don't just spend their night sitting in the staging lanes!",
+                        "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698810125/Events/5_zwvy2o.png",
+                        "attendees": ["8","9","7","5","2"]
                         },
                         {
-                            "eventId": "",
-                            "userId": "",
-                            "location": "",
-                            "date": "",
-                            "description": "",
-                            "banner": "",
-                            "attendees": ["",""]
+                            "eventId": "6",
+                            "userId": "9",
+                            "location": "Tenancy T8, Chullora Business Park, 62 Hume Hwy, Chullora NSW 2190",
+                            "date": "10/11/2023",
+                            "description": "Rev Up at Chullora Auto Fest!\n\nJoin us for an adrenaline-pumping car event that will leave you breathless. Get ready to be a part of Chullora Auto Fest, where automotive enthusiasts come together to celebrate their love for cars!\n\nEvent Highlights:\nA spectacular showcase of classic cars, modern marvels, and exotic imports.\nThrilling car competitions with incredible prizes.\nMouthwatering food stalls to satisfy your cravings.\nEngaging workshops and demonstrations for car enthusiasts.\nA family-friendly atmosphere with entertainment for all.\n\nWhether you're a car owner looking to show off your pride and joy or simply a fan of all things automotive, Chullora Auto Fest has something for everyone. So mark the date on your calendar and get ready for a day of high-octane excitement!",
+                            "banner": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698810124/Events/6_pfaoy3.jpg",
+                            "attendees": ["10","8","7","3","1","2"]
                             }     
             
     ]

@@ -3,21 +3,31 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const ExploreCars = () => {
     const [cars, setCars] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1);
+
+    const fetchMoreData = async () => {
+        try {
+            const response = await axios.get(
+                `http://localhost:3001/getExploreCars?page=${page}`
+            );
+            if (response.data.length > 0) {
+                setCars([...cars, ...response.data]);
+                setPage(page + 1);
+            } else {
+                setHasMore(false);
+            }
+        } catch (error) {
+            console.error("Error fetching more data:", error);
+        }
+    };
 
     useEffect(() => {
-        const fetchCarData = async () => {
-            try {
-                const response = await axios.get("http://localhost:3001/getCarData");
-                setCars(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-    
-        fetchCarData();
+        fetchMoreData(); // Initial fetch
     }, []);
 
     const settings = {
@@ -30,6 +40,14 @@ const ExploreCars = () => {
 
     return (
         <section id="posts-container">
+        <InfiniteScroll
+                dataLength={cars.length}
+                next={fetchMoreData}
+                hasMore={hasMore}
+                loader={<h4>Loading...</h4>}
+                scrollableTarget="posts-container"
+                id="infinite-scroll"
+            >
             {cars.map((car, index) => {
                 const user = car.user;
                 return (
@@ -54,6 +72,7 @@ const ExploreCars = () => {
                 </section>
                 );
             })}
+            </InfiniteScroll>
         </section>
     );
 };

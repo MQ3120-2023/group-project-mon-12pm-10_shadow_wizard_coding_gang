@@ -4,32 +4,9 @@ import { CurrentUserContext } from "../App";
 
 const Profile = () => {
     const currentUser = useContext(CurrentUserContext);
-    console.log(currentUser);
-
-    /* useEffect(() => {
-         const currentUser = async () => {
-             const response = await axios.get(
-                 "/currentUser",
-                 {
-                     timeout: 5000,
-                     withCredentials: true,
-                 }
-             );
-             console.log("Profile " + response.data);
-             setUserData(response.data); // Update state variable
-         };
- 
-         currentUser();
-     }, []); */
 
     return (
         <section>
-            {/* {userData &&
-                userData.map(
-                    (
-                        user,
-                        index // Check if userData is not null
-                    ) => ( */}
             <section className="profile-container">
                 <img
                     className="profile-banner"
