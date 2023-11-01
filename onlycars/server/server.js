@@ -39,9 +39,9 @@ const Car = mongoose.model("Car", carSchema);
 
 // Post Schema and Model
 const postSchema = new mongoose.Schema({
-    postId: String,
-    userId: String,
-    carId: String,
+    postId: Number,
+    userId: Number,
+    carId: Number,
     date: String,
     description: String,
     images: [String],
@@ -49,6 +49,18 @@ const postSchema = new mongoose.Schema({
     comments: Number,
 });
 const Post = mongoose.model("Post", postSchema);
+
+// Post Schema and Model
+const eventSchema = new mongoose.Schema({
+    eventId: Number,
+    userId: Number,
+    location: String,
+    date: String,
+    description: String,
+    banner: String,
+    attendees: [String],
+});
+const Event = mongoose.model("Event", eventSchema);
 
 // MongoDB URI
 const uri =
