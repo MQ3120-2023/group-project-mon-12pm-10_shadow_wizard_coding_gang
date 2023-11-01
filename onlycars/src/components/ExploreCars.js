@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarsExplore = () => {
+const ExploreCars = () => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
@@ -58,4 +58,4 @@ const CarsExplore = () => {
     );
 };
 
-export default CarsExplore;
+export default ExploreCars;

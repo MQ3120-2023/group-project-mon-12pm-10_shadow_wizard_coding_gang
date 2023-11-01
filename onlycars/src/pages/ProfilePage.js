@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import Profile from "../components/Profile";
 import ButtonBarPosts from "../components/ButtonBarPosts";
-import PostsProfile from "../components/PostsProfile";
+import ProfilePosts from "../components/ProfilePosts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
 import NewCarButton from "../components/NewCarButton";
@@ -32,7 +32,7 @@ const ProfilePage = () => {
 
                 <ButtonBarPosts/>
 
-                <PostsProfile path="getProfilePosts"/>
+                <ProfilePosts path="getProfilePosts"/>
             </section>
 
             <aside id="info-container">

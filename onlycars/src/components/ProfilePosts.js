@@ -4,13 +4,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const PostsExplore = ({ path }) => {
+const ProfilePosts = ({ path }) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         const fetchPostData = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/getPostData");
+                const response = await axios.get("http://localhost:3001/getProfilePosts");
                 setPosts(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -20,7 +20,6 @@ const PostsExplore = ({ path }) => {
         fetchPostData();
     }, []);
     
-
     const settings = {
         dots: true,
         infinite: true,
@@ -72,4 +71,4 @@ const PostsExplore = ({ path }) => {
     );
 };
 
-export default PostsExplore;
+export default ProfilePosts;
