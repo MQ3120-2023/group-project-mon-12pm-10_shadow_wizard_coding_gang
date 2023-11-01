@@ -8,7 +8,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721021/Users%20Profile%20Pic/DriftDPP_gwpmpf.png",
             "location": "Sydney, Australia",
             "description": "Adventurous road tripper, always chasing the horizon. Join me on my journey through life's open roads and discover the world one mile at a time.",
-            "cars": 3,
+            "cars": 5,
             "posts": 1,
             "subscribers": ""
         },
@@ -20,7 +20,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721023/Users%20Profile%20Pic/AlexCPP_ouqtna.avif",
             "location": "Sydney, Australia",
             "description": "Mud, rocks, and off-road adrenaline! I'm Max, your guide to thrilling off-roading escapades. Get ready to conquer the untamed trails.",
-            "cars": 3,
+            "cars": 7,
             "posts": 3,
             "subscribers": ""
         },
@@ -32,7 +32,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721020/Users%20Profile%20Pic/MaxOffRoadPP_mnxuv4.jpg",
             "location": "Melbourne, Australia",
             "description": "Welcome to my pit stop! I'm Ben, a car enthusiast with a passion for all things automotive. Fuel up, and let's explore the world of engines and horsepower.",
-            "cars": 2,
+            "cars": 4,
             "posts": 2,
             "subscribers": ""
         },
@@ -44,7 +44,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721016/Users%20Profile%20Pic/BenPitstopPP_zq40hy.jpg",
             "location": "Brisbane, Australia",
             "description": "Welcome to my pit stop! I'm Ben, a car enthusiast with a passion for all things automotive. Fuel up, and let's explore the world of engines and horsepower.",
-            "cars": 2,
+            "cars": 4,
             "posts": 3,
             "subscribers": ""
         },
@@ -56,7 +56,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721020/Users%20Profile%20Pic/AdamAutoPP_oztlld.png",
             "location": "Adelaide, Australia",
             "description": "Crafting automotive dreams one project at a time. I'm Adam, a hands-on car artist. Follow along as we transform metal and rubber into masterpieces.",
-            "cars": 6,
+            "cars": 8,
             "posts": 2,
             "subscribers": ""
         },
@@ -68,7 +68,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721022/Users%20Profile%20Pic/ThomasTurboPP_qdqkqt.png",
             "location": "Perth, Australia",
             "description": "Turbocharged living with Thomas. Speed, power, and precision are the game. Join me as we explore the world of high-performance cars and all things turbo.",
-            "cars": 1,
+            "cars": 3,
             "posts": 1,
             "subscribers": ""
         },
@@ -80,7 +80,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721017/Users%20Profile%20Pic/HHoctainePP_n8mmum.png",
             "location": "Canberra, Australia",
             "description": "Hi there! I'm Henry, your guide to the world of high-octane thrills. Fast cars, furious rides, and unforgettable adventures – buckle up!",
-            "cars": 7,
+            "cars": 9,
             "posts": 1,
             "subscribers": ""
         },
@@ -92,7 +92,7 @@
             "profilepic": "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721021/Users%20Profile%20Pic/DriftDPP_gwpmpf.png",
             "location": "Hobart, Australia",
             "description": "Drift enthusiast and speed demon at heart. I'm Dylan, and this is where we defy gravity, embrace the curves, and dance with the asphalt.",
-            "cars": 7,
+            "cars": 9,
             "posts": 2,
             "subscribers": ""
         },
@@ -1053,7 +1053,7 @@
                                             },
                                             {
                                                 "carId": "57",
-                                                "owner": "6",
+                                                "owner": "5",
                                                 "ownership": "2 months ",
                                                 "brand": "Ford",
                                                 "model": "Falcon",
@@ -1081,7 +1081,7 @@
                                                     },
                                                     {
                                                         "carId": "59",
-                                                        "owner": "7",
+                                                        "owner": "6",
                                                         "ownership": "2 years",
                                                         "brand": "Mercedes",
                                                         "model": "C63",
@@ -1095,7 +1095,7 @@
                                                         },
                                                         {
                                                             "carId": "60",
-                                                            "owner": "5",
+                                                            "owner": "7",
                                                             "ownership": "5 months",
                                                             "brand": "Ford",
                                                             "model": "Raptor",
@@ -1108,7 +1108,7 @@
                                                             },
                                                             {
                                                                 "carId": "61",
-                                                                "owner": "3",
+                                                                "owner": "7",
                                                                 "ownership": "8 months",
                                                                 "brand": "Ford",
                                                                 "model": "Mustang",
@@ -1122,7 +1122,7 @@
                                                                 },
                                                                 {
                                                                     "carId": "62",
-                                                                    "owner": "10",
+                                                                    "owner": "8",
                                                                     "ownership": "7 months",
                                                                     "brand": "Ford",
                                                                     "model": "Focus RS",
