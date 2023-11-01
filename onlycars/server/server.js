@@ -137,40 +137,22 @@ app.get("/getHomePosts", async (req, res) => {
     const sortType = req.query.sortType;
     const limit = 10; // Number of posts per page
 
-    let sortQuery = {};
-
-    if (sortType === "latest") {
-        sortQuery = { date: -1 }; // Sort by latest date
-    }
-
     try {
-        let allPosts;
+        // Step 1: Fetch all posts
+        let allPosts = await Post.find({});
+
+        // Step 2: Sort posts based on 'sortType'
         if (sortType === "popular") {
-            allPosts = await Post.aggregate([
-                {
-                    $addFields: {
-                        likesCount: { $size: "$likes" },
-                    },
-                },
-                {
-                    $sort: { likesCount: -1 },
-                },
-                {
-                    $skip: (page - 1) * limit,
-                },
-                {
-                    $limit: limit,
-                },
-            ]);
-        } else {
-            allPosts = await Post.find({})
-                .sort(sortQuery)
-                .skip((page - 1) * limit)
-                .limit(limit);
+            allPosts.sort((a, b) => b.likes.length - a.likes.length);
+        } else if (sortType === "latest") {
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
         }
 
-        const carIds = allPosts.map((post) => post.carId);
-        const userIds = allPosts.map((post) => post.userId);
+        // Step 3: Apply pagination
+        const paginatedPosts = allPosts.slice((page - 1) * limit, page * limit);
+
+        const carIds = paginatedPosts.map((post) => post.carId);
+        const userIds = paginatedPosts.map((post) => post.userId);
 
         const allCars = await Car.find({ 'carId': { $in: carIds } });
         const allUsers = await User.find({ 'userId': { $in: userIds } });
@@ -185,7 +167,7 @@ app.get("/getHomePosts", async (req, res) => {
             userMap[user.userId] = user;
         });
 
-        const enrichedPosts = allPosts.map((post) => ({
+        const enrichedPosts = paginatedPosts.map((post) => ({
             ...post._doc,
             car: carMap[post.carId],
             user: userMap[post.userId],
@@ -196,6 +178,7 @@ app.get("/getHomePosts", async (req, res) => {
         res.status(500).json({ message: "Error fetching data" });
     }
 });
+
 
 // Endpoint to get all profile posts along with their cars and users
 app.get("/getProfilePosts", async (req, res) => {
