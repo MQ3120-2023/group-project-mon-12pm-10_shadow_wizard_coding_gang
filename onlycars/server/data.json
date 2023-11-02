@@ -10,7 +10,10 @@
             "description": "Adventurous road tripper, always chasing the horizon. Join me on my journey through life's open roads and discover the world one mile at a time.",
             "cars": 5,
             "posts": 1,
-            "subscribers": ["5", "6", "1"]
+            "subscribers": ["5", "6", "1"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "2",
@@ -34,7 +37,10 @@
             "description": "Welcome to my pit stop! I'm Ben, a car enthusiast with a passion for all things automotive. Fuel up, and let's explore the world of engines and horsepower.",
             "cars": 4,
             "posts": 2,
-            "subscribers": ["6", "1", "7", "2"]
+            "subscribers": ["6", "1", "7", "2"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "4",
@@ -46,7 +52,10 @@
             "description": "Welcome to my pit stop! I'm Ben, a car enthusiast with a passion for all things automotive. Fuel up, and let's explore the world of engines and horsepower.",
             "cars": 4,
             "posts": 3,
-            "subscribers": ["1", "7", "2"]
+            "subscribers": ["1", "7", "2"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "5",
@@ -58,7 +67,10 @@
             "description": "Crafting automotive dreams one project at a time. I'm Adam, a hands-on car artist. Follow along as we transform metal and rubber into masterpieces.",
             "cars": 8,
             "posts": 2,
-            "subscribers": ["7", "2"]
+            "subscribers": ["7", "2"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "6",
@@ -70,7 +82,10 @@
             "description": "Turbocharged living with Thomas. Speed, power, and precision are the game. Join me as we explore the world of high-performance cars and all things turbo.",
             "cars": 3,
             "posts": 1,
-            "subscribers": ["7", "9"]
+            "subscribers": ["7", "9"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "7",
@@ -82,7 +97,10 @@
             "description": "Hi there! I'm Henry, your guide to the world of high-octane thrills. Fast cars, furious rides, and unforgettable adventures – buckle up!",
             "cars": 9,
             "posts": 1,
-            "subscribers": ["8", "10", "3"]
+            "subscribers": ["8", "10", "3"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "8",
@@ -94,7 +112,10 @@
             "description": "Drift enthusiast and speed demon at heart. I'm Dylan, and this is where we defy gravity, embrace the curves, and dance with the asphalt.",
             "cars": 9,
             "posts": 2,
-            "subscribers": ["4", "1", "6", "8", "10", "3"]
+            "subscribers": ["4", "1", "6", "8", "10", "3"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "9",
@@ -106,7 +127,10 @@
             "description": "V8 power, the ultimate cruiser. I'm Jake, your companion in the world of muscle cars and cruising. Get ready for some thunder on the road.",
             "cars": 7,
             "posts": 3,
-            "subscribers": ["1", "6"]
+            "subscribers": ["1", "6"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "10",
@@ -118,7 +142,10 @@
             "description": "Sophie here, living life in the fast lane with M3 precision. Join me in the thrilling world of racing, where precision meets passion.",
             "cars": 9,
             "posts": 3,
-            "subscribers": ["7", "9", "5", "2", "4", "1", "6", "8", "10", "3"]
+            "subscribers": ["7", "9", "5", "2", "4", "1", "6", "8", "10", "3"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "11",
@@ -130,7 +157,10 @@
             "description": "Hi, I'm new to OnlyCars!",
             "cars": "0",
             "posts": "0",
-            "subscribers": ["2", "3", "1", "9", "8", "7"]
+            "subscribers": ["2", "3", "1", "9", "8", "7"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "12",
@@ -141,7 +171,10 @@
             "location": "Unit 1/6 Heald Rd, Ingleburn NSW 2565",
             "description": "Specialise in: Euro upgrades and modifications\nPhone number: (02) 9061 3066\nPrices:\nStage 1 – ESU Upgrade - $850\nStage 2 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve - $2800\nStage 3 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve – Upgraded Turbo – TSU tune- $6350",
             "posts": 2,
-            "subscribers": ["3", "7", "2", "1", "8", "6", "4", "9", "5", "10"]
+            "subscribers": ["3", "7", "2", "1", "8", "6", "4", "9", "5", "10"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "13",
@@ -152,7 +185,10 @@
             "location": "2/2 Noonan Rd, Ingleburn NSW 2565",
             "description": "Specialise in: Japanese cars and modifications\nPhone number: (02) 9755 5001\nPrices:\nStage 1 – ESU Upgrade - $600\nStage 2 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve - $1200\nStage 3 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve – Upgraded Turbo - $3600\nBuilt Motor: $40,000 - $100,000",
             "posts": 2,
-            "subscribers": ["9", "8", "3", "6", "10", "4", "7", "1", "2", "5"]
+            "subscribers": ["9", "8", "3", "6", "10", "4", "7", "1", "2", "5"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "14",
@@ -163,7 +199,10 @@
             "location": "Unit 2, 18 Alfred Road Chipping Norton NSW 2170",
             "description": "Specialise in: Vehicle repair shop\nPhone number: (02) 9755 5001\nPrices:\nStage 1 – ESU Upgrade - $1600\nStage 2  - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve - $6800\nStage 3 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve – Upgraded Turbo - $12600\nBuilt Motor: $80,000 - $140,000",
             "posts": 2,
-            "subscribers": ["1", "6", "9", "4", "8", "7", "5", "2", "10", "3"]
+            "subscribers": ["1", "6", "9", "4", "8", "7", "5", "2", "10", "3"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "15",
@@ -174,7 +213,10 @@
             "location": "24/16 Loyalty Rd, North Rocks NSW 2151",
             "description": "Specialise in: Vehicle repair shop\nPhone number: 0426 172 090\nPrices:\nStage 1 – ESU Upgrade - $770\nStage 2  - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve - $3400\nStage 3 - ESU Upgrade – Airfilter – Downpipe – Exhaust – Upgraded Spark Plugs – Intercooler – blow off valve – Upgraded Turbo – TSU tune- $5700",
             "posts": 2,
-            "subscribers": ["5", "6", "8", "4", "2", "1", "9", "7", "3", "10"]
+            "subscribers": ["5", "6", "8", "4", "2", "1", "9", "7", "3", "10"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "16",
@@ -185,7 +227,10 @@
             "location": "5-6/4 Whitehead Court, Glendenning NSW 2761",
             "description": "Specialise in: Paint Correction Body Panels\nPhone number: T 8605 3339 M 0412 290 959\nPrices\nSingle Items\nCaliper resprays(from)$880\nWheel resprays(from)$1320 \n Head light / Tail light tinting(from)$220\n\nBlack Outs\n(Gloss black automotive paint process)\nBadges $88\nFront Grilles $330\nFog Light Surrounds(each)$110\nHandles(each)$132\nWindow Moulding Trim(per side)$495\nMirror caps  $165\nBoot garnish $198\nRoof racks(per side)$330\n\nAll prices above are average prices and are a starting point covering most vehicles. For your particular make and model please email us to confirm pricing.\n\nCarbon Fibre\nHydrographics carbon transfer (prices from*)\nExterior \nMirror caps(each)$198\nFront Lips$440\nSide Skirt extensions(each side)$220\nDiffusers$440\nSpoiler blades$440\nCalipers$1100\nWheels$1760 \nInterior \nAir con surrounds(each)$55\nWindow Switch surrounds(each)$88\nDoor spears$165\nCentre Consoles$275\nScuff plates(each)$275",
             "posts": 2,
-            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"]
+            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "17",
@@ -196,7 +241,10 @@
             "location": "1/26 Kent Rd, Mascot NSW 2020",
             "description": "Specialise in: Vehicle detailing service\nPhone number: 0431 166 281\nPrices:\nCeramic Light\nGtechniq Crystal Serum Light (5 Year) + Gtechniq C2 Liquid Crystal (Annual Maintenance)\n\nOur most common coating for vehicles that are garaged overnight. This dual coating system is both adds gloss, swirl resistance, contaminant and dirt repellency.\n\nSmall - $900 + GST\nMedium - $1000 + GST\nLarge - $1100 + GST\n\nCSL Black\nGtechniq Crystal Serum Light (5 Year) + Gtechniq EXO (2 Year Maintenance)Recommended for vehicles that are parked outdoors. A double coating of heavy duty sealant on top of the ceramic coating layer (total of 3 layers) ensures that the vehicle has the protection it needs to combat the extremes of outdoor storage.\n\nSmall - $1200 + GST\nMedium - $1300 + GST\nLarge - $1400 + GST\n\nCeramic Ultra\nGtechniq Crystal Serum Ultra (9 Year) + Gtechniq C2 Liquid Crystal (Annual Maintenance)Thicker, glossier and harder is Gtechniq Ultra. Available only to Gtechniq Accredited Detailer only. Offering matchless levels of gloss, surface slickness, swirl and chemical resistance./n/nSmall - $1400 + GST/nMedium - $1500 + GST/nLarge - $1600 + GST\n\nCSU Black\n\nGtechniq Crystal Serum Ultra (9 Year) + Gtechniq EXO (2 Year Maintenance)The pinnacle of ceramic paint protection\n\nSmall - $1700 + GST\nMedium - $1800 + GST\nLarge - $1900 + GST\n\nAdditional Coatings\nGtechniq Wheel Ceramic Coating (Up to 2 Year) - From $300 + GST\nGtechniq Interior Protection Package (Up to 1 Year) - From $200 + GST\nGtechniq Glass and Windscreen Coating (Up to 2 Years) - From $150 + GST\nGtechniq PPF & Vinyl Ceramic Coating - $POA",
             "posts": 2,
-            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"]
+            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "18",
@@ -207,7 +255,10 @@
             "location": "Unit 28/44 Carrington Rd, Castle Hill NSW 2154\n16-18 Carlotta St,Artarmon,Lower Ground NSW 2064",
             "description": "Specialise in: Vehicle Detailing Service Phone\n(02) 8851 7199 M. 0432 430 459\nPrices\nEssential Protection:\n\nHigh Pressure Snow Foam Rinse\nTwo bucket vehicle shampoo\nPaint Decontamination: iron fallout removal / clay bar\nSurface Preparation: Alcohol based paint cleanser\nWheels Cleaned\nTyres Dressed\nInterior Vacuum & Wipe down\nWindows Cleaned\n\nKey Features:\nPaint Correction, 90%+ Defect removal\nPaint Refinement, increased gloss & clarity\nGTECHNIQ CRYSTAL SERUM ULTRA Ceramic Coating (9year)\nPlease note: this package does not include Interior, Glass or Wheel Ceramic Coating.\n\nDuration: 1-2 days\n\nHatch : $1390\nSedan / Coupe: $1490\nSUV / Truck: $1690\n\nAdvanced Protection\nDetailing Essentials:\n\nHigh Pressure Snow Foam Rinse\nTwo bucket vehicle shampoo\nPaint Decontamination: iron fallout removal / clay bar\nSurface Preparation: Alcohol based paint cleanser\nWheels Cleaned\nTyres Dressed\nInterior Vacuum & Wipe down\nWindows Cleaned\nKey Features:\n\nPaint Correction, 90%+ Defect removal\nPaint Refinement, increased gloss & clarity.\nGTECHNIQ CRYSTAL SERUM ULTRA Ceramic Coating (9year)\n2x GTECHNIQ EXOv4 Ultra Hydrophobic top coating\nPlease note: this package does not include Interior, Glass or Wheel Ceramic Coating.\n\nDuration: 2-3 days\nHatch: $1790\nSedan / Coupe: $1990\nSUV / Truck: $2290\n\nEnthusiasts Protection\n\nHigh Pressure Snow Foam Rinse\nTwo bucket vehicle shampo\nPaint Decontamination: iron fallout removal / clay bar\nSurface Preparation: Alcohol based paint cleanser\nWheels Cleaned\nTyres Dressed\nInterior Vacuum & Wipe down\nWindows Cleaned\n\nKey Features:\nPaint Correction, above 90% Defect removal\nPaint Refinement, increased gloss & clarity\nAngelWax Nebula Graphene Coating 5 year\nSemi Self Healing Properties\nPlease note: this package does not include Interior, Glass or Wheel Ceramic Coating.\n\nDuration: 3 – 4 days\nPricing From: $2490\n\nSPD Signature Detail Package\nThis package is suited for show & classic vehicles.\nDetailing Essentials:\n\nHigh Pressure Snow Foam Rinse\nTwo bucket vehicle shampoo\nPaint Decontamination: Iron Fallout Removal / Clay Bar\nWheels Cleaned\nTyres Dressed\nInterior Vacuum & Wipe down\nWindows Cleaned\n\nKey Features:\nMultiple Stage Paint Correction, above 95% Defect removal, increased gloss.\nSurface Preparation: Alcohol based paint cleanser\nKamikaze Zipang Gold Class Coating applied to paint (5 Year Warranty)\nKamikaze Stance Wheel Coating applied to full wheels\nKamikaze Intenso Glass Coating applied to exterior glass\nKamikaze ISM 2.0 applied to exterior plastics\n\nInterior Detail:\nSeats Shampooed & Conditioned\nMats Shampooed & Conditioned\nDoor Cards Cleaned & Conditioned\nDash Cleaned & Conditioned\nEngine Bay:\nCritical Electronics / area’s covered in plastic\nSteam & APC Clean\nPlastic & Vinyl Conditioned\nEngine bay paint correction additional ($110p/h)\nExterior Plastics & Metals:\n\nAPC Clean\nMetal / Chrome Polished\nHeadlight / Taillight Corrected & Polished\nProtection Applied\nInner Guard Liners & Suspension\nSteam & APC Clean\nProtection Applied\nPrice: $POA\n5-7 days\nImportant: Please choose between the below options.\n\nSurprise Reveal, thanks to AirShroud. No Progress updates, photos/videos\nLive Updates, photos & videos supplied throughout the process\n\nAdditional Services\nInterior Detail, used vehicle: $600\nGTECHNIQ new car Interior Protection (leather & Fabrics): $400\nGTECHNIQ C5 Wheel Armour Coating (faces only): $300\nGTECHNIQ C5 Wheel Armour Coating (full wheels): $600 – wheel removal.\nGTECHNIQ Smart Glass Coating of all exteriorglass: $350\nPermaGard Anti-Microbial Interiorprotectant:$200\nSCRAPEARMOUR Front Lip Protection: $POA\nSTEKDYNOFLEX Windscreen Protection Film: $790\nXPEL PPF EssentialsKit: $500(Very popular)\n\nHeadlights/Foglights\nA/B/C/DPillars\nLuggage Kit (RearBoot Strip)\n\nWindow Tinting\nFullCar Ceramic Tint: $600\nFull Car CarbonTint: $400\nPrivacy Glass Match: $300",
             "posts": 2,
-            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"]
+            "subscribers": ["8", "2", "1", "5", "7", "10", "6", "3", "9", "4"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "19",
@@ -218,7 +269,10 @@
             "location": "4 Queen St. Revesby Sydney NSW Australia 2196",
             "description": "Specialise in: Detailing and Paint Protection\nPhone number: (02) 9773 7595\nPrices\n\nFacefilt: (front dash, sterring wheel and door panels) - $2000, $ 10,000 \n\nExtravigant: (front dash,front seats and back seats, steering wheel and door panels) - $15,000 – $19,000\n\nFull makeover: (front dash,front seats and back seats, control panel, lining covers stitching, lighting, roof and covers, leather door seals, steering wheel and door panels) - $20,000 - $45000",
             "posts": 2,
-            "subscribers": ["3", "7", "6", "2", "1", "4", "8", "9", "10", "5"]
+            "subscribers": ["3", "7", "6", "2", "1", "4", "8", "9", "10", "5"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         },
         {
             "userId": "20",
@@ -229,7 +283,10 @@
             "location": "5/35 Lusher Rd,Croydon, VIC, 3136 AUSTRALIA",
             "description": "Specialise in: Leather Seat Upgrades\nPhone number: 0405 818 360\n\nFacefilt: (front dash, steering wheel and door panels) $4000 \nExtravigant: (front dash,front seats and back seats, steering wheel and door panels) $13000 \nFull makeover: (front dash,front seats and back seats, control panel, lining covers stitching, lighting, roof and covers, leather door seals, steering wheel and door panels)- $34000",
             "posts": 2,
-            "subscribers": ["3", "7", "6", "2", "1", "4", "8", "9", "10", "5"]
+            "subscribers": ["3", "7", "6", "2", "1", "4", "8", "9", "10", "5"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false 
         }
     ],
 
