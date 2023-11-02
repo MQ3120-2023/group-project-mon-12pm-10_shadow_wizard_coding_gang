@@ -71,7 +71,8 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
           });
   
           if (!response.ok) {
-              throw new Error("Failed to create post");
+              throw new Error("Failed to create post"),
+              console.log(response)
           }
   
           const data = await response.json();
