@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import HomePosts from "../components/HomePosts";
 import NavBar from "../components/NavBar";
@@ -6,7 +7,13 @@ import ButtonBarPosts from "../components/ButtonBarPosts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
 
-const HomePage = () => {      
+const HomePage = () => {
+    const [sortType, setSortType] = useState('latest'); // Add this line
+
+    const handleSortChange = (newSortType) => { // Add this function
+        setSortType(newSortType);
+    };
+
     return (
         
         <main id="main-container">
@@ -28,10 +35,10 @@ const HomePage = () => {
             </nav>
 
             <section id="mid-container">
-                <ButtonBarPosts/>
+            <ButtonBarPosts onSortChange={handleSortChange}/> {/* Modify this line */}
 
-                <HomePosts/>
-            </section>
+            <HomePosts sortType={sortType}/> {/* Modify this line */}
+        </section>
 
             <aside id="info-container">
                 <Info infoType="Upcoming Events"/>

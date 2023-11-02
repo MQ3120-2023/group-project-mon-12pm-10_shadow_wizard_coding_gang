@@ -42,20 +42,21 @@ const postSchema = new mongoose.Schema({
     postId: Number,
     userId: Number,
     carId: Number,
-    date: String,
+    date: Date,
     description: String,
     images: [String],
     likes: [Number],
-    comments: [Number],
+    comments: Number,
 });
 const Post = mongoose.model("Post", postSchema);
 
-// Post Schema and Model
+// Event Schema and Model
 const eventSchema = new mongoose.Schema({
     eventId: Number,
     userId: Number,
+    title: String,
     location: String,
-    date: String,
+    date: Date,
     description: String,
     banner: String,
     attendees: [Number],
@@ -133,15 +134,25 @@ app.get("/getAllCars", async (req, res) => {
 // Endpoint to get all posts along with their cars and users
 app.get("/getHomePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
+    const sortType = req.query.sortType;
     const limit = 10; // Number of posts per page
 
     try {
-        const allPosts = await Post.find({})
-            .skip((page - 1) * limit)
-            .limit(limit);
+        // Step 1: Fetch all posts
+        let allPosts = await Post.find({});
 
-        const carIds = allPosts.map((post) => post.carId);
-        const userIds = allPosts.map((post) => post.userId);
+        // Step 2: Sort posts based on 'sortType'
+        if (sortType === "popular") {
+            allPosts.sort((a, b) => b.likes.length - a.likes.length);
+        } else if (sortType === "latest") {
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        // Step 3: Apply pagination
+        const paginatedPosts = allPosts.slice((page - 1) * limit, page * limit);
+
+        const carIds = paginatedPosts.map((post) => post.carId);
+        const userIds = paginatedPosts.map((post) => post.userId);
 
         const allCars = await Car.find({ 'carId': { $in: carIds } });
         const allUsers = await User.find({ 'userId': { $in: userIds } });
@@ -156,7 +167,7 @@ app.get("/getHomePosts", async (req, res) => {
             userMap[user.userId] = user;
         });
 
-        const enrichedPosts = allPosts.map((post) => ({
+        const enrichedPosts = paginatedPosts.map((post) => ({
             ...post._doc,
             car: carMap[post.carId],
             user: userMap[post.userId],
@@ -167,6 +178,7 @@ app.get("/getHomePosts", async (req, res) => {
         res.status(500).json({ message: "Error fetching data" });
     }
 });
+
 
 // Endpoint to get all profile posts along with their cars and users
 app.get("/getProfilePosts", async (req, res) => {
@@ -208,6 +220,7 @@ app.get("/getProfilePosts", async (req, res) => {
         res.status(500).json({ message: "Error fetching profile posts" });
     }
 });
+
 
 app.get("/getExplorePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
@@ -270,9 +283,9 @@ app.get("/getExploreCars", async (req, res) => {
         const allCars = await Car.find({})
             .skip((page - 1) * limit)
             .limit(limit);
-        const ownerIds = allCars.map((car) => car.owner);
+        const userIds = allCars.map((car) => car.userId);
 
-        const allUsers = await User.find({ 'userId': { $in: ownerIds } });
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
 
         const userMap = {};
         allUsers.forEach((user) => {
