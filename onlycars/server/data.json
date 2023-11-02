@@ -25,7 +25,11 @@
             "description": "Mud, rocks, and off-road adrenaline! I'm Max, your guide to thrilling off-roading escapades. Get ready to conquer the untamed trails.",
             "cars": 7,
             "posts": 3,
-            "subscribers": ["5", "6", "1", "7", "2", "9", "8", "4", "3", "10"]
+            "subscribers": ["5", "6", "1", "7", "2", "9", "8", "4", "3", "10"],
+            "Gender": "Male",
+            "Language": "English",
+            "darkMode": false
+            
         },
         {
             "userId": "3",
@@ -143,7 +147,7 @@
             "cars": 9,
             "posts": 3,
             "subscribers": ["7", "9", "5", "2", "4", "1", "6", "8", "10", "3"],
-            "Gender": "Male",
+            "Gender": "Female",
             "Language": "English",
             "darkMode": false 
         },
