@@ -7,6 +7,7 @@ import Info from "../components/Info";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
+import NewPostModal from "../components/NewPostModal";
 
 const HomePage = () => {
     const [activeButton, setActiveButton] = useState(1);
