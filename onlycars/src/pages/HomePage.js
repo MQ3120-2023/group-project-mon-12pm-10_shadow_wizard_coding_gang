@@ -6,16 +6,12 @@ import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import ButtonBarPosts from "../components/ButtonBarPosts";
 
-
 const HomePage = () => {
     const [activeButton, setActiveButton] = useState(1);
-    // const [isNewPostModalOpen, setIsNewPostModalOpen] = useState(false);
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
-
-
 
     return (
         <main id="main-container">
@@ -42,7 +38,6 @@ const HomePage = () => {
             <aside id="info-container">
                 <Info infoType="Upcoming Events" />
             </aside>
-            
         </main>
     );
 };

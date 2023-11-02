@@ -5,9 +5,19 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const app = express();
-const MongoStore = require('connect-mongo');
-const path = require('path');
-app.use(express.static("build"))
+const MongoStore = require("connect-mongo");
+const path = require("path");
+app.use(express.static("build"));
+
+// Require and Configure Cloudinary
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+    cloud_name: "dv8lielzo",
+    api_key: "634461358736993",
+    api_secret: "RHcW0kHba10sh9AUuzp65qDPynM",
+    secure: true,
+});
 
 // Import Mongoose Schemas and Models
 const userSchema = new mongoose.Schema({
@@ -98,7 +108,27 @@ app.use(
 app.use(bodyParser.json());
 
 //
-// Endpoint to fetch Data from MongoDB
+// Endpoint to upload images to Cloudinary
+//
+
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+
+app.post("/upload", upload.single("image"), async (req, res) => {
+    try {
+        const result = await cloudinary.uploader.upload(req.file.path);
+        res.json({ url: result.secure_url });
+    } catch (error) {
+        console.error("Error uploading to Cloudinary:", error);
+        res.status(500).send("Error uploading image");
+    } finally {
+        // Delete the uploaded file from the server
+        fs.unlinkSync(req.file.path);
+    }
+});
+
+//
+// Endpoints to fetch Data from MongoDB
 //
 
 // Endpoint to get all posts
@@ -146,8 +176,8 @@ app.get("/getHomeLatest", async (req, res) => {
         const carIds = latestPosts.map((post) => post.carId);
         const userIds = latestPosts.map((post) => post.userId);
 
-        const allCars = await Car.find({ 'carId': { $in: carIds } });
-        const allUsers = await User.find({ 'userId': { $in: userIds } });
+        const allCars = await Car.find({ carId: { $in: carIds } });
+        const allUsers = await User.find({ userId: { $in: userIds } });
 
         const carMap = {};
         allCars.forEach((car) => {
@@ -182,14 +212,14 @@ app.get("/getHomePopular", async (req, res) => {
             { $addFields: { likesCount: { $size: "$likes" } } },
             { $sort: { likesCount: -1, date: -1 } },
             { $skip: (page - 1) * limit },
-            { $limit: limit }
+            { $limit: limit },
         ]);
 
         const carIds = popularPosts.map((post) => post.carId);
         const userIds = popularPosts.map((post) => post.userId);
 
-        const allCars = await Car.find({ 'carId': { $in: carIds } });
-        const allUsers = await User.find({ 'userId': { $in: userIds } });
+        const allCars = await Car.find({ carId: { $in: carIds } });
+        const allUsers = await User.find({ userId: { $in: userIds } });
 
         const carMap = {};
         allCars.forEach((car) => {
@@ -213,8 +243,6 @@ app.get("/getHomePopular", async (req, res) => {
     }
 });
 
-
-
 // Endpoint to get all profile posts along with their cars and users
 app.get("/getProfilePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
@@ -225,13 +253,13 @@ app.get("/getProfilePosts", async (req, res) => {
         const currentUserId = req.session.currentUser.userId;
 
         // Fetch posts related to the currentUser
-        const profilePosts = await Post.find({ 'userId': currentUserId })
+        const profilePosts = await Post.find({ userId: currentUserId })
             .skip((page - 1) * limit)
             .limit(limit);
 
         // Fetch related cars and users
-        const allCars = await Car.find({ 'carId': { $in: carIds } });
-        const allUsers = await User.find({ 'userId': currentUserId });
+        const allCars = await Car.find({ carId: { $in: carIds } });
+        const allUsers = await User.find({ userId: currentUserId });
 
         const carMap = {};
         allCars.forEach((car) => {
@@ -256,7 +284,6 @@ app.get("/getProfilePosts", async (req, res) => {
     }
 });
 
-
 app.get("/getExplorePosts", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = 10; // Number of posts per page
@@ -269,8 +296,8 @@ app.get("/getExplorePosts", async (req, res) => {
         const carIds = allPosts.map((post) => post.carId);
         const userIds = allPosts.map((post) => post.userId);
 
-        const allCars = await Car.find({ 'carId': { $in: carIds } });
-        const allUsers = await User.find({ 'userId': { $in: userIds } });
+        const allCars = await Car.find({ carId: { $in: carIds } });
+        const allUsers = await User.find({ userId: { $in: userIds } });
 
         const carMap = {};
         allCars.forEach((car) => {
@@ -320,7 +347,7 @@ app.get("/getExploreCars", async (req, res) => {
             .limit(limit);
         const userIds = allCars.map((car) => car.userId);
 
-        const allUsers = await User.find({ 'userId': { $in: userIds } });
+        const allUsers = await User.find({ userId: { $in: userIds } });
 
         const userMap = {};
         allUsers.forEach((user) => {
@@ -353,7 +380,7 @@ app.get("/getExploreEvents", async (req, res) => {
         const userIds = allEvents.map((event) => event.userId);
 
         // Fetch all related users
-        const allUsers = await User.find({ 'userId': { $in: userIds } });
+        const allUsers = await User.find({ userId: { $in: userIds } });
 
         // Create a map for quick lookup of user data
         const userMap = {};
@@ -373,6 +400,35 @@ app.get("/getExploreEvents", async (req, res) => {
     }
 });
 
+//
+// Creating Data in MongoDB
+//
+
+app.post("/createPost", async (req, res) => {
+    try {
+        // Validate and process the incoming data
+        const { description, carId, images, userId } = req.body;
+        if (!description || !carId || !images || images.length === 0 || !userId) {
+            return res.status(400).send("Invalid post data");
+        }
+
+        // Create a new post
+        const newPost = new Post({
+            userId, // Use the user's ID from the request body
+            carId,
+            date: new Date(),
+            description,
+            images,
+            likes: [],
+            comments: 0, // Initialize with zero comments
+        });
+        await newPost.save();
+        res.status(201).json(newPost);
+    } catch (error) {
+        console.error("Error creating post:", error);
+        res.status(500).send("Error creating post");
+    }
+});
 
 //
 // User Authentication
@@ -454,8 +510,8 @@ app.post("/logout", (req, res) => {
     });
 });
 
-app.get('*', function (req, res) {
-    res.sendFile('index.html', { root: path.join(__dirname, '../build/') });
+app.get("*", function (req, res) {
+    res.sendFile("index.html", { root: path.join(__dirname, "../build/") });
 });
 
 // Start the server
