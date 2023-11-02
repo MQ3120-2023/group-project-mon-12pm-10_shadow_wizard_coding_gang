@@ -766,3 +766,59 @@ form button:hover {
 #event-date {
 	text-align: left;
 }
+
+.settings-box {
+	width: 550px;
+	background-color: var(--tertiary-colour);
+	height: max-content;
+	padding: 1vh 5%;
+	border-radius: 5px;
+}
+
+.settings-header {
+	text-align: center;
+	font-size: 20pt;
+	font-weight: 500;
+	width: 90%;
+	padding-bottom: 1vh;
+}
+
+.settings-list form {
+	width: 90%;
+	background-color: var(--primary-colour);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.settings-list form label {
+	margin-left: 5%;
+	margin-top: 1vh;
+	margin-bottom: 0.5vh;
+}
+
+.settings-list form input {
+	margin-left: 5%;
+	margin-top: 0;
+	margin-bottom: 1vh;
+	width: 80%;
+	max-width: none;
+}
+
+.settings-list form button {
+	margin-bottom: 1vh;
+	width: fit-content;
+	max-width: none;
+	padding: 0.5vh 1vw;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--input-text);
+    margin-top: 1em 0;
+    padding: 0;
+	width: 90%;
+	margin-left: 5%;
+}
