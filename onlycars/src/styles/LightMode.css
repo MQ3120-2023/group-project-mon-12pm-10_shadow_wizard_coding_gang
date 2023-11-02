@@ -213,7 +213,6 @@ form button:hover {
 #info-container {
 	grid-area: 2 / 3 / 3 / 4;
 	width: 100%;
-	height: 100%;
 }
 
 #searchbar {
@@ -663,6 +662,10 @@ form button:hover {
 	height: 400px;
 	border-radius: 5px;
 	margin-bottom: 5vh;
+	padding-bottom: 0.5vh;
+	height: max-content;
+	max-height: 1000px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #info-header {
@@ -679,24 +682,27 @@ form button:hover {
 	width: 90%;
 	margin-left: 5%;
 	border-radius: 5px;
-	height: 320px;
+	max-height: 700px;
+	overflow: scroll;
+	height: fit-content;
 }
 
-.home-event-container {
+.info-card-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 1vh 1vh;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home-event-image {
+.info-card-image {
 	width: 5vh;
 	height: 5vh;
 	object-fit: cover;
 	border-radius: 5px;
 }
 
-.home-event-right p {
+.info-card-right p {
 	text-align: right;
 	width: 100%;
 }

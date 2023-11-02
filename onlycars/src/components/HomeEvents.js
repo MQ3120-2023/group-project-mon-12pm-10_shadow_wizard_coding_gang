@@ -52,15 +52,15 @@ const HomeEvents = () => {
                 {events.map((event, index) => {
                     const user = event.user;
                     return (
-                        <section className="home-event-container" key={index}>
+                        <section className="info-card-container" key={index}>
                             <img
-                                className="home-event-image"
+                                className="info-card-image"
                                 src={event.banner}
                                 alt="Event Banner"
                             />
-                            <section className="home-event-right">
-                                <header className="home-event-header">
-                                    <p className="home-event-name">
+                            <section className="info-card-right">
+                                <header className="info-card-header">
+                                    <p className="info-card-name">
                                         <b>{event.title}</b>{" "}<br />
                                         {moment(event.date).format('DD/MM/YYYY')}
                                     </p>
