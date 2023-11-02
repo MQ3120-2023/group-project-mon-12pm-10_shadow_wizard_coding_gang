@@ -1,10 +1,13 @@
+import React from 'react';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
-const NewPostButton = () => {
+const NewPostButton = ({ onClick }) => {
+    return (
+        <button className="new-button" onClick={onClick}>
+            <PostAddIcon className="new-button-icon" style={{ fontSize: 40 }} />
+            New Post
+        </button>
+    );
+};
 
-    return(
-        <button className="new-button"><PostAddIcon className="new-button-icon" style={{ fontSize: 40 }}/>New Post</button>
-    )
-}
-
-export default NewPostButton
+export default NewPostButton;

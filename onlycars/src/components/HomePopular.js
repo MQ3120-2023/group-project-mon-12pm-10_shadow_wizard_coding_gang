@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import moment from"moment";
 
 
-const HomePosts = ({ sortType }) => {
+const HomePopular = ({ sortType }) => {
     const [posts, setPosts] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -15,7 +15,7 @@ const HomePosts = ({ sortType }) => {
     const fetchMoreData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3001/getHomePosts?page=${page}&sortType=${sortType}`
+                `http://localhost:3001/getHomePopular?page=${page}`
             );
             if (response.data.length > 0) {
                 setPosts([...posts, ...response.data]);
@@ -30,8 +30,13 @@ const HomePosts = ({ sortType }) => {
     
 
     useEffect(() => {
-        fetchMoreData(); // Initial fetch
-        //console.log("Posts after initial fetch:", posts);
+        // Reset state variables
+        setPosts([]);
+        setHasMore(true);
+        setPage(1);
+    
+        // Fetch initial data based on new sortType
+        fetchMoreData();
     }, [sortType]);
 
     const settings = {
@@ -73,7 +78,7 @@ const HomePosts = ({ sortType }) => {
                             ) : (
                                 <p>No car information available.</p>
                             )}
-                            <p>{post.description}</p>
+                            <p>{post.likes.length}<br/>{post.description}</p>
                             <p>{moment(post.date).format('MMMM Do YYYY, h:mm a')}</p>  
                             <figure className="post-images">
                             {post && post.images && (
@@ -105,4 +110,4 @@ const HomePosts = ({ sortType }) => {
     );
 };
 
-export default HomePosts;
+export default HomePopular;

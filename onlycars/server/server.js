@@ -131,28 +131,20 @@ app.get("/getAllCars", async (req, res) => {
     }
 });
 
-// Endpoint to get all posts along with their cars and users
-app.get("/getHomePosts", async (req, res) => {
+// Endpoint to get latest posts along with their cars and users
+app.get("/getHomeLatest", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
-    const sortType = req.query.sortType;
     const limit = 10; // Number of posts per page
 
     try {
-        // Step 1: Fetch all posts
-        let allPosts = await Post.find({});
+        // Fetch latest posts
+        const latestPosts = await Post.find({})
+            .sort({ date: -1 })
+            .skip((page - 1) * limit)
+            .limit(limit);
 
-        // Step 2: Sort posts based on 'sortType'
-        if (sortType === "popular") {
-            allPosts.sort((a, b) => b.likes.length - a.likes.length);
-        } else if (sortType === "latest") {
-            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        }
-
-        // Step 3: Apply pagination
-        const paginatedPosts = allPosts.slice((page - 1) * limit, page * limit);
-
-        const carIds = paginatedPosts.map((post) => post.carId);
-        const userIds = paginatedPosts.map((post) => post.userId);
+        const carIds = latestPosts.map((post) => post.carId);
+        const userIds = latestPosts.map((post) => post.userId);
 
         const allCars = await Car.find({ 'carId': { $in: carIds } });
         const allUsers = await User.find({ 'userId': { $in: userIds } });
@@ -167,7 +159,7 @@ app.get("/getHomePosts", async (req, res) => {
             userMap[user.userId] = user;
         });
 
-        const enrichedPosts = paginatedPosts.map((post) => ({
+        const enrichedPosts = latestPosts.map((post) => ({
             ...post._doc,
             car: carMap[post.carId],
             user: userMap[post.userId],
@@ -175,9 +167,52 @@ app.get("/getHomePosts", async (req, res) => {
 
         res.status(200).json(enrichedPosts);
     } catch (error) {
-        res.status(500).json({ message: "Error fetching data" });
+        res.status(500).json({ message: "Error fetching latest posts" });
     }
 });
+
+// Endpoint to get popular posts along with their cars and users
+app.get("/getHomePopular", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 10; // Number of posts per page
+
+    try {
+        // Fetch popular posts
+        const popularPosts = await Post.aggregate([
+            { $addFields: { likesCount: { $size: "$likes" } } },
+            { $sort: { likesCount: -1, date: -1 } },
+            { $skip: (page - 1) * limit },
+            { $limit: limit }
+        ]);
+
+        const carIds = popularPosts.map((post) => post.carId);
+        const userIds = popularPosts.map((post) => post.userId);
+
+        const allCars = await Car.find({ 'carId': { $in: carIds } });
+        const allUsers = await User.find({ 'userId': { $in: userIds } });
+
+        const carMap = {};
+        allCars.forEach((car) => {
+            carMap[car.carId] = car;
+        });
+
+        const userMap = {};
+        allUsers.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        const enrichedPosts = popularPosts.map((post) => ({
+            ...post,
+            car: carMap[post.carId],
+            user: userMap[post.userId],
+        }));
+
+        res.status(200).json(enrichedPosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching popular posts" });
+    }
+});
+
 
 
 // Endpoint to get all profile posts along with their cars and users

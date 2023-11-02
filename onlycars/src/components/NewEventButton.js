@@ -1,10 +1,16 @@
-import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+import React from "react";
+import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 
-const NewEventButton = () => {
+const NewEventButton = ({ onClick }) => {
+    return (
+        <button className="new-button" onClick={onClick}>
+            <EditCalendarIcon
+                className="new-button-icon"
+                style={{ fontSize: 40 }}
+            />
+            New Event
+        </button>
+    );
+};
 
-    return(
-        <button className="new-button"><EditCalendarIcon className="new-button-icon" style={{ fontSize: 40 }}/>New Event</button>
-    )
-}
-
-export default NewEventButton
+export default NewEventButton;
