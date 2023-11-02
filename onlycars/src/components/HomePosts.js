@@ -30,8 +30,13 @@ const HomePosts = ({ sortType }) => {
     
 
     useEffect(() => {
-        fetchMoreData(); // Initial fetch
-        //console.log("Posts after initial fetch:", posts);
+        // Reset state variables
+        setPosts([]);
+        setHasMore(true);
+        setPage(1);
+    
+        // Fetch initial data based on new sortType
+        fetchMoreData();
     }, [sortType]);
 
     const settings = {
@@ -73,7 +78,7 @@ const HomePosts = ({ sortType }) => {
                             ) : (
                                 <p>No car information available.</p>
                             )}
-                            <p>{post.description}</p>
+                            <p>{post.likes.length}<br/>{post.description}</p>
                             <p>{moment(post.date).format('MMMM Do YYYY, h:mm a')}</p>  
                             <figure className="post-images">
                             {post && post.images && (

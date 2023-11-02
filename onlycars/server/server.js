@@ -140,6 +140,7 @@ app.get("/getHomePosts", async (req, res) => {
     try {
         // Step 1: Fetch all posts
         let allPosts = await Post.find({});
+        console.log(allPosts.map(post => post.likes.length));
 
         // Step 2: Sort posts based on 'sortType'
         if (sortType === "popular") {
@@ -147,6 +148,8 @@ app.get("/getHomePosts", async (req, res) => {
         } else if (sortType === "latest") {
             allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
         }
+        
+        console.log(allPosts.map(post => post.likes.length));
 
         // Step 3: Apply pagination
         const paginatedPosts = allPosts.slice((page - 1) * limit, page * limit);
