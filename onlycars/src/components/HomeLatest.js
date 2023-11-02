@@ -5,12 +5,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from"moment";
+import PostImageModal from "./PostImageModal";
 
 
 const HomeLatest = ({ sortType }) => {
     const [posts, setPosts] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
+    const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
 
     const fetchMoreData = async () => {
         try {
@@ -35,7 +38,7 @@ const HomeLatest = ({ sortType }) => {
         setHasMore(true);
         setPage(1);
     
-        // Fetch initial data based on new sortType
+        // Fetch initial data based on sortType
         fetchMoreData();
     }, [sortType]);
 
@@ -46,6 +49,13 @@ const HomeLatest = ({ sortType }) => {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+
+    const openImageModal = (src) => {
+		setIsImageModalOpen(true);
+	};
+	const closeImageModal = () => {
+		setIsImageModalOpen(false);
+	};
 
     return (
         <section id="posts-container">
@@ -89,6 +99,7 @@ const HomeLatest = ({ sortType }) => {
                                             key={imgIndex}
                                             src={image}
                                             alt={`Post image ${imgIndex + 1}`}
+                                            onClick={openImageModal}
                                         />
                                     ))}
                                 </Slider>
@@ -106,6 +117,7 @@ const HomeLatest = ({ sortType }) => {
                     );
                 })}
             </InfiniteScroll>
+            <PostImageModal isOpen={isImageModalOpen} onRequestClose={closeImageModal} />
         </section>
     );
 };
