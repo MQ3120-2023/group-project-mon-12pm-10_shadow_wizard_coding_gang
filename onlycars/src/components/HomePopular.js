@@ -82,7 +82,6 @@ const HomePopular = ({ sortType }) => {
                             <p>{moment(post.date).format('MMMM Do YYYY, h:mm a')}</p>  
                             <figure className="post-images">
                             {post && post.images && (
-                                console.log("Rendering images for post:", post.images),
                                 <Slider {...settings}>
                                     {post.images.map((image, imgIndex) => (
                                         <img
