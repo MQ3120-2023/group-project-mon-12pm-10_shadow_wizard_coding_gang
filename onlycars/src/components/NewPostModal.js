@@ -1,8 +1,23 @@
-const NewPostModal = () => {
+import React from 'react';
+import Modal from 'react-modal';
 
-    return(
-        console.log("Cheese")
-    )
-}
+const NewPostModal = ({ isOpen, onRequestClose }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="New Post"
+      className="modal"
+      overlayClassName="overlay"
+    >
+      <h2>New Post</h2>
+      <form>
+        {/* Add your form fields here */}
+        <button type="submit">Submit</button>
+      </form>
+      <button onClick={onRequestClose}>Close</button>
+    </Modal>
+  );
+};
 
-export default NewPostModal
+export default NewPostModal;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from 'react-modal';
 import SearchBar from "../components/SearchBar";
 import HomeLatest from "../components/HomeLatest";
 import HomePopular from "../components/HomePopular";
@@ -9,10 +10,22 @@ import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
 import NewPostModal from "../components/NewPostModal";
 
+Modal.setAppElement('#root'); // Add this line to avoid accessibility errors
+
 const HomePage = () => {
     const [activeButton, setActiveButton] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
+    };
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -29,7 +42,7 @@ const HomePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
-                <NewPostButton />
+                <NewPostButton onClick={openModal} />
                 <NewEventButton />
             </nav>
 
@@ -42,6 +55,7 @@ const HomePage = () => {
             <aside id="info-container">
                 <Info infoType="Upcoming Events" />
             </aside>
+            <NewPostModal isOpen={isModalOpen} onRequestClose={closeModal} />
         </main>
     );
 };

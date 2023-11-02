@@ -178,10 +178,12 @@ app.get("/getHomePopular", async (req, res) => {
 
     try {
         // Fetch popular posts
-        const popularPosts = await Post.find({})
-            .sort({ 'likes.length': -1, date: -1 })
-            .skip((page - 1) * limit)
-            .limit(limit);
+        const popularPosts = await Post.aggregate([
+            { $addFields: { likesCount: { $size: "$likes" } } },
+            { $sort: { likesCount: -1, date: -1 } },
+            { $skip: (page - 1) * limit },
+            { $limit: limit }
+        ]);
 
         const carIds = popularPosts.map((post) => post.carId);
         const userIds = popularPosts.map((post) => post.userId);
@@ -200,7 +202,7 @@ app.get("/getHomePopular", async (req, res) => {
         });
 
         const enrichedPosts = popularPosts.map((post) => ({
-            ...post._doc,
+            ...post,
             car: carMap[post.carId],
             user: userMap[post.userId],
         }));
@@ -210,6 +212,7 @@ app.get("/getHomePopular", async (req, res) => {
         res.status(500).json({ message: "Error fetching popular posts" });
     }
 });
+
 
 
 // Endpoint to get all profile posts along with their cars and users
