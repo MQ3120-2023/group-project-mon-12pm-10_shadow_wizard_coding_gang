@@ -39,7 +39,6 @@ const ProfileCars = () => {
 	};
 
 	return (
-		<section id="posts-container">
 			<InfiniteScroll
 				dataLength={cars.length}
 				next={fetchMoreData}
@@ -70,7 +69,6 @@ const ProfileCars = () => {
 					);
 				})}
 			</InfiniteScroll>
-		</section>
 	);
 };
 

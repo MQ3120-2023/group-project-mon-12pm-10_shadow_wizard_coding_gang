@@ -40,7 +40,6 @@ const HomeEvents = () => {
     }, []);
 
     return (
-        <section id="posts-container">
             <InfiniteScroll
                 dataLength={events.length}
                 next={fetchMoreData}
@@ -70,7 +69,6 @@ const HomeEvents = () => {
                     );
                 })}
             </InfiniteScroll>
-        </section>
     );
 };
 

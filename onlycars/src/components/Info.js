@@ -9,7 +9,7 @@ const Info = ({ infoType }) => {
     return (
         <section id="info-box">
             <p id="info-header">{infoType}</p>
-            <div id="info-list">
+            <div className="info-list">
                 {currentPath === "/home" && <HomeEvents/>}
                 {currentPath === "/profile" && <ProfileCars/>}
                 {currentPath === "/explore" && <p>Function 3</p>}
