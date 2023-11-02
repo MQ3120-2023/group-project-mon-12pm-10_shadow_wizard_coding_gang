@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import moment from"moment";
 
 
-const HomePosts = ({ sortType }) => {
+const HomePopular = ({ sortType }) => {
     const [posts, setPosts] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -15,7 +15,7 @@ const HomePosts = ({ sortType }) => {
     const fetchMoreData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3001/getHomePosts?page=${page}&sortType=${sortType}`
+                `http://localhost:3001/getHomePopular?page=${page}`
             );
             if (response.data.length > 0) {
                 setPosts([...posts, ...response.data]);
@@ -110,4 +110,4 @@ const HomePosts = ({ sortType }) => {
     );
 };
 
-export default HomePosts;
+export default HomePopular;
