@@ -9,23 +9,31 @@ import ButtonBarPosts from "../components/ButtonBarPosts";
 import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
 import NewPostModal from "../components/NewPostModal";
+import NewEventModal from "../components/NewEventModal";
 
 Modal.setAppElement('#root'); // Add this line to avoid accessibility errors
 
 const HomePage = () => {
     const [activeButton, setActiveButton] = useState(1);
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+    const [isNewPostModalOpen, setIsNewPostModalOpen] = useState(false);
+    const [isNewEventModalOpen, setIsNewEventModalOpen] = useState(false); // State to manage modal visibility
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
 
-    const openModal = () => {
-        setIsModalOpen(true);
+    const openNewPostModal = () => {
+        setIsNewPostModalOpen(true);
+    };
+    const closeNewPostModal = () => {
+        setIsNewPostModalOpen(false);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const openNewEventModal = () => {
+        setIsNewEventModalOpen(true);
+    };
+    const closeNewEventModal = () => {
+        setIsNewEventModalOpen(false);
     };
 
     return (
@@ -42,8 +50,8 @@ const HomePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
-                <NewPostButton onClick={openModal} />
-                <NewEventButton />
+                <NewPostButton onClick={openNewPostModal} />
+                <NewEventButton onClick={openNewEventModal} />
             </nav>
 
             <section id="mid-container">
@@ -55,7 +63,8 @@ const HomePage = () => {
             <aside id="info-container">
                 <Info infoType="Upcoming Events" />
             </aside>
-            <NewPostModal isOpen={isModalOpen} onRequestClose={closeModal} />
+            <NewEventModal isOpen={isNewEventModalOpen} onRequestClose={closeNewEventModal} />
+            <NewPostModal isOpen={isNewPostModalOpen} onRequestClose={closeNewPostModal} />
         </main>
     );
 };
