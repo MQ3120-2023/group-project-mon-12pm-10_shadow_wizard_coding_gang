@@ -12,6 +12,8 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ExploreIcon from '@mui/icons-material/Explore';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import NewPostButton from "../components/NewPostButton";
+
 
 const NavBar = () => {
     const currentUser = useContext(CurrentUserContext);
@@ -77,6 +79,7 @@ const NavBar = () => {
                 <Route path="/subscriptions" element={<SubsPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
             </Routes>
+            <NewPostButton/>{/*onClick={openNewPostModal*/}
         </section>
     );
 };

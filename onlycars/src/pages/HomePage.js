@@ -6,28 +6,26 @@ import HomePopular from "../components/HomePopular";
 import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import ButtonBarPosts from "../components/ButtonBarPosts";
-import NewPostButton from "../components/NewPostButton";
 import NewEventButton from "../components/NewEventButton";
-import NewPostModal from "../components/NewPostModal";
 import NewEventModal from "../components/NewEventModal";
 
 Modal.setAppElement('#root'); // Add this line to avoid accessibility errors
 
 const HomePage = () => {
     const [activeButton, setActiveButton] = useState(1);
-    const [isNewPostModalOpen, setIsNewPostModalOpen] = useState(false);
+    // const [isNewPostModalOpen, setIsNewPostModalOpen] = useState(false);
     const [isNewEventModalOpen, setIsNewEventModalOpen] = useState(false); // State to manage modal visibility
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
 
-    const openNewPostModal = () => {
-        setIsNewPostModalOpen(true);
-    };
-    const closeNewPostModal = () => {
-        setIsNewPostModalOpen(false);
-    };
+    // const openNewPostModal = () => {
+    //     setIsNewPostModalOpen(true);
+    // };
+    // const closeNewPostModal = () => {
+    //     setIsNewPostModalOpen(false);
+    // };
 
     const openNewEventModal = () => {
         setIsNewEventModalOpen(true);
@@ -50,7 +48,7 @@ const HomePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
-                <NewPostButton onClick={openNewPostModal} />
+                
                 <NewEventButton onClick={openNewEventModal} />
             </nav>
 
@@ -64,7 +62,7 @@ const HomePage = () => {
                 <Info infoType="Upcoming Events" />
             </aside>
             <NewEventModal isOpen={isNewEventModalOpen} onRequestClose={closeNewEventModal} />
-            <NewPostModal isOpen={isNewPostModalOpen} onRequestClose={closeNewPostModal} />
+            {/* <NewPostModal isOpen={isNewPostModalOpen} onRequestClose={closeNewPostModal} /> */}
         </main>
     );
 };
