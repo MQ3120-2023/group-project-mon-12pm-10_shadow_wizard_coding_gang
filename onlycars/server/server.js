@@ -254,39 +254,89 @@ app.get("/getHomePopular", async (req, res) => {
     }
 });
 
-// Endpoint to get all profile posts along with their cars and users
-app.get("/getProfilePosts", async (req, res) => {
+// Endpoint to get all posts for the current user, sorted by date
+app.get("/getProfileLatest", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
+    const userId = req.query.userId; // Get the userId from the query parameter
     const limit = 10; // Number of posts per page
 
     try {
-        // Assuming the currentUser's ID is stored in the session
-        const currentUserId = req.session.currentUser.userId;
+        if (!userId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
 
-        // Fetch posts related to the currentUser
-        const profilePosts = await Post.find({ userId: currentUserId })
+        // Fetch posts related to the provided userId
+        const profilePosts = await Post.find({ userId: userId })
+            .sort({ date: -1 })
             .skip((page - 1) * limit)
             .limit(limit);
 
-        // Fetch related cars and users
+        const carIds = profilePosts.map((post) => post.carId);
+
+        // Fetch related cars
         const allCars = await Car.find({ carId: { $in: carIds } });
-        const allUsers = await User.find({ userId: currentUserId });
+
+        // Fetch the user data for the userId
+        const user = await User.findOne({ userId: userId });
 
         const carMap = {};
         allCars.forEach((car) => {
             carMap[car.carId] = car;
         });
 
-        const userMap = {};
-        allUsers.forEach((user) => {
-            userMap[user.userId] = user;
-        });
-
         // Enrich posts with car and user data
         const enrichedProfilePosts = profilePosts.map((post) => ({
             ...post._doc,
             car: carMap[post.carId],
-            user: userMap[post.userId],
+            user: user, // Since all posts are from the same user, we can directly assign the user object
+        }));
+
+        res.status(200).json(enrichedProfilePosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching profile posts" });
+    }
+});
+
+// Endpoint to get all posts for the current user, sorted by likes
+app.get("/getProfilePopular", async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const userId = req.query.userId; // Get the userId from the query parameter
+    const limit = 10; // Number of posts per page
+
+    try {
+        if (!userId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
+
+        // Fetch posts related to the provided userId
+        const profilePosts = await Post.aggregate([
+            { $match: { userId: parseInt(userId) } },
+            { $addFields: { likesCount: { $size: "$likes" } } },
+            { $sort: { likesCount: -1, date: -1 } },
+            { $skip: (page - 1) * limit },
+            { $limit: limit },
+        ]);
+
+        // Extract carIds from profilePosts
+        const carIds = profilePosts.map((post) => post.carId);
+
+        // Fetch related cars
+        const allCars = await Car.find({ carId: { $in: carIds } });
+
+        // Fetch the user data
+        const user = await User.findOne({ userId: userId });
+
+        // Create a map for cars
+        const carMap = {};
+        allCars.forEach((car) => {
+            carMap[car.carId] = car;
+        });
+
+        // Enrich posts with car and user data
+        const enrichedProfilePosts = profilePosts.map((post) => ({
+            ...post, // Since we're using aggregate, it's not _doc but the post object itself
+            car: carMap[post.carId],
+            user: user, // Directly assign the user object
         }));
 
         res.status(200).json(enrichedProfilePosts);

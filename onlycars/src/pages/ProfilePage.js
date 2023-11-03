@@ -4,12 +4,19 @@ import Info from "../components/Info";
 import React, { useState } from "react";
 import Profile from "../components/Profile";
 import ButtonBarPosts from "../components/ButtonBarPosts";
-import ProfilePosts from "../components/ProfilePosts";
+import ProfileLatest from "../components/ProfileLatest";
+import ProfilePopular from "../components/ProfilePopular";
 import NewCarButton from "../components/NewCarButton";
 import NewCarModal from "../components/NewCarModal.js";
 
 const ProfilePage = () => {
+    const [activeButton, setActiveButton] = useState(1);
     const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
+
+    const handleButtonClick = (buttonId) => {
+        setActiveButton(buttonId);
+    };
+
     const openNewCarModal = () => {
         setIsNewCarModalOpen(true);
     };
@@ -36,9 +43,10 @@ const ProfilePage = () => {
             <section id="mid-container">
                 <Profile />
 
-                <ButtonBarPosts />
+                <ButtonBarPosts handleButtonClick={handleButtonClick} />
 
-                <ProfilePosts path="getProfilePosts" />
+                {activeButton === 1 && <ProfileLatest />}
+                {activeButton === 2 && <ProfilePopular />}
             </section>
 
             <aside id="info-container">
