@@ -26,7 +26,7 @@ const SettingsSecurity = () => {
 		<main id="main-container">
 			<div className="settings-box">
 				<div className="settings-inside-box">
-					<p className="settings-header">Profile Settings</p>
+					<p className="settings-header">Security Settings</p>
 					<div className="settings-list">
 						<form onSubmit={handleSubmit}>
 							<label>Update Password:</label>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 
 const SettingsProfile = () => {
@@ -27,7 +27,7 @@ const SettingsProfile = () => {
 		<main id="main-container">
 			<div className="settings-box">
 				<div className="settings-inside-box">
-					<p className="settings-header">Security Settings</p>
+					<p className="settings-header">Profile Settings</p>
 					<div className="settings-list">
 						<form onSubmit={handleSubmit}>
 							<label>Username</label>
@@ -48,6 +48,14 @@ const SettingsProfile = () => {
 								required
 							/>
 							<hr />
+							<label>
+								Change Profile Picture
+								<input
+									type="file"
+									name="images"
+									accept="image/*"
+								/>
+							</label>
 							<button type="submit">Save Changes</button>
 						</form>
 					</div>
