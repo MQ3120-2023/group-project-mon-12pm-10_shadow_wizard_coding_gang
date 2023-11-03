@@ -172,6 +172,27 @@ app.get("/getUserCars", async (req, res) => {
     }
 });
 
+// Endpoint to get users that the current user is subscribed to
+app.get("/getUserSubs", async (req, res) => {
+    try {
+        const currentUserId = req.query.userId;
+
+        if (!currentUserId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
+
+        // Find all users where the currentUserId is in their subscribers list
+        const subscriptions = await User.find({
+            subscribers: currentUserId
+        });
+
+        res.status(200).json(subscriptions);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching user's subscriptions" });
+    }
+});
+
+
 // Endpoint to get latest posts along with their cars and users
 app.get("/getHomeLatest", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;

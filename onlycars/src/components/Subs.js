@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { CurrentUserContext } from "../App";
 
 const Subs = ({ path }) => {
+	const currentUser = useContext(CurrentUserContext);
     const [subs, setSubs] = useState([]);
 
     useEffect(() => {
         axios
-            .get("/" + path)
+            .get(`/getUserSubs?userId=${currentUser.currentUser.userId}`)
             .then((response) => {
                 setSubs(response.data);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
             });
-    }, []);
+    }, [currentUser]); // Add currentUser as a dependency for the effect
+    
 
     return (
         <section id="posts-container">
