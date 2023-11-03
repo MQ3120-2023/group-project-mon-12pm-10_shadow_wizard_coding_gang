@@ -401,26 +401,30 @@ app.get("/getExploreEvents", async (req, res) => {
 });
 
 //
-// Creating Data in MongoDB
+// Data Object Creation in MongoDB
 //
 
 app.post("/createPost", async (req, res) => {
     try {
-        // Validate and process the incoming data
         const { description, carId, images, userId } = req.body;
         if (!description || !carId || !images || images.length === 0 || !userId) {
             return res.status(400).send("Invalid post data");
         }
 
+        // Generate a new postId
+        const postCount = await Post.countDocuments();
+        const newPostId = postCount + 1;
+
         // Create a new post
         const newPost = new Post({
-            userId, // Use the user's ID from the request body
+            postId: newPostId,
+            userId,
             carId,
             date: new Date(),
             description,
             images,
             likes: [],
-            comments: 0, // Initialize with zero comments
+            comments: 0,
         });
         await newPost.save();
         res.status(201).json(newPost);
@@ -434,7 +438,7 @@ app.post("/createPost", async (req, res) => {
 // User Authentication
 //
 
-// Basic Authentication
+// Login Authentication
 app.post("/login", async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -454,41 +458,43 @@ app.post("/login", async (req, res) => {
     }
 });
 
-// Credential Creation
+// User SignUp and Creation
 app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        const existingUser = await User.findOne({ Users: { $type: 4 } });
-        {
-            Users: {
-                username: username;
-                email: email;
-            }
-        }
+        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
         if (existingUser) {
-            console.log(existingUser);
             res.status(409).json({ message: "Username/Email already exists" });
         } else {
+            // Generate a new userId
+            const userCount = await User.countDocuments();
+            const newUserId = userCount + 1;
+
             // Create a new user
             const newUser = new User({
+                userId: newUserId,
                 username,
                 email,
-                password, // Note: In a real-world application, make sure to hash the password before storing it
+                password,
                 profilepic: "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721019/Users%20Profile%20Pic/Default3PP_efi8gb.png",
                 location: "Unknown",
                 description: "Hi, I'm new to OnlyCars!",
                 cars: 0,
                 posts: 0,
-                subscribers: "",
+                subscribers: [],
             });
             await newUser.save();
-            res.status(200).json({ message: "SignUp successful" });
+            res.status(201).json({ message: "SignUp successful" });
         }
     } catch (error) {
         console.error("Error during signup:", error);
         res.status(500).json({ message: "Error during signup" });
     }
 });
+
+//
+// Session Management
+//
 
 // Endpoint to get the current user based on the session
 app.get("/currentUser", (req, res) => {
