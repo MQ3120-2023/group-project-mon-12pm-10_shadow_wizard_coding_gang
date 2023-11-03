@@ -2,24 +2,25 @@ import React, { useState, useContext } from "react";
 import Modal from "react-modal";
 import { CurrentUserContext } from "../App";
 
-const NewEventModal = ({ isOpen, onRequestClose }) => {
+const NewCarModal = ({ isOpen, onRequestClose }) => {
     const currentUser = useContext(CurrentUserContext);
-    const [eventData, setEventData] = useState({
-        title: "",
-        location: "",
-        date: "",
-        description: "",
-        banner: null,
+    const [carData, setCarData] = useState({
+        brand: "",
+        model: "",
+        year: "",
+        modifications: "",
+        images: [],
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEventData({ ...eventData, [name]: value });
+        setCarData({ ...carData, [name]: value });
     };
 
     const handleImageChange = (e) => {
         if (e.target.files) {
-            setEventData({ ...eventData, banner: e.target.files[0] });
+            const filesArray = Array.from(e.target.files);
+            setCarData({ ...carData, images: filesArray });
         }
     };
 
@@ -48,31 +49,35 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
-            const bannerUrl = eventData.banner
-                ? await handleImageUpload(eventData.banner)
-                : null;
-    
-            const newEventData = {
-                ...eventData,
+            // Upload images and get their URLs
+            const imageUrls = await Promise.all(
+                carData.images.map(handleImageUpload)
+            );
+
+            // Create car data with image URLs and current user's ID
+            const newCarData = {
+                ...carData,
+                images: imageUrls,
                 userId: currentUser.currentUser.userId,
-                banner: bannerUrl,
             };
-    
-            const response = await fetch("http://localhost:3001/createEvent", {
+
+            // Send car data to server
+            const response = await fetch("http://localhost:3001/createCar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(newEventData),
+                body: JSON.stringify(newCarData),
             });
-    
+
             if (!response.ok) {
-                throw new Error("Failed to create event");
+                throw new Error("Failed to create car");
             }
-    
+
             const data = await response.json();
-            console.log("Event created:", data);
+            console.log("Car created:", data);
             onRequestClose(); // Close the modal after submitting
         } catch (error) {
             console.error("Error:", error);
@@ -83,57 +88,61 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
         <Modal
             isOpen={isOpen}
             onRequestClose={onRequestClose}
-            contentLabel="New Event"
+            contentLabel="New Car"
             className="modal"
             overlayClassName="overlay"
         >
-            <h2>New Event</h2>
+            <h2>Add New Car</h2>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Title:
+                    Brand:
                     <input
                         type="text"
-                        name="title"
-                        value={eventData.title}
+                        name="brand"
+                        value={carData.brand}
                         onChange={handleChange}
                         required
                     />
                 </label>
                 <label>
-                    Location:
+                    Model:
                     <input
                         type="text"
-                        name="location"
-                        value={eventData.location}
+                        name="model"
+                        value={carData.model}
                         onChange={handleChange}
                         required
                     />
                 </label>
                 <label>
-                    Date and Time:
+                    Year:
                     <input
-                        type="datetime-local"
-                        name="date"
-                        value={eventData.date}
+                        type="text"
+                        name="year"
+                        value={carData.year}
                         onChange={handleChange}
                         required
                     />
                 </label>
                 <label>
-                    Description:
-                    <textarea
-                        name="description"
-                        value={eventData.description}
+                    Modifications:
+                    <select
+                        name="modifications"
+                        value={carData.modifications}
                         onChange={handleChange}
                         required
-                    />
+                    >
+                        <option value="Stock">Stock</option>
+                        <option value="Modified">Modified</option>
+                    </select>
                 </label>
                 <label>
-                    Upload Banner:
+                    Upload Images:
                     <input
                         type="file"
-                        name="banner"
+                        name="images"
                         accept="image/*"
+                        multiple
                         onChange={handleImageChange}
                     />
                 </label>
@@ -144,4 +153,4 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
     );
 };
 
-export default NewEventModal;
+export default NewCarModal;

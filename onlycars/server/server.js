@@ -45,7 +45,7 @@ const carSchema = new mongoose.Schema({
     ownership: String,
     brand: String,
     model: String,
-    year: String,
+    year: Number,
     modifications: String,
     images: [String],
 });
@@ -433,7 +433,7 @@ app.post("/createPost", async (req, res) => {
             postId: newPostId,
             userId,
             carId,
-            date: new Date(),
+            date,
             description,
             images,
             likes: [],
@@ -446,6 +446,35 @@ app.post("/createPost", async (req, res) => {
     } catch (error) {
         console.error("Error creating post:", error);
         res.status(500).send("Error creating post");
+    }
+});
+
+app.post('/createCar', async (req, res) => {
+    try {
+        const { brand, model, year, modifications, images, userId } = req.body;
+
+        if (!brand || !model || !year || !userId) {
+            return res.status(400).send('Invalid car data');
+        }
+
+        const carCount = await Car.countDocuments();
+        const newCarId = carCount + 1;
+
+        const newCar = new Car({
+            carId: newCarId,
+            userId,
+            brand,
+            model,
+            year,
+            modifications,
+            images,
+        });
+
+        await newCar.save();
+        res.status(201).json(newCar);
+    } catch (error) {
+        console.error('Error creating car:', error);
+        res.status(500).send('Error creating car');
     }
 });
 

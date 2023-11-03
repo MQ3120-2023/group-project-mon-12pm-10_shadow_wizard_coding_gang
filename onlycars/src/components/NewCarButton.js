@@ -1,10 +1,16 @@
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import React from "react";
+import Modal from "react-modal";
 
-const NewCarButton = () => {
+Modal.setAppElement("#root"); // Add this line to avoid accessibility errors
 
-    return(
-        <button id="new-car-button" className="new-button"><DirectionsCarIcon className="new-button-icon" style={{ fontSize: 40 }}/>New Car</button>
-    )
-}
+const NewCarButton = ({ onClick }) => {
+    return (
+        <button id="new-car-button" className="new-button" onClick={onClick} >
+            <DirectionsCarIcon className="new-button-icon" style={{ fontSize: 40 }} />
+            New Car
+        </button>
+    );
+};
 
-export default NewCarButton
+export default NewCarButton;
