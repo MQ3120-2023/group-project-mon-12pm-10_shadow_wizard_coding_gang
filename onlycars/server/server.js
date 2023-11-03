@@ -41,7 +41,7 @@ const User = mongoose.model("users", userSchema);
 // Car Schema and Model
 const carSchema = new mongoose.Schema({
     carId: Number,
-    owner: Number,
+    userId: Number,
     ownership: String,
     brand: String,
     model: String,
@@ -155,13 +155,21 @@ app.get("/getAllUsers", async (req, res) => {
     }
 });
 
-// Endpoint to get all cars
-app.get("/getAllCars", async (req, res) => {
+// Endpoint to get cars owned by the current user
+app.get("/getUserCars", async (req, res) => {
     try {
-        const allCars = await Car.find({});
-        res.status(200).json(allCars);
+        // Get the userId from the query parameter instead of the session
+        const currentUserId = req.query.userId;
+
+        if (!currentUserId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
+
+        const userCars = await Car.find({ userId: currentUserId });
+        console.log(userCars);
+        res.status(200).json(userCars);
     } catch (error) {
-        res.status(500).json({ message: "Error fetching posts" });
+        res.status(500).json({ message: "Error fetching user's cars" });
     }
 });
 

@@ -1,14 +1,40 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Modal from "react-modal";
 import { CurrentUserContext } from "../App";
 
 const NewPostModal = ({ isOpen, onRequestClose }) => {
     const currentUser = useContext(CurrentUserContext);
+    const [userCars, setUserCars] = useState([]); // State to hold the user's cars
     const [postData, setPostData] = useState({
         description: "",
         carId: "",
         images: [],
     });
+
+    // Function to fetch cars owned by the current user
+    const fetchUserCars = async () => {
+        try {
+            const response = await fetch(
+                `http://localhost:3001/getUserCars?userId=${currentUser.currentUser.userId}`
+            );
+            if (!response.ok) {
+                throw new Error("Failed to fetch cars");
+            }
+            const cars = await response.json();
+            setUserCars(cars); // Update the state with the fetched cars
+            console.log(userCars.map((car) => car.carId));
+        } catch (error) {
+            console.error("Error fetching cars:", error);
+        }
+    };
+
+    // Call fetchUserCars when the modal opens
+    useEffect(() => {
+        if (isOpen) {
+            console.log("Modal is opened");
+            fetchUserCars();
+        }
+    }, [isOpen]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -47,13 +73,13 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
             // Upload images and get their URLs
             const imageUrls = await Promise.all(
                 postData.images.map(handleImageUpload)
             );
-    
+
             // Create post data with image URLs and current user's ID
             const updatedPostData = {
                 description: postData.description,
@@ -61,7 +87,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
                 userId: currentUser.currentUser.userId,
                 carId: postData.carId || null, // Set carId to null if not provided
             };
-    
+
             // Send post data to server
             const response = await fetch("http://localhost:3001/createPost", {
                 method: "POST",
@@ -112,8 +138,11 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
                         onChange={handleChange}
                     >
                         <option value="">None</option>
-                        {/* Here you should map over the user's cars and create an option for each */}
-                        {/* <option value={carId}>{carName}</option> */}
+                        {userCars.map((car) => (
+                            <option key={car.carId} value={car.carId}>
+                                {car.brand} {car.model}
+                            </option>
+                        ))}
                     </select>
                 </label>
                 <label>
