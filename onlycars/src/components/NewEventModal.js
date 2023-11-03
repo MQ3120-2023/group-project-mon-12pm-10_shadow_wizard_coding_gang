@@ -113,8 +113,9 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
                     Date and Time:
                     <input
                         type="datetime-local"
+                        max="2999-12-31"
                         name="date"
-                        value={eventData.date}
+                        defaultValue={eventData.date}
                         onChange={handleChange}
                         required
                     />

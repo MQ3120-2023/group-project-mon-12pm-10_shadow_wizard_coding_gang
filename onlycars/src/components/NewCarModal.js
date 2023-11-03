@@ -117,7 +117,10 @@ const NewCarModal = ({ isOpen, onRequestClose }) => {
                 <label>
                     Year:
                     <input
-                        type="text"
+                        type="number"
+                        min="1900"
+                        max="2099"
+                        step="1"
                         name="year"
                         value={carData.year}
                         onChange={handleChange}

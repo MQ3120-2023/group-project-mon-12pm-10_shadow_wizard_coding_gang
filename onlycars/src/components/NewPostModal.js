@@ -135,7 +135,6 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 						</option>
 					))}
 				</select>
-				<label>Upload Images:</label>
 				<label id="image-upload">
 					Input File(s) Here
 					<input

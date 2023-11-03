@@ -15,7 +15,7 @@ const ProfileCars = () => {
 	const fetchMoreData = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:3001/getUserCars?page=${page}?userId=${currentUser.currentUser.userId}`
+				`http://localhost:3001/getUserCars?page=${page}&userId=${currentUser.currentUser.userId}`
 			);
 			if (response.data.length > 0) {
 				setCars([...cars, ...response.data]);
