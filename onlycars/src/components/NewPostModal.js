@@ -118,6 +118,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 			overlayClassName="overlay"
 		>
 			<h2>New Post</h2>
+            <hr/>
 			<form onSubmit={handleSubmit}>
 				<label>Description:</label>
 				<textarea
@@ -136,7 +137,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 					))}
 				</select>
 				<label id="image-upload">
-					Input File(s) Here
+					Upload Image(s) Here
 					<input
 						type="file"
 						name="images"
@@ -147,7 +148,9 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 				</label>
 				<aside className="form-button-container">
 					<button type="submit">Submit</button>
-					<button className="close-button" onClick={onRequestClose}>Close</button>
+					<button className="close-button" onClick={onRequestClose}>
+						Close
+					</button>
 				</aside>
 			</form>
 		</Modal>

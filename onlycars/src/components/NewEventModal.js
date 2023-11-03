@@ -52,13 +52,13 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
             const bannerUrl = eventData.banner
                 ? await handleImageUpload(eventData.banner)
                 : null;
-    
+
             const newEventData = {
                 ...eventData,
                 userId: currentUser.currentUser.userId,
                 banner: bannerUrl,
             };
-    
+
             const response = await fetch("http://localhost:3001/createEvent", {
                 method: "POST",
                 headers: {
@@ -66,11 +66,11 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
                 },
                 body: JSON.stringify(newEventData),
             });
-    
+
             if (!response.ok) {
                 throw new Error("Failed to create event");
             }
-    
+
             const data = await response.json();
             console.log("Event created:", data);
             onRequestClose(); // Close the modal after submitting
@@ -88,59 +88,56 @@ const NewEventModal = ({ isOpen, onRequestClose }) => {
             overlayClassName="overlay"
         >
             <h2>New Event</h2>
+            <hr />
             <form onSubmit={handleSubmit}>
-                <label>
-                    Title:
-                    <input
-                        type="text"
-                        name="title"
-                        value={eventData.title}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Location:
-                    <input
-                        type="text"
-                        name="location"
-                        value={eventData.location}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Date and Time:
-                    <input
-                        type="datetime-local"
-                        max="2999-12-31"
-                        name="date"
-                        defaultValue={eventData.date}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Description:
-                    <textarea
-                        name="description"
-                        value={eventData.description}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Upload Banner:
+                <label>Title:</label>
+                <input
+                    type="text"
+                    name="title"
+                    value={eventData.title}
+                    onChange={handleChange}
+                    required
+                />
+                <label>Location:</label>
+                <input
+                    type="text"
+                    name="location"
+                    value={eventData.location}
+                    onChange={handleChange}
+                    required
+                />
+                <label>Date and Time:</label>
+                <input
+                    type="datetime-local"
+                    max="2999-12-31"
+                    name="date"
+                    defaultValue={eventData.date}
+                    onChange={handleChange}
+                    required
+                />
+                <label>Description:</label>
+                <textarea
+                    name="description"
+                    value={eventData.description}
+                    onChange={handleChange}
+                    required
+                />
+                <label id="image-upload">
+                    Upload Image(s) Here
                     <input
                         type="file"
-                        name="banner"
+                        name="images"
                         accept="image/*"
                         onChange={handleImageChange}
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <aside className="form-button-container">
+                    <button type="submit">Submit</button>
+                    <button className="close-button" onClick={onRequestClose}>
+                        Close
+                    </button>
+                </aside>
             </form>
-            <button onClick={onRequestClose}>Close</button>
         </Modal>
     );
 };
