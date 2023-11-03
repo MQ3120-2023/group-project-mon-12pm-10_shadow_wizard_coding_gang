@@ -3,10 +3,10 @@ import Modal from "react-modal";
 import { CurrentUserContext } from "../App";
 
 const NewPostModal = ({ isOpen, onRequestClose }) => {
-  const currentUser = useContext(CurrentUserContext);
+    const currentUser = useContext(CurrentUserContext);
     const [postData, setPostData] = useState({
         description: "",
-        carId: "420",
+        carId: "",
         images: [],
     });
 
@@ -37,7 +37,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
             }
 
             const data = await response.json();
-            console.log("Image upload successful" + data.url)
+            console.log("Image upload successful" + data.url);
             return data.url;
         } catch (error) {
             console.error("Error uploading image:", error);
@@ -46,43 +46,44 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
     };
 
     const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      try {
-          // Upload images and get their URLs
-          const imageUrls = await Promise.all(
-              postData.images.map(handleImageUpload)
-          );
-  
-          // Create post data with image URLs and current user's ID
-          const updatedPostData = { 
-              ...postData, 
-              images: imageUrls,
-              userId: currentUser.currentUser.userId // Add the current user's ID here
-          };
-  
-          // Send post data to server
-          const response = await fetch("http://localhost:3001/createPost", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify(updatedPostData),
-          });
-  
-          if (!response.ok) {
-              throw new Error("Failed to create post"),
-              console.log(response)
-          }
-  
-          const data = await response.json();
-          console.log("Post created:", data);
-          onRequestClose(); // Close the modal after submitting
-      } catch (error) {
-          console.error("Error:", error);
-      }
-  };
-  
+        e.preventDefault();
+    
+        try {
+            // Upload images and get their URLs
+            const imageUrls = await Promise.all(
+                postData.images.map(handleImageUpload)
+            );
+    
+            // Create post data with image URLs and current user's ID
+            const updatedPostData = {
+                description: postData.description,
+                images: imageUrls,
+                userId: currentUser.currentUser.userId,
+                carId: postData.carId || null, // Set carId to null if not provided
+            };
+    
+            // Send post data to server
+            const response = await fetch("http://localhost:3001/createPost", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedPostData),
+            });
+
+            if (!response.ok) {
+                throw (
+                    (new Error("Failed to create post"), console.log(response))
+                );
+            }
+
+            const data = await response.json();
+            console.log("Post created:", data);
+            onRequestClose(); // Close the modal after submitting
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 
     return (
         <Modal

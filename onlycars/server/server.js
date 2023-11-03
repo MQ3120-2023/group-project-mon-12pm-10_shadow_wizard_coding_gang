@@ -410,8 +410,9 @@ app.get("/getExploreEvents", async (req, res) => {
 
 app.post("/createPost", async (req, res) => {
     try {
-        const { description, carId, images, userId } = req.body;
-        if (!description || !carId || !images || images.length === 0 || !userId) {
+        const { description, images, userId, carId } = req.body;
+
+        if (!description || !images || images.length === 0 || !userId) {
             return res.status(400).send("Invalid post data");
         }
 
@@ -419,8 +420,8 @@ app.post("/createPost", async (req, res) => {
         const postCount = await Post.countDocuments();
         const newPostId = postCount + 1;
 
-        // Create a new post
-        const newPost = new Post({
+        // Create a new post including carId (which may be null)
+        const newPostData = {
             postId: newPostId,
             userId,
             carId,
@@ -429,7 +430,9 @@ app.post("/createPost", async (req, res) => {
             images,
             likes: [],
             comments: 0,
-        });
+        };
+
+        const newPost = new Post(newPostData);
         await newPost.save();
         res.status(201).json(newPost);
     } catch (error) {
