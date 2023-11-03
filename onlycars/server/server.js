@@ -7,6 +7,7 @@ const session = require("express-session");
 const app = express();
 const MongoStore = require("connect-mongo");
 const path = require("path");
+const bcrypt = require("bcrypt");
 app.use(express.static("build"));
 
 // Require and Configure Cloudinary
@@ -31,6 +32,9 @@ const userSchema = new mongoose.Schema({
     cars: Number,
     posts: Number,
     subscribers: [Number],
+    gender: String,
+    language: String,
+    darkmode: Boolean,
 });
 const User = mongoose.model("users", userSchema);
 
@@ -442,16 +446,19 @@ app.post("/createPost", async (req, res) => {
 app.post("/login", async (req, res) => {
     const { username, password } = req.body;
     try {
-        const user = await User.findOne({
-            username: username,
-            password: password,
-        });
+        const user = await User.findOne({ username: username });
         if (user) {
-            req.currentUser = user;
-            req.session.currentUser = user;
-            res.status(200).json({ message: "Login successful" });
+            // Compare the provided password with the hashed password in the database
+            const passwordMatch = await bcrypt.compare(password, user.password);
+            if (passwordMatch) {
+                req.currentUser = user;
+                req.session.currentUser = user;
+                res.status(200).json({ message: "Login successful" });
+            } else {
+                res.status(401).json({ message: "Invalid username or password" });
+            }
         } else {
-            res.status(401).json({ message: "Invalid users" });
+            res.status(401).json({ message: "Invalid username or password" });
         }
     } catch (error) {
         res.status(500).json({ message: "Error during authentication" });

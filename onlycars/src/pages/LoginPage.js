@@ -5,7 +5,7 @@ import { CurrentUserContext } from "../App";
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { setCurrentUser } = useContext(CurrentUserContext);
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const LoginPage = () => {
             );
             const { data } = response;
             if (data.message === "Login successful") {
-                setCurrentUser(data); // <-- This line sets the current user in the context
+                setCurrentUser(data); // <-- This line sets the current user in the context)
                 console.log(data.message);
                 window.location.href = "/home";
             } else {
