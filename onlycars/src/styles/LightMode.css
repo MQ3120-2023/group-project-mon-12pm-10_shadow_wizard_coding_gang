@@ -862,6 +862,7 @@ hr {
 	font-size: 12pt;
 	color: var(--text);
 	padding: 1%;
+	max-height: 40vh;
 }
 
 .modal textarea:focus {
@@ -872,7 +873,7 @@ hr {
 	width: 98%;
 	border: solid 1px var(--text);
 	border-radius: 5px;
-	margin-top: 1vh;
+	margin: 1vh 0;
 	height: 2.5vh;
 	font-size: 12pt;
 	color: var(--text);
@@ -889,6 +890,23 @@ hr {
 
 .modal input[type="file"] {
 	display: none;
+}
+
+.modal input[type="text"] {
+	max-width: 100%;
+	width: 90%;
+	padding: 0.5vh 5%;
+	margin: 1vh 0;
+}
+
+.modal input[type="datetime-local"] {
+	max-width: 100%;
+	width: 70%;
+	padding: 0.5vh 15%;
+}
+
+.modal input[type="datetime-local"]:hover {
+	cursor: pointer;
 }
 
 #image-upload {
