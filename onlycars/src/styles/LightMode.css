@@ -847,6 +847,89 @@ hr {
 	justify-content: space-between;
 }
 
+.modal label {
+	font-size: 16pt;
+	margin-top: 1vh;
+}
+
+.modal textarea {
+	width: 98%;
+	resize: vertical;
+	border: solid 1px var(--text);
+	border-radius: 5px;
+	margin-top: 1vh;
+	height: 5vh;
+	font-size: 12pt;
+	color: var(--text);
+	padding: 1%;
+}
+
+.modal textarea:focus {
+	outline: none;
+}
+
+.modal select {
+	width: 98%;
+	border: solid 1px var(--text);
+	border-radius: 5px;
+	margin-top: 1vh;
+	height: 2.5vh;
+	font-size: 12pt;
+	color: var(--text);
+	padding: 1%;
+}
+
+.modal select:hover {
+	cursor: pointer;
+}
+
+.modal select:focus {
+	outline: none;
+}
+
+.modal input[type="file"] {
+	display: none;
+}
+
+#image-upload {
+	background-color: var(--secondary-colour);
+	color: var(--primary-colour);
+	text-align: center;
+	font-weight: 500;
+	width: fit-content;
+	padding: 1vh;
+	border-radius: 5px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	margin: auto;
+	margin-top: 1vh;
+	transition: 0.15s;
+}
+
+#image-upload:hover {
+	cursor: pointer;
+	background-color: var(--secondary-hover);
+	color: var(--primary-hover);
+}
+
+.modal button {
+	width: 45%;
+	padding: 0.5vh 1vw;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.form-button-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.close-button {
+	background-color: rgb(163, 0, 0);
+}
+
+.close-button:hover {
+	background-color: rgb(211, 0, 0);
+}
+
 .overlay {
 	position: fixed;
 	top: 0;
@@ -877,5 +960,4 @@ hr {
 	object-fit: contain;
 	max-height: 75vh;
 	outline: none;
-
 }
