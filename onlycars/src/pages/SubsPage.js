@@ -21,8 +21,6 @@ const SubsPage = () => {
 
             <nav id="navbar-container">
                 <NavBar/>
-                <NewPostButton/>
-                <NewEventButton/>
             </nav>
 
             <Subs path="getAllUsers"/>

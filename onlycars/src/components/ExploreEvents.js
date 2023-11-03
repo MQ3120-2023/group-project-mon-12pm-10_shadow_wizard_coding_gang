@@ -71,6 +71,7 @@ const ExploreEvents = () => {
             >
                 {events.map((event, index) => {
                     const user = event.user;
+                    console.log(user.username)
                     return (
                         <section className="event-container" key={index}>
                             <img

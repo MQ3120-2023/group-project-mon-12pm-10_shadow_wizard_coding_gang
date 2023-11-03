@@ -166,7 +166,6 @@ app.get("/getUserCars", async (req, res) => {
         }
 
         const userCars = await Car.find({ userId: currentUserId });
-        console.log(userCars);
         res.status(200).json(userCars);
     } catch (error) {
         res.status(500).json({ message: "Error fetching user's cars" });
@@ -416,6 +415,7 @@ app.get("/getExploreEvents", async (req, res) => {
 // Data Object Creation in MongoDB
 //
 
+//
 app.post("/createPost", async (req, res) => {
     try {
         const { description, images, userId, carId } = req.body;
@@ -446,6 +446,40 @@ app.post("/createPost", async (req, res) => {
     } catch (error) {
         console.error("Error creating post:", error);
         res.status(500).send("Error creating post");
+    }
+});
+
+//
+app.post("/createEvent", async (req, res) => {
+    try {
+        const { title, location, date, description, banner, userId } = req.body;
+
+        if (!title || !location || !date || !description || !userId) {
+            return res.status(400).send("Invalid event data");
+        }
+
+        // Generate a new eventId
+        const eventCount = await Event.countDocuments();
+        const newEventId = eventCount + 1;
+
+        // Create a new event
+        const newEventData = {
+            eventId: newEventId,
+            userId,
+            title,
+            location,
+            date: new Date(date),
+            description,
+            banner,
+            attendees: [],
+        };
+
+        const newEvent = new Event(newEventData);
+        await newEvent.save();
+        res.status(201).json(newEvent);
+    } catch (error) {
+        console.error("Error creating event:", error);
+        res.status(500).send("Error creating event");
     }
 });
 
@@ -484,22 +518,29 @@ app.post("/signup", async (req, res) => {
         if (existingUser) {
             res.status(409).json({ message: "Username/Email already exists" });
         } else {
+            // Generate a salt and hash the password
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(password, salt);
+
             // Generate a new userId
             const userCount = await User.countDocuments();
             const newUserId = userCount + 1;
 
-            // Create a new user
+            // Create a new user with the hashed password
             const newUser = new User({
                 userId: newUserId,
                 username,
                 email,
-                password,
+                password: hashedPassword, // Store the hashed password
                 profilepic: "https://res.cloudinary.com/dv8lielzo/image/upload/v1698721019/Users%20Profile%20Pic/Default3PP_efi8gb.png",
                 location: "Unknown",
                 description: "Hi, I'm new to OnlyCars!",
                 cars: 0,
                 posts: 0,
                 subscribers: [],
+                gender: "",
+                language: "",
+                darkmode: false,
             });
             await newUser.save();
             res.status(201).json({ message: "SignUp successful" });
@@ -509,6 +550,7 @@ app.post("/signup", async (req, res) => {
         res.status(500).json({ message: "Error during signup" });
     }
 });
+
 
 //
 // Session Management

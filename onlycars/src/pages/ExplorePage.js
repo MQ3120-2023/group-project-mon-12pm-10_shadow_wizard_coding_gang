@@ -30,8 +30,6 @@ const ExplorePage = () => {
 
             <nav id="navbar-container">
                 <NavBar />
-                <NewPostButton/>
-                <NewEventButton/>
             </nav>
 
             <section id="mid-container">
