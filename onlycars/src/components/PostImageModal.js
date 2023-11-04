@@ -24,6 +24,7 @@ const PostImageModal = ({ isOpen, onRequestClose, post }) => {
 		>
 			{post && post.images && (
 				<Slider {...settings} >
+					{console.log("Post object for Images: " + post)}
 					{post.images.map((image, imgIndex) => (
 						<img
 							key={imgIndex}
