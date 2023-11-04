@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import PostImageModal from "./PostImageModal";
+import { useNavigate } from "react-router-dom";
 
 const HomeLatest = ({ sortType }) => {
 	const [posts, setPosts] = useState([]);
@@ -13,6 +14,7 @@ const HomeLatest = ({ sortType }) => {
 	const [page, setPage] = useState(1);
 	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 	const [modalPost, setModalPost] = useState();
+	const navigate = useNavigate();
 
 	const fetchMoreData = async () => {
 		try {
@@ -52,6 +54,12 @@ const HomeLatest = ({ sortType }) => {
 		setIsImageModalOpen(false);
 	};
 
+	const handleUserClick = (user) => {
+		// Navigate to the ProfilePage with the username as a parameter
+		// and pass the user data as state
+		navigate(`/profile/${user.username}`, { state: { user } });
+	};
+
 	return (
 		<section id="posts-container">
 			<InfiniteScroll
@@ -67,13 +75,19 @@ const HomeLatest = ({ sortType }) => {
 					const user = post.user;
 					return (
 						<section className="post-container" key={index}>
-							<header className="post-header">
+							<header
+								className="post-header"
+								onClick={() => handleUserClick(user)}
+							>
 								<img
 									className="post-pfp"
 									src={user.profilepic}
 									alt="User Profile Picture"
+									style={{ cursor: "pointer" }}
 								/>
-								<a className="post-user">{user.username}</a>
+								<a className="post-user" style={{ cursor: "pointer" }}>
+									{user.username}
+								</a>
 							</header>
 							{car ? (
 								<p>
@@ -97,8 +111,8 @@ const HomeLatest = ({ sortType }) => {
 												src={image}
 												alt={`Post image ${imgIndex + 1}`}
 												onClick={() => {
-													setModalPost(post)
-													setIsImageModalOpen(true)
+													setModalPost(post);
+													setIsImageModalOpen(true);
 												}}
 											/>
 										))}

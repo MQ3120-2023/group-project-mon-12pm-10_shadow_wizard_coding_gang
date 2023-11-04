@@ -7,19 +7,21 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import PostImageModal from "./PostImageModal";
 import { CurrentUserContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
-const ProfilePopular = ({ sortType }) => {
+const ProfilePopular = ({ user }) => {
 	const currentUser = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
 	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 	const [modalPost, setModalPost] = useState();
+	const navigate = useNavigate();
 
-	const fetchMoreData = async () => {
+	const fetchMoreData = async ({ user }) => {
 		try {
 			const response = await axios.get(
-				`http://localhost:3001/getProfilePopular?page=${page}&userId=${currentUser.currentUser.userId}`
+				`http://localhost:3001/getProfilePopular?page=${page}&userId=${user.userId}`
 			);
 			if (response.data.length > 0) {
 				setPosts([...posts, ...response.data]);
@@ -31,7 +33,6 @@ const ProfilePopular = ({ sortType }) => {
 			console.error("Error fetching more data:", error);
 		}
 	};
-	
 
 	useEffect(() => {
 		// Reset state variables
@@ -39,9 +40,9 @@ const ProfilePopular = ({ sortType }) => {
 		setHasMore(true);
 		setPage(1);
 
-		// Fetch initial data based on sortType
-		fetchMoreData();
-	}, [sortType]);
+		// Check if user is not null before fetching data
+        if (user) fetchMoreData();
+	}, [user]);
 
 	const settings = {
 		dots: true,
@@ -53,6 +54,12 @@ const ProfilePopular = ({ sortType }) => {
 
 	const closeImageModal = () => {
 		setIsImageModalOpen(false);
+	};
+
+	const handleUserClick = (user) => {
+		// Navigate to the ProfilePage with the username as a parameter
+		// and pass the user data as state
+		navigate(`/profile/${user.username}`, { state: { user } });
 	};
 
 	return (
@@ -70,7 +77,10 @@ const ProfilePopular = ({ sortType }) => {
 					const user = post.user;
 					return (
 						<section className="post-container" key={index}>
-							<header className="post-header">
+							<header
+								className="post-header"
+								onClick={() => handleUserClick(user)}
+							>
 								<img
 									className="post-pfp"
 									src={user.profilepic}
@@ -85,9 +95,7 @@ const ProfilePopular = ({ sortType }) => {
 							) : (
 								<p>No car information available.</p>
 							)}
-							<p>
-								{post.description}
-							</p>
+							<p>{post.description}</p>
 							<p>{moment(post.date).format("MMMM Do YYYY, h:mm a")}</p>
 							<figure className="post-images">
 								{post && post.images && (
@@ -98,8 +106,8 @@ const ProfilePopular = ({ sortType }) => {
 												src={image}
 												alt={`Post image ${imgIndex + 1}`}
 												onClick={() => {
-													setModalPost(post)
-													setIsImageModalOpen(true)
+													setModalPost(post);
+													setIsImageModalOpen(true);
 												}}
 											/>
 										))}

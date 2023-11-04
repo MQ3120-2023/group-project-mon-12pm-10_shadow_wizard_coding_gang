@@ -21,7 +21,7 @@ const LoginPage = () => {
             const { data } = response;
             if (data.message === "Login successful") {
                 setCurrentUser(data); // <-- This line sets the current user in the context)
-                console.log(data.message);
+                console.log(data.message + currentUser);
                 window.location.href = "/home";
             } else {
                 alert("Invalid credentials");

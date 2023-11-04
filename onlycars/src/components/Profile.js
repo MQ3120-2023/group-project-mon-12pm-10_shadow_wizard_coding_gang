@@ -1,26 +1,22 @@
-import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
-import { CurrentUserContext } from "../App";
+import React from "react";
 
-const Profile = () => {
-    const currentUser = useContext(CurrentUserContext);
-
+const Profile = ({ user }) => {
     return (
         <section>
             <section className="profile-container">
                 <img
                     className="profile-banner"
-                    src={currentUser?.currentUser?.profilepic}
+                    src={user?.profilepic}
                     alt="Profile Banner"
                 />
                 <header className="profile-header">
-                    <h1 className="profile-user">{currentUser?.currentUser?.username}</h1>
-                    <sub className="profile-location">{currentUser?.currentUser?.location}</sub>
+                    <h1 className="profile-user">{user?.username}</h1>
+                    <sub className="profile-location">{user?.location}</sub>
                 </header>
-                <p>{currentUser?.currentUser?.description}</p>
+                <p>{user?.description}</p>
                 <aside id="profile-info">
-                    <p>Cars Owned: {currentUser?.currentUser?.cars}</p>
-                    <p>Posts Made: {currentUser?.currentUser?.posts}</p>
+                    <p>Cars Owned: {user?.cars}</p>
+                    <p>Posts Made: {user?.posts}</p>
                 </aside>
             </section>
             {/* )
