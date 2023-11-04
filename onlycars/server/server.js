@@ -586,6 +586,26 @@ app.post('/createCar', async (req, res) => {
     }
 });
 
+app.post("/settingsUser", async (req, res) => {
+    const { email, location, gender, language } = req.body;
+  
+    try {
+      // Update the user's email, location, gender, and language directly
+      const updatedUser = await User.updateOne({}, { email, location, gender, language });
+  
+      if (updatedUser.nModified === 0) {
+        // User not found or no changes made
+        return res.status(404).json({ message: "User not found or no changes made" });
+      }
+  
+      // Send a response indicating that the settings have been saved
+      res.status(200).json({ message: "Settings Saved" });
+    } catch (error) {
+      console.error("Error updating user settings:", error);
+      res.status(500).json({ message: "Error updating user settings" });
+    }
+  });
+
 //
 app.post("/createEvent", async (req, res) => {
     try {

@@ -9,25 +9,24 @@ const SettingsUser = () => {
 	const [theme, setTheme] = useState("");
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const response = await axios.post("/SettingsUser", {
-				email,
-				location,
-				gender,
-				language,
-				theme,
-			});
-			const { data } = response;
-			if (data.message === "Settings Saved") {
-				// Redirect to home page or dashboard
-				alert("Your Changes have been applied!");
-			}
-		} catch (error) {
-			console.error("Error during authentication:", error);
-			alert("An error occurred during login. Please try again.");
-		}
-	};
+    e.preventDefault();
+    try {
+      const response = await axios.post("/settingsUser", {
+        email,
+        location,
+        gender,
+        language,
+      });
+      const { data } = response;
+      if (data.message === "Settings Saved") {
+        // Redirect to home page or dashboard
+        alert("Your Changes have been applied!");
+      }
+    } catch (error) {
+      console.error("Error during authentication:", error);
+      alert("An error occurred during login. Please try again.");
+    }
+  };
 
 	return (
 		<main id="main-container">
