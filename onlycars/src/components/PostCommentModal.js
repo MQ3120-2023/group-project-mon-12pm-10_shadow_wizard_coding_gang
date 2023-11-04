@@ -96,7 +96,7 @@ const PostCommentModal = ({
 				</div>
 			</section> */}
 
-			<div className="comments-div">
+			{/* <div className="comments-div">
 				<section className="comments-section">
 					<p id="info-header">Comments</p>
 					{comments.map((comm, index) => {
@@ -121,13 +121,14 @@ const PostCommentModal = ({
 								<p>
 									{post.description}
 									<br />
-									{/* {moment(post.date).format("MMMM Do YYYY, h:mm a")} */}
-								</p>
+									{/* {moment(post.date).format("MMMM Do YYYY, h:mm a")} 
+								</p> 
 							</section>
 						);
 					})}
 				</section>
-			</div>
+			</div> */}
+			
 		</Modal>
 	);
 };
