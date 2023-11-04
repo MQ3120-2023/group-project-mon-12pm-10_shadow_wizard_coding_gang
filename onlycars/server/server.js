@@ -77,6 +77,16 @@ const eventSchema = new mongoose.Schema({
 });
 const Event = mongoose.model("Event", eventSchema);
 
+// Comment Schema and Model
+const commentSchema = new mongoose.Schema({
+    commentId: Number,
+    postId: Number,
+    userId: Number,
+    date: Date,
+    description: String,
+});
+const Comment = mongoose.model("Comment", commentSchema);
+
 // MongoDB URI
 const uri =
     "mongodb+srv://ShadowWizard:rFBiWdZ4jFRW6RMI@onlycars.rcvamax.mongodb.net/OnlyCars?retryWrites=true&w=majority";
@@ -192,6 +202,33 @@ app.get("/getUserSubs", async (req, res) => {
     }
 });
 
+// Endpoint to get comments for a post
+app.get("/getComments/:postId", async (req, res) => {
+    try {
+        const postId = parseInt(req.params.postId);
+        const postComments = await Comment.find({ postId: postId }).sort({ date: -1 });
+
+        // Fetch user data for each comment
+        const userIds = postComments.map((comment) => comment.userId);
+        const users = await User.find({ userId: { $in: userIds } });
+
+        // Create a map for users
+        const userMap = {};
+        users.forEach((user) => {
+            userMap[user.userId] = user;
+        });
+
+        // Enrich comments with user data
+        const enrichedComments = postComments.map((comment) => ({
+            ...comment._doc,
+            user: userMap[comment.userId],
+        }));
+
+        res.status(200).json(enrichedComments);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching comments" });
+    }
+});
 
 // Endpoint to get latest posts along with their cars and users
 app.get("/getHomeLatest", async (req, res) => {

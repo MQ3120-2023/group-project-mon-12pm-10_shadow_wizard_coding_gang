@@ -12,7 +12,6 @@ const ProfileCars = ({ user }) => {
 
 	const fetchMoreData = async () => {
 		try {
-			console.log(user);
 			const response = await axios.get(
 				`http://localhost:3001/getUserCars?page=${page}&userId=${user.userId}`
 			);
