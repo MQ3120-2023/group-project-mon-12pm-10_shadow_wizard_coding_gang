@@ -14,7 +14,6 @@ import { CurrentUserContext } from "../App";
 const ProfilePage = () => {
     const location = useLocation();
     const { currentUser } = useContext(CurrentUserContext);
-    console.log(currentUser.currentuser);
     const [profileUser, setProfileUser] = useState(null);
     const [activeButton, setActiveButton] = useState(1);
     const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
@@ -22,12 +21,12 @@ const ProfilePage = () => {
     useEffect(() => {
         // If there is user data passed in the location state, use that
         // Otherwise, use the currentUser from context
-        setProfileUser(location.state?.user || currentUser.currentuser);
-      }, [location, currentUser.currentuser]);
+        setProfileUser(location.state?.user || currentUser);
+      }, [location, currentUser]);
 
       // Function to determine if the profile being viewed is the current user's profile
     const isCurrentUserProfile = () => {
-        return profileUser && currentUser.currentuser && profileUser.userId === currentUser.currentuser.userId;
+        return profileUser && currentUser && profileUser.userId === currentUser.userId;
     };
 
     const handleButtonClick = (buttonId) => {
@@ -69,9 +68,9 @@ const ProfilePage = () => {
             <aside id="info-container">
                 <Info infoType="User's Cars" user={profileUser} />
 
-                {/* {isCurrentUserProfile() && (
+                {isCurrentUserProfile() && (
                     <NewCarButton onClick={openNewCarModal} />
-                )} */}
+                )}
                 <NewCarModal
                     isOpen={isNewCarModalOpen}
                     onRequestClose={closeNewCarModal}

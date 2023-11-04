@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,11 +6,9 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import PostImageModal from "./PostImageModal";
-import { CurrentUserContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePopular = ({ user }) => {
-	const currentUser = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
@@ -18,7 +16,9 @@ const ProfilePopular = ({ user }) => {
 	const [modalPost, setModalPost] = useState();
 	const navigate = useNavigate();
 
-	const fetchMoreData = async ({ user }) => {
+	const fetchMoreData = async () => {
+		if (!user) return; // Make sure user is defined before proceeding
+	
 		try {
 			const response = await axios.get(
 				`http://localhost:3001/getProfilePopular?page=${page}&userId=${user.userId}`
@@ -33,6 +33,7 @@ const ProfilePopular = ({ user }) => {
 			console.error("Error fetching more data:", error);
 		}
 	};
+	
 
 	useEffect(() => {
 		// Reset state variables
@@ -59,7 +60,7 @@ const ProfilePopular = ({ user }) => {
 	const handleUserClick = (user) => {
 		// Navigate to the ProfilePage with the username as a parameter
 		// and pass the user data as state
-		navigate(`/profile/${user.username}`, { state: { user } });
+		navigate(`/profile`, { state: { user } });
 	};
 
 	return (

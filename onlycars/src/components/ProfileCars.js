@@ -1,21 +1,20 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { CurrentUserContext } from "../App";
 
-const ProfileCars = () => {
-	const currentUser = useContext(CurrentUserContext);
+const ProfileCars = ({ user }) => {
 	const [cars, setCars] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
 
 	const fetchMoreData = async () => {
 		try {
+			console.log(user);
 			const response = await axios.get(
-				`http://localhost:3001/getUserCars?page=${page}&userId=${currentUser.currentUser.userId}`
+				`http://localhost:3001/getUserCars?page=${page}&userId=${user.userId}`
 			);
 			if (response.data.length > 0) {
 				setCars([...cars, ...response.data]);
@@ -29,8 +28,11 @@ const ProfileCars = () => {
 	};
 
 	useEffect(() => {
-		fetchMoreData(); // Initial fetch
-	}, []);
+		if (user) {
+		  fetchMoreData(); // Call only if user is not null
+		}
+	  }, [user]); // Add user to the dependency array
+	  
 
 	const settings = {
 		dots: false,

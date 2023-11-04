@@ -18,7 +18,6 @@ const ProfileLatest = ({ user }) => {
 
 	const fetchMoreData = async () => {
 		try {
-			console.log(user);
 			const response = await axios.get(
 				`http://localhost:3001/getProfileLatest?page=${page}&userId=${user.userId}`
 			);
@@ -58,7 +57,7 @@ const ProfileLatest = ({ user }) => {
 	const handleUserClick = (user) => {
 		// Navigate to the ProfilePage with the username as a parameter
 		// and pass the user data as state
-		navigate(`/profile/${user.username}`, { state: { user } });
+		navigate(`/profile`, { state: { user } });
 	};
 
 	return (

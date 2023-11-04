@@ -57,12 +57,12 @@ function App() {
         <div>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
-                <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/explore" element={<ExplorePage />} />
-                <Route path="/subscriptions" element={<SubsPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/signup/*" element={<SignUpPage />} />
+                <Route path="/home/*" element={<HomePage />} />
+                <Route path="/profile/*" element={<ProfilePage />} />
+                <Route path="/explore/*" element={<ExplorePage />} />
+                <Route path="/subscriptions/*" element={<SubsPage />} />
+                <Route path="/settings/*" element={<SettingsPage />} />
             </Routes>
         </div>
     );

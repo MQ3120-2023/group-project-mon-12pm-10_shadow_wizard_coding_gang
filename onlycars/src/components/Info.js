@@ -11,7 +11,7 @@ const Info = ({ infoType, user }) => {
             <p id="info-header">{infoType}</p>
             <div className="info-list">
                 {currentPath === "/home" && <HomeEvents/>}
-                {currentPath === "/profile" && <ProfileCars user={user} />}
+                {currentPath === "/profile" && user && <ProfileCars user={user} />}
                 {currentPath === "/explore" && <p>Function 3</p>}
                 {currentPath === "/subscriptions" && <p>Function 4</p>}
                 {currentPath === "/settings" && <p>Function 5</p>}
