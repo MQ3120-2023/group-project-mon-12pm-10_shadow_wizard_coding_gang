@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import PostImageModal from "./PostImageModal";
+import PostCommentModal from "./PostCommentModal";
 import { useNavigate } from "react-router-dom";
 
 const HomeLatest = ({ sortType }) => {
@@ -13,7 +14,10 @@ const HomeLatest = ({ sortType }) => {
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
 	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+	const [isCommentModalOpen, setisCommentModalOpen] = useState(false);
 	const [modalPost, setModalPost] = useState();
+	const [modalCar, setModalCar] = useState()
+	const [modalUser, setModalUser] = useState()
 	const navigate = useNavigate();
 
 	const fetchMoreData = async () => {
@@ -52,6 +56,7 @@ const HomeLatest = ({ sortType }) => {
 
 	const closeImageModal = () => {
 		setIsImageModalOpen(false);
+		setisCommentModalOpen(false);
 	};
 
 	const handleUserClick = (user) => {
@@ -123,7 +128,16 @@ const HomeLatest = ({ sortType }) => {
 								<button id="like-button" className="post-button">
 									Like
 								</button>
-								<button id="comment-button" className="post-button">
+								<button
+									id="comment-button"
+									className="post-button"
+									onClick={() => {
+										setModalPost(post);
+										setisCommentModalOpen(true);
+										setModalCar(car);
+										setModalUser(user);
+									}}
+								>
 									Comment
 								</button>
 							</div>
@@ -135,6 +149,13 @@ const HomeLatest = ({ sortType }) => {
 				isOpen={isImageModalOpen}
 				onRequestClose={closeImageModal}
 				post={modalPost}
+			/>
+			<PostCommentModal
+				isOpen={isCommentModalOpen}
+				onRequestClose={closeImageModal}
+				post={modalPost}
+				car={modalCar}
+				postUser={modalUser}
 			/>
 		</section>
 	);

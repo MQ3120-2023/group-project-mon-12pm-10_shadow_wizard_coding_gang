@@ -14,19 +14,27 @@ import { CurrentUserContext } from "../App";
 const ProfilePage = () => {
     const location = useLocation();
     const { currentUser } = useContext(CurrentUserContext);
+    console.log(currentUser.currentuser);
     const [profileUser, setProfileUser] = useState(null);
     const [activeButton, setActiveButton] = useState(1);
     const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [subText, setSubText] = useState("Subscribe");
+    const [subClass, setsubClass] = useState("subscribe");
 
     useEffect(() => {
         // If there is user data passed in the location state, use that
         // Otherwise, use the currentUser from context
-        setProfileUser(location.state?.user || currentUser);
-      }, [location, currentUser]);
+        setProfileUser(location.state?.user || currentUser.currentuser);
+    }, [location, currentUser.currentuser]);
 
-      // Function to determine if the profile being viewed is the current user's profile
+    // Function to determine if the profile being viewed is the current user's profile
     const isCurrentUserProfile = () => {
-        return profileUser && currentUser && profileUser.userId === currentUser.userId;
+        return (
+            profileUser &&
+            currentUser.currentuser &&
+            profileUser.userId === currentUser.currentuser.userId
+        );
     };
 
     const handleButtonClick = (buttonId) => {
@@ -39,6 +47,17 @@ const ProfilePage = () => {
     const closeNewCarModal = () => {
         setIsNewCarModalOpen(false);
     };
+
+    // profileUser.subscribers.map((user) => {
+    // 	if (
+    // 		currentUser !== null ||
+    // 		currentUser !== undefined
+    // 	) {
+    // 		if (currentUser.currentUser.userId == user) {
+    // 			setIsSubscribed(true);
+    // 		}
+    // 	}
+    // });
 
     return (
         <main id="main-container">
@@ -58,6 +77,8 @@ const ProfilePage = () => {
 
             <section id="mid-container">
                 <Profile user={profileUser} />
+
+                <button className={subClass}>{subText}</button>
 
                 <ButtonBarPosts handleButtonClick={handleButtonClick} />
 
