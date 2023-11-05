@@ -31,9 +31,9 @@ const ProfilePage = () => {
 		if (
 			profileUser !== null &&
 			profileUser !== undefined &&
-			currentUser.currentuser !== null &&
-			currentUser.currentuser !== undefined &&
-			profileUser.userId === currentUser.currentuser.userId
+			currentUser !== null &&
+			currentUser !== undefined &&
+			profileUser.userId === currentUser.userId
 		) {
 			return true;
 		}
@@ -82,7 +82,7 @@ const ProfilePage = () => {
 			<section id="mid-container">
 				<Profile user={profileUser} />
 
-				<SubButton user={profileUser} />
+				{!isCurrentUserProfile() && <SubButton user={profileUser} />}
 
 				<ButtonBarPosts handleButtonClick={handleButtonClick} />
 
@@ -92,6 +92,7 @@ const ProfilePage = () => {
 
 			<aside id="info-container">
 				<Info infoType="User's Cars" user={profileUser} />
+                
 
 				{isCurrentUserProfile() && <NewCarButton onClick={openNewCarModal} />}
 				<NewCarModal
