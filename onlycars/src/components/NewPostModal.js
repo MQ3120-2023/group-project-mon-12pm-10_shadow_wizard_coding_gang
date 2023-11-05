@@ -10,7 +10,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 		carId: "",
 		images: [],
 	});
-	const [uploadLabel, setUploadLabel] = useState("Upload Image(s) Here")
+	const [uploadLabel, setUploadLabel] = useState("Upload Image(s) Here");
 
 	// Function to fetch cars owned by the current user
 	const fetchUserCars = async () => {
@@ -34,6 +34,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 			console.log("Post Modal is opened");
 			fetchUserCars();
 		}
+		setUploadLabel("Upload Image(s) Here");
 	}, [isOpen]);
 
 	const handleChange = (e) => {
@@ -45,8 +46,12 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 		if (e.target.files) {
 			const filesArray = Array.from(e.target.files);
 			setPostData({ ...postData, images: filesArray });
+			if (filesArray.length == 1) {
+				setUploadLabel(filesArray.length + " File Uploaded");
+			} else if (filesArray.length > 1) {
+				setUploadLabel(filesArray.length + " Files Uploaded");
+			}
 		}
-		setUploadLabel(e.target.files.length() + " Files Uploaded")
 	};
 
 	const handleImageUpload = async (file) => {
@@ -89,11 +94,20 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 				carId: postData.carId || null, // Set carId to null if not provided
 			};
 
-			console.log("New Post Data: \n" + 
-			"User ID: " + updatedPostData.userId + "\n" +
-			"Post Image(s): " + updatedPostData.images + "\n" +
-			"Description: " + updatedPostData.description + "\n" +
-			"Post Car: " + updatedPostData.carId)
+			console.log(
+				"New Post Data: \n" +
+					"User ID: " +
+					updatedPostData.userId +
+					"\n" +
+					"Post Image(s): " +
+					updatedPostData.images +
+					"\n" +
+					"Description: " +
+					updatedPostData.description +
+					"\n" +
+					"Post Car: " +
+					updatedPostData.carId
+			);
 
 			// Send post data to server
 			const response = await fetch("http://localhost:3001/createPost", {
@@ -125,7 +139,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 			overlayClassName="overlay"
 		>
 			<h2>New Post</h2>
-            <hr/>
+			<hr />
 			<form onSubmit={handleSubmit}>
 				<label>Description:</label>
 				<textarea
