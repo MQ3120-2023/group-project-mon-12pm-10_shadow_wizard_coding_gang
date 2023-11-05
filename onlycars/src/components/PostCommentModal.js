@@ -129,9 +129,9 @@ const PostCommentModal = ({
 									</a>
 								</header>
 								<p>
-									{post?.description}
+									{comm?.description}
 									<br />
-									{moment(post?.date).format("MMMM Do YYYY, h:mm a")}
+									{moment(comm?.date).format("MMMM Do YYYY, h:mm a")}
 								</p>
 							</section>
 						);

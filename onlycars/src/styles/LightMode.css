@@ -1103,7 +1103,7 @@ hr {
 }
 
 .comments-section {
-	height: fit-content;
+	height: 100%;
 	width: 550px;
 	background-color: var(--primary-colour);
 	margin: auto;
@@ -1116,15 +1116,37 @@ hr {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow: scroll;
 }
 
 .comment-container {
 	width: 90%;
-	margin: auto;
-	font-size: 16pt;
+	margin: 1vh auto;
 	height: fit-content;
 	min-height: 50px;
-	background-color: var(--input-text);
+	padding: 1vh;
+	border-radius: 25px;
+	border: solid 1px var(--text);
+}
+
+.comment-header {
+	height: 5vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+.comment-pfp {
+	height: 5vh;
+	width: 5vh;
+	object-fit: cover;
+	border-radius: 50px;
+}
+
+.comment-user {
+	font-size: 1.5vh;
+	margin: auto;
+	margin-left: 1vh;
 }
 
 .modal-post-container {
@@ -1149,6 +1171,10 @@ hr {
 	flex-direction: row;
 	justify-content: center;
 	height: 5em;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
 }
 
 .comments-form input[type="text"] {
