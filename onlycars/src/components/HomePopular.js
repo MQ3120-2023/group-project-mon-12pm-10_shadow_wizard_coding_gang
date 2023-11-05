@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,8 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
-const HomePopular = ({ sortType }) => {
+const HomePopular = ({ user }) => {
+    const { currentUser } = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
@@ -16,7 +18,7 @@ const HomePopular = ({ sortType }) => {
 	const fetchMoreData = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:3001/getHomePopular?page=${page}`
+				`http://localhost:3001/getHomePopular?page=${page}&userId=${currentUser?.userId}`
 			);
 			if (response.data.length > 0) {
 				setPosts([...posts, ...response.data]);
@@ -37,7 +39,7 @@ const HomePopular = ({ sortType }) => {
 
 		// Fetch initial data based on new sortType
 		fetchMoreData();
-	}, [sortType]);
+	}, [user]);
 
 	const settings = {
 		dots: true,

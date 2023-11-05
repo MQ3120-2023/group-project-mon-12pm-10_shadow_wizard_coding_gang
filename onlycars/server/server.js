@@ -233,20 +233,28 @@ app.get("/getComments/:postId", async (req, res) => {
 // Endpoint to get latest posts along with their cars and users
 app.get("/getHomeLatest", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
+    const userId = req.query.userId; // Get the userId from the query parameter
     const limit = 10; // Number of posts per page
 
     try {
-        // Fetch latest posts
-        const latestPosts = await Post.find({})
+        if (!userId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
+
+        // Fetch users who have the given userId in their subscribers
+        const subscribedUsers = await User.find({ subscribers: { $elemMatch: { $eq: userId } } });
+        const subscribedUserIds = subscribedUsers.map(user => user.userId);
+
+        // Fetch latest posts from subscribed users
+        const latestPosts = await Post.find({ userId: { $in: subscribedUserIds } })
             .sort({ date: -1 })
             .skip((page - 1) * limit)
             .limit(limit);
 
         const carIds = latestPosts.map((post) => post.carId);
-        const userIds = latestPosts.map((post) => post.userId);
 
+        // Assuming you still want to fetch all cars related to the posts
         const allCars = await Car.find({ carId: { $in: carIds } });
-        const allUsers = await User.find({ userId: { $in: userIds } });
 
         const carMap = {};
         allCars.forEach((car) => {
@@ -254,7 +262,7 @@ app.get("/getHomeLatest", async (req, res) => {
         });
 
         const userMap = {};
-        allUsers.forEach((user) => {
+        subscribedUsers.forEach((user) => {
             userMap[user.userId] = user;
         });
 
@@ -273,11 +281,21 @@ app.get("/getHomeLatest", async (req, res) => {
 // Endpoint to get popular posts along with their cars and users
 app.get("/getHomePopular", async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
+    const userId = req.query.userId; // Get the userId from the query parameter
     const limit = 10; // Number of posts per page
 
     try {
-        // Fetch popular posts
+        if (!userId) {
+            return res.status(400).json({ message: "No userId provided" });
+        }
+
+        // Fetch users who have the given userId in their subscribers
+        const subscribedUsers = await User.find({ subscribers: { $elemMatch: { $eq: userId } } });
+        const subscribedUserIds = subscribedUsers.map(user => user.userId);
+
+        // Fetch popular posts from subscribed users
         const popularPosts = await Post.aggregate([
+            { $match: { userId: { $in: subscribedUserIds } } }, // Filter posts by subscribed users
             { $addFields: { likesCount: { $size: "$likes" } } },
             { $sort: { likesCount: -1, date: -1 } },
             { $skip: (page - 1) * limit },
@@ -285,10 +303,9 @@ app.get("/getHomePopular", async (req, res) => {
         ]);
 
         const carIds = popularPosts.map((post) => post.carId);
-        const userIds = popularPosts.map((post) => post.userId);
 
         const allCars = await Car.find({ carId: { $in: carIds } });
-        const allUsers = await User.find({ userId: { $in: userIds } });
+        const allUsers = await User.find({ userId: { $in: subscribedUserIds } }); // Fetch only subscribed users
 
         const carMap = {};
         allCars.forEach((car) => {

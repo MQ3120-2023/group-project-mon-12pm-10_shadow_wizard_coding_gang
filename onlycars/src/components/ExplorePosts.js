@@ -44,7 +44,7 @@ const ExplorePosts = ({ path }) => {
 	const handleUserClick = (user) => {
 		// Navigate to the ProfilePage with the username as a parameter
 		// and pass the user data as state
-		navigate(`/profile/${user.username}`, { state: { user } });
+		navigate(`/profile`, { state: { user } });
 	};
 
 	return (
