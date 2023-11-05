@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 
 const HomeLatest = ({ user }) => {
-    const { currentUser } = useContext(CurrentUserContext);
+	const { currentUser } = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
@@ -87,10 +87,15 @@ const HomeLatest = ({ user }) => {
 				loader={<h4>Loading...</h4>}
 				scrollableTarget="posts-container"
 				id="infinite-scroll"
+				endMessage={
+					<p style={{ textAlign: "center" }}>
+						<b>No Posts? Go to Explore for more posts!</b>
+					</p>
+				}
 			>
 				{posts.map((post, index) => {
-					const car = post.car
-					const user = post.user
+					const car = post.car;
+					const user = post.user;
 					return (
 						<section className="post-container" key={index}>
 							<header
@@ -144,7 +149,15 @@ const HomeLatest = ({ user }) => {
 								<button
 									id="comment-button"
 									className="post-button"
-									onClick={() => handleCommentClick(post, post.postId, car, user, closeImageModal)}
+									onClick={() =>
+										handleCommentClick(
+											post,
+											post.postId,
+											car,
+											user,
+											closeImageModal
+										)
+									}
 								>
 									Comment
 								</button>

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 
 const HomePopular = ({ user }) => {
-    const { currentUser } = useContext(CurrentUserContext);
+	const { currentUser } = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
@@ -64,6 +64,11 @@ const HomePopular = ({ user }) => {
 				loader={<h4>Loading...</h4>}
 				scrollableTarget="posts-container"
 				id="infinite-scroll"
+				endMessage={
+					<p style={{ textAlign: "center" }}>
+						<b>No Posts? Go to Explore for more posts!</b>
+					</p>
+				}
 			>
 				{posts.map((post, index) => {
 					const car = post.car;

@@ -10,6 +10,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 		carId: "",
 		images: [],
 	});
+	const [uploadLabel, setUploadLabel] = useState("Upload Image(s) Here")
 
 	// Function to fetch cars owned by the current user
 	const fetchUserCars = async () => {
@@ -45,6 +46,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 			const filesArray = Array.from(e.target.files);
 			setPostData({ ...postData, images: filesArray });
 		}
+		setUploadLabel(e.target.files.length() + " Files Uploaded")
 	};
 
 	const handleImageUpload = async (file) => {
@@ -142,7 +144,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 					))}
 				</select>
 				<label id="image-upload">
-					Upload Image(s) Here
+					{uploadLabel}
 					<input
 						type="file"
 						name="images"

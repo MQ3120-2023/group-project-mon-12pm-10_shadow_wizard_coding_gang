@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const ProfileCars = ({ user }) => {
@@ -28,18 +25,9 @@ const ProfileCars = ({ user }) => {
 
 	useEffect(() => {
 		if (user) {
-		  fetchMoreData(); // Call only if user is not null
+			fetchMoreData(); // Call only if user is not null
 		}
-	  }, [user]); // Add user to the dependency array
-	  
-
-	const settings = {
-		dots: false,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-	};
+	}, [user]); // Add user to the dependency array
 
 	return (
 		<InfiniteScroll
@@ -49,9 +37,13 @@ const ProfileCars = ({ user }) => {
 			loader={<h4>Loading...</h4>}
 			scrollableTarget="posts-container"
 			id="infinite-scroll"
+			endMessage={
+				<p style={{ textAlign: "center" }}>
+					<b>No Cars? Add more!</b>
+				</p>
+			}
 		>
 			{cars.map((car, index) => {
-				const user = car.user;
 				return (
 					<section className="info-card-container" key={index}>
 						<img

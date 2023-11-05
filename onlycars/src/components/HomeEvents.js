@@ -47,6 +47,11 @@ const HomeEvents = () => {
                 loader={<h4>Loading...</h4>}
                 scrollableTarget="posts-container"
                 id="infinite-scroll"
+                endMessage={
+					<p style={{ textAlign: "center" }}>
+						<b>No Events? Find more in Explore!</b>
+					</p>
+				}
             >
                 {events.map((event, index) => {
                     const user = event.user;

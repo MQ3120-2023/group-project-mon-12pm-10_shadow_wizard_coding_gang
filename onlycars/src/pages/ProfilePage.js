@@ -18,7 +18,7 @@ const ProfilePage = () => {
 	const [profileUser, setProfileUser] = useState(null);
 	const [activeButton, setActiveButton] = useState(1);
 	const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
-	const [isSubscribed, setIsSubscribed] = useState(false);
+	const [isSubscribed, setIsSubscribed] = useState(true);
 	const [subText, setSubText] = useState("Subscribe");
 	const [subClass, setsubClass] = useState("subscribe");
 
