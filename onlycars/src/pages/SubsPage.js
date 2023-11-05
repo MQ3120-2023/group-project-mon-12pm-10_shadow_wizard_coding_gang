@@ -16,7 +16,6 @@ const SubsPage = () => {
             </div>
 
             <aside id="search-container">
-                <SearchBar/>
             </aside>
 
             <nav id="navbar-container">
@@ -26,7 +25,6 @@ const SubsPage = () => {
             <Subs path="getAllUsers"/>
 
             <aside id="info-container">
-                <Info infoType="Manage Payment Details"/>
             </aside>
 
         </main>

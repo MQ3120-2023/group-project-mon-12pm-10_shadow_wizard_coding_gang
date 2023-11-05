@@ -22,7 +22,6 @@ const SettingsPage = () => {
             </div>
 
             <aside id="search-container">
-                <SearchBar />
             </aside>
 
             <nav id="navbar-container">
@@ -38,7 +37,6 @@ const SettingsPage = () => {
             </section>
 
             <aside id="info-container">
-                <Info infoType="Account Statistics" />
             </aside>
         </main>
     );

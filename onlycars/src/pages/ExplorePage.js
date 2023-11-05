@@ -25,7 +25,6 @@ const ExplorePage = () => {
             </div>
 
             <aside id="search-container">
-                <SearchBar />
             </aside>
 
             <nav id="navbar-container">
@@ -42,7 +41,6 @@ const ExplorePage = () => {
             </section>
 
             <aside id="info-container">
-                <Info infoType="Advanced Search" />
             </aside>
         </main>
     );

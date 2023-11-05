@@ -73,7 +73,6 @@ const ProfilePage = () => {
 			</div>
 
 			<aside id="search-container">
-				<SearchBar />
 			</aside>
 
 			<nav id="navbar-container">
