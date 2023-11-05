@@ -142,7 +142,7 @@ const HomeLatest = ({ sortType }) => {
 								<button
 									id="comment-button"
 									className="post-button"
-									onClick={() => handleCommentClick(post, post.postId, car, user)}
+									onClick={() => handleCommentClick(post, post.postId, car, user, closeImageModal)}
 								>
 									Comment
 								</button>
