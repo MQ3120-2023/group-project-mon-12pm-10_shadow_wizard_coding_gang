@@ -51,6 +51,12 @@ const PostCommentModal = ({
 			className="comment-modal"
 			overlayClassName="overlay"
 		>
+			<form className="comments-form">
+				<input type="text" placeholder={"Comment Here"} />
+				<button type="submit" className="send-comment-button">
+					Send
+				</button>
+			</form>
 			<div className="comments-div">
 				<div>
 					<section className="modal-post-container">
@@ -108,42 +114,39 @@ const PostCommentModal = ({
 				</div>
 
 				<section className="comments-section">
-					<p id="info-header">Comments</p>
-					{comments.map((comm, index) => {
-						console.log("Generating Post & Comments");
-						const user = comm.user;
-						return (
-							<section className="comment-container" key={index}>
-								<header
-									className="comment-header"
-									onClick={() => handleUserClick(user)}
-								>
-									<img
-										className="comment-pfp"
-										src={user?.profilepic}
-										alt="User Profile Picture"
-										style={{ cursor: "pointer" }}
-									/>
-									<a className="comment-user" style={{ cursor: "pointer" }}>
-										{user?.username}
-									</a>
-								</header>
-								<p>
-									{comm?.description}
-									<br />
-									{moment(comm?.date).format("MMMM Do YYYY, h:mm a")}
-								</p>
-							</section>
-						);
-					})}
-					<form className="comments-form">
-						<input type="text" placeholder={"Comment Here"} />
-						<button type="submit" className="send-comment-button">
-							Send
-						</button>
-					</form>
+					<div className="comments-scroll">
+						<p id="info-header">Comments</p>
+						{comments.map((comm, index) => {
+							console.log("Generating Post & Comments");
+							const user = comm.user;
+							return (
+								<section className="comment-container" key={index}>
+									<header
+										className="comment-header"
+										onClick={() => handleUserClick(user)}
+									>
+										<img
+											className="comment-pfp"
+											src={user?.profilepic}
+											alt="User Profile Picture"
+											style={{ cursor: "pointer" }}
+										/>
+										<a className="comment-user" style={{ cursor: "pointer" }}>
+											{user?.username}
+										</a>
+									</header>
+									<p>
+										{comm?.description}
+										<br />
+										{moment(comm?.date).format("MMMM Do YYYY, h:mm a")}
+									</p>
+								</section>
+							);
+						})}
+					</div>
 				</section>
 			</div>
+
 		</Modal>
 	);
 };

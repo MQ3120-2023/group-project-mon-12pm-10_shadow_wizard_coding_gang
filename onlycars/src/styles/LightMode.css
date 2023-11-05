@@ -1103,7 +1103,6 @@ hr {
 }
 
 .comments-section {
-	height: 100%;
 	width: 550px;
 	background-color: var(--primary-colour);
 	margin: auto;
@@ -1113,17 +1112,21 @@ hr {
 	top: 0;
 	right: 0;
 	height: 100vh;
+}
+
+.comments-scroll {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	overflow: scroll;
+	height: 90vh;
 }
 
 .comment-container {
 	width: 90%;
 	margin: 1vh auto;
+	min-height: 150px;
 	height: fit-content;
-	min-height: 50px;
 	padding: 1vh;
 	border-radius: 25px;
 	border: solid 1px var(--text);
@@ -1164,17 +1167,18 @@ hr {
 }
 
 .comments-form {
-	width: 100%;
+	width: 550px;
 	margin: auto;
 	margin-bottom: 1vh;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	height: 5em;
+	height: 10vh;
 	position: absolute;
 	bottom: 0;
 	right: 0;
-
+	background-color: var(--primary-colour);
+	z-index: 3;
 }
 
 .comments-form input[type="text"] {
