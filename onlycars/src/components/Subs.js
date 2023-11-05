@@ -40,7 +40,7 @@ const Subs = ({ path }) => {
                     </div>
                     <div className="sub-right">
                         <p>Posts Made: {sub.posts}</p>
-                        <p>Subscribers: {sub.subscribers}</p>
+                        <p>Subscribers: {sub.subscribers.length}</p>
                         <p>Cars Owned: {sub.cars}</p>
                     </div>
                 </section>

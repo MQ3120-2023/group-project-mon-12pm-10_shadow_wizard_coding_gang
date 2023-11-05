@@ -1139,6 +1139,7 @@ hr {
 }
 
 .subscribe {
+	width: 100%;
 	margin-top: 1vh;
 	margin-bottom: 2vh;
 	font-size: 18pt;
@@ -1158,6 +1159,7 @@ hr {
 }
 
 .subscribed {
+	width: 100%;
 	margin-top: 1vh;
 	margin-bottom: 2vh;
 	font-size: 18pt;

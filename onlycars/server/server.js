@@ -537,6 +537,60 @@ app.get("/getExploreEvents", async (req, res) => {
 });
 
 //
+// Subscriptions for Users
+//
+
+// Endpoint to subscribe the current user to another user
+app.post("/subscribe", async (req, res) => {
+    const { userId, subscribeToUserId } = req.body;
+    console.log(userId + " - " + subscribeToUserId)
+
+    if (!userId || !subscribeToUserId) {
+        return res.status(400).json({ message: "Missing userId or subscribeToUserId" });
+    }
+
+    try {
+        // Add the current user's ID to the subscribers array of the user they want to subscribe to
+        await User.updateOne(
+            { userId: subscribeToUserId },
+            { $addToSet: { subscribers: userId } } // $addToSet prevents duplicates
+        );
+        res.status(200).json({ message: "Subscription updated successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating subscription" });
+    }
+});
+
+// Endpoint to unsubscribe the current user from another user
+app.post("/unsubscribe", async (req, res) => {
+    const { userId, subscribeToUserId } = req.body;
+
+    if (!userId || !subscribeToUserId) {
+        return res.status(400).json({ message: "Missing userId or subscribeToUserId" });
+    }
+
+    try {
+        // Remove the current user's ID from the subscribers array of the user they want to unsubscribe from
+        await User.updateOne(
+            { userId: subscribeToUserId },
+            { $pull: { subscribers: userId } } // $pull removes the userId from the array
+        );
+        res.status(200).json({ message: "Unsubscription updated successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating unsubscription" });
+    }
+});
+
+// Checks if the current user is subscribed to another user
+app.get("/checkifSubscribedUser", async (req, res) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).json({ message: "Unsubscribing user" });
+    }
+});
+
+//
 // Data Object Creation in MongoDB
 //
 
@@ -627,8 +681,13 @@ app.post("/settingsUser", async (req, res) => {
     const { username, description } = req.body;
   
     try {
-      // Update the user's email, location, gender, and language directly
-      const updatedUser = await User.updateOne({}, { username, description });
+        const existingUser = await User.findOne({ $or: [{ username }] });
+        if (existingUser) {
+            res.status(409).json({ message: "Username/Email already exists" });
+        } else {
+                // Update the user's email, location, gender, and language directly
+                const updatedUser = await User.updateOne({}, { username, description });
+            }
   
       if (updatedUser.nModified === 0) {
         // User not found or no changes made
