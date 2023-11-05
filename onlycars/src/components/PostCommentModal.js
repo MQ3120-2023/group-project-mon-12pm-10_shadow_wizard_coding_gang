@@ -51,57 +51,67 @@ const PostCommentModal = ({
 			className="comment-modal"
 			overlayClassName="overlay"
 		>
-			{/* <section className="post-container">
-				<header className="post-header" onClick={() => handleUserClick(user)}>
-					<img
-						className="post-pfp"
-						src={user.profilepic}
-						alt="User Profile Picture"
-						style={{ cursor: "pointer" }}
-					/>
-					<a className="post-user" style={{ cursor: "pointer" }}>
-						{user.username}
-					</a>
-				</header>
-				{car ? (
-					<p>
-						Brand: {car.brand} - Model: {car.model} - Year: {car.year}
-					</p>
-				) : (
-					<p>No car information available.</p>
-				)}
-				<p>
-					{post.likes.length}
-					<br />
-					{post.description}
-				</p>
-				<p>{moment(post.date).format("MMMM Do YYYY, h:mm a")}</p>
-				<figure className="post-images">
-					{post && post.images && (
-						<Slider {...settings}>
-							{post.images.map((image, imgIndex) => (
-								<img
-									key={imgIndex}
-									src={image}
-									alt={`Post image ${imgIndex + 1}`}
-								/>
-							))}
-						</Slider>
-					)}
-				</figure>
-				<div className="post-button-container">
-					<button id="like-button" className="post-button">
-						Like
-					</button>
+			<div className="comments-div">
+				<div>
+					<section className="modal-post-container">
+						<header
+							className="post-header"
+							onClick={() => handleUserClick(user)}
+						>
+							<img
+								className="post-pfp"
+								src={user?.profilepic}
+								alt="User Profile Picture"
+								style={{ cursor: "pointer" }}
+							/>
+							<a className="post-user" style={{ cursor: "pointer" }}>
+								{user?.username}
+							</a>
+						</header>
+						{car ? (
+							<p>
+								Brand: {car.brand} - Model: {car.model} - Year: {car.year}
+							</p>
+						) : (
+							<p>No car information available.</p>
+						)}
+						<p>
+							{post?.likes.length}
+							<br />
+							{post?.description}
+						</p>
+						<p>{moment(post?.date).format("MMMM Do YYYY, h:mm a")}</p>
+						<figure className="post-images">
+							{post && post.images && (
+								<Slider {...settings}>
+									{post.images.map((image, imgIndex) => (
+										<img
+											key={imgIndex}
+											src={image}
+											alt={`Post image ${imgIndex + 1}`}
+										/>
+									))}
+								</Slider>
+							)}
+						</figure>
+						<div className="post-button-container">
+							<button id="like-button" className="post-button">
+								Like
+							</button>
+							<button
+								id="close-button"
+								className="post-button"
+								onClick={onRequestClose}
+							>Close</button>
+						</div>
+					</section>
 				</div>
-			</section> */}
 
-			{/* <div className="comments-div">
 				<section className="comments-section">
 					<p id="info-header">Comments</p>
 					{comments.map((comm, index) => {
 						console.log("Generating Post & Comments");
-						const user = comm.userId;
+						const user = comm.user;
 						return (
 							<section className="comment-container" key={index}>
 								<header
@@ -110,25 +120,30 @@ const PostCommentModal = ({
 								>
 									<img
 										className="comment-pfp"
-										src={user.profilepic}
+										src={user?.profilepic}
 										alt="User Profile Picture"
 										style={{ cursor: "pointer" }}
 									/>
 									<a className="comment-user" style={{ cursor: "pointer" }}>
-										{user.username}
+										{user?.username}
 									</a>
 								</header>
 								<p>
-									{post.description}
+									{post?.description}
 									<br />
-									{/* {moment(post.date).format("MMMM Do YYYY, h:mm a")} 
-								</p> 
+									{moment(post?.date).format("MMMM Do YYYY, h:mm a")}
+								</p>
 							</section>
 						);
 					})}
+					<form className="comments-form">
+						<input type="text" placeholder={"Comment Here"} />
+						<button type="submit" className="send-comment-button">
+							Send
+						</button>
+					</form>
 				</section>
-			</div> */}
-			
+			</div>
 		</Modal>
 	);
 };
