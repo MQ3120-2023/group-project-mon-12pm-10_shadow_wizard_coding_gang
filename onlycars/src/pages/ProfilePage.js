@@ -25,8 +25,8 @@ const ProfilePage = () => {
     useEffect(() => {
         // If there is user data passed in the location state, use that
         // Otherwise, use the currentUser from context
-        setProfileUser(location.state?.user || currentUser.currentuser);
-    }, [location, currentUser.currentuser]);
+        setProfileUser(location.state?.user || currentUser);
+    }, [location, currentUser]);
 
     // Function to determine if the profile being viewed is the current user's profile
     const isCurrentUserProfile = () => {
