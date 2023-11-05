@@ -61,7 +61,7 @@ const ExploreUsers = ({ path }) => {
 						</div>
 						<div className="sub-right">
 							<p>Posts Made: {user.posts}</p>
-							<p>Subscribers: {user.subscribers}</p>
+							<p>Subscribers: {user.subscribers.length}</p>
 							<p>Cars Owned: {user.cars}</p>
 						</div>
 					</section>

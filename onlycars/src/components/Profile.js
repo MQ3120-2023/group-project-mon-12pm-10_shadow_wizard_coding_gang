@@ -18,8 +18,6 @@ const Profile = ({ user }) => {
                     <p>Posts Made: {user?.posts}</p>
                 </aside>
             </section>
-            {/* )
-                )} */}
         </section>
     );
 };

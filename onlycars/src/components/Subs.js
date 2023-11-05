@@ -25,34 +25,28 @@ const Subs = ({ path }) => {
 		navigate(`/profile`, { state: { user } });
 	};
 
-	return (
-		<section id="posts-container">
-			{subs.map((sub, index) => (
-				<section className="sub-container" key={index}>
-					<div className="subs-left" onClick={() => handleUserClick(sub)}>
-						<img
-							className="subs-pfp"
-							src={sub.profilepic}
-							alt="User Profile Picture"
-							style={{ cursor: "pointer" }}
-						/>
-						<a className="subs-user" style={{ cursor: "pointer" }}>
-							{sub.username}
-						</a>
-					</div>
-					<div className="subs-right">
-						<p>Posts Made: {sub.posts}</p>
-						<p>Subscribers: {sub.subscribers.length}</p>
-						<p>Cars Owned: {sub.cars}</p>
-					</div>
-                    <button className="unsubscribe">X</button>
-				</section>
-			))}
-			<p style={{ textAlign: "center" }}>
-				<b>No Posts? Go to Explore for more posts!</b>
-			</p>
-		</section>
-	);
+    return (
+        <section id="posts-container">
+            {subs.map((sub, index) => (
+                <section className="sub-container" key={index}>
+                    <div className="sub-left" onClick={() => handleUserClick(sub)}>
+                        <img
+                            className="sub-pfp"
+                            src={sub.profilepic}
+                            alt="User Profile Picture"
+                            style={{ cursor: "pointer" }}
+                        />
+                        <a className="sub-user" style={{ cursor: "pointer" }}>{sub.username}</a>
+                    </div>
+                    <div className="sub-right">
+                        <p>Posts Made: {sub.posts}</p>
+                        <p>Subscribers: {sub.subscribers.length}</p>
+                        <p>Cars Owned: {sub.cars}</p>
+                    </div>
+                </section>
+            ))}
+        </section>
+    );
 };
 
 export default Subs;

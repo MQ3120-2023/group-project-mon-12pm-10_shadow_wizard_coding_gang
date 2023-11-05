@@ -8,6 +8,7 @@ import ProfileLatest from "../components/ProfileLatest";
 import ProfilePopular from "../components/ProfilePopular";
 import NewCarButton from "../components/NewCarButton";
 import NewCarModal from "../components/NewCarModal.js";
+import SubButton from "../components/SubButton";
 import { useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 
@@ -18,9 +19,6 @@ const ProfilePage = () => {
 	const [profileUser, setProfileUser] = useState(null);
 	const [activeButton, setActiveButton] = useState(1);
 	const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
-	const [isSubscribed, setIsSubscribed] = useState(true);
-	const [subText, setSubText] = useState("Subscribe");
-	const [subClass, setsubClass] = useState("subscribe");
 
 	useEffect(() => {
 		// If there is user data passed in the location state, use that
@@ -64,17 +62,7 @@ const ProfilePage = () => {
 	// 	}
 	// });
 
-    const subscribeHandler = () => {
-        if (!isSubscribed) {
-            setIsSubscribed(true)
-            setSubText("Subscribed")
-            setsubClass("subscribed")
-        } else {
-            setIsSubscribed(false)
-            setSubText("Subscribe")
-            setsubClass("subscribe")
-        }
-    }
+
 
 	return (
 		<main id="main-container">
@@ -95,7 +83,7 @@ const ProfilePage = () => {
 			<section id="mid-container">
 				<Profile user={profileUser} />
 
-				<button className={subClass} onClick={subscribeHandler}>{subText}</button>
+				<SubButton user={profileUser} />
 
 				<ButtonBarPosts handleButtonClick={handleButtonClick} />
 
