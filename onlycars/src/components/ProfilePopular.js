@@ -6,19 +6,25 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import PostImageModal from "./PostImageModal";
+import PostCommentModal from "./PostCommentModal";
 import { useNavigate } from "react-router-dom";
+import LikeButton from "./LikeButton";
 
 const ProfilePopular = ({ user }) => {
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
 	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+	const [isCommentModalOpen, setisCommentModalOpen] = useState(false);
 	const [modalPost, setModalPost] = useState();
+	const [modalPostId, setModalPostId] = useState();
+	const [carObject, setCar] = useState();
+	const [userObject, setUser] = useState();
 	const navigate = useNavigate();
 
 	const fetchMoreData = async () => {
 		if (!user) return; // Make sure user is defined before proceeding
-	
+
 		try {
 			const response = await axios.get(
 				`http://localhost:3001/getProfilePopular?page=${page}&userId=${user.userId}`
@@ -33,7 +39,7 @@ const ProfilePopular = ({ user }) => {
 			console.error("Error fetching more data:", error);
 		}
 	};
-	
+
 
 	useEffect(() => {
 		// Reset state variables
@@ -42,7 +48,7 @@ const ProfilePopular = ({ user }) => {
 		setPage(1);
 
 		// Check if user is not null before fetching data
-        if (user) fetchMoreData();
+		if (user) fetchMoreData();
 	}, [user]);
 
 	const settings = {
@@ -53,8 +59,18 @@ const ProfilePopular = ({ user }) => {
 		slidesToScroll: 1,
 	};
 
+	const handleCommentClick = (post, postId, car, user) => {
+		console.log(postId);
+		setModalPost(post);
+		setisCommentModalOpen(true);
+		setModalPostId(postId);
+		setCar(car);
+		setUser(user);
+	};
+
 	const closeImageModal = () => {
 		setIsImageModalOpen(false);
+		setisCommentModalOpen(false);
 	};
 
 	const handleUserClick = (user) => {
@@ -116,10 +132,18 @@ const ProfilePopular = ({ user }) => {
 								)}
 							</figure>
 							<div className="post-button-container">
-								<button id="like-button" className="post-button">
-									{post.likes.length} Like
-								</button>
-								<button id="comment-button" className="post-button">
+							<LikeButton post={post} />
+								<button id="comment-button" className="post-button"
+									onClick={() =>
+										handleCommentClick(
+											post,
+											post.postId,
+											car,
+											user,
+											closeImageModal
+										)
+									}
+								>
 									Comment
 								</button>
 							</div>
@@ -131,6 +155,14 @@ const ProfilePopular = ({ user }) => {
 				isOpen={isImageModalOpen}
 				onRequestClose={closeImageModal}
 				post={modalPost}
+			/>
+			<PostCommentModal
+				post={modalPost}
+				onRequestClose={closeImageModal}
+				isOpen={isCommentModalOpen}
+				postId={modalPostId}
+				car={carObject}
+				user={userObject}
 			/>
 		</section>
 	);

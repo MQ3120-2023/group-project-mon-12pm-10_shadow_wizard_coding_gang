@@ -14,7 +14,7 @@ const LikeButton = ({ post }) => {
     }, [likes, currentUser]);
 
     const handleLike = async () => {
-        // const action = isLiked ? "unlike" : "like";
+        const action = isLiked ? "unlike" : "like";
         try {
             const response = await fetch(`/likePost`, {
                 method: "POST",
