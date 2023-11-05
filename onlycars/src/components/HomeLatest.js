@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
+import LikeButton from "./LikeButton";
 import PostImageModal from "./PostImageModal";
 import PostCommentModal from "./PostCommentModal";
 import { useNavigate } from "react-router-dom";
@@ -143,9 +144,7 @@ const HomeLatest = ({ user }) => {
 								)}
 							</figure>
 							<div className="post-button-container">
-								<button id="like-button" className="post-button">
-									Like
-								</button>
+							<LikeButton post={post} />
 								<button
 									id="comment-button"
 									className="post-button"

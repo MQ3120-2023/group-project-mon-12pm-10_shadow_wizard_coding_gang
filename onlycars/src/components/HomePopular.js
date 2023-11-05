@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 import PostImageModal from "./PostImageModal";
 import PostCommentModal from "./PostCommentModal";
+import LikeButton from "./LikeButton";
 
 const HomePopular = ({ user }) => {
 	const { currentUser } = useContext(CurrentUserContext);
@@ -140,9 +141,7 @@ const HomePopular = ({ user }) => {
 								)}
 							</figure>
 							<div className="post-button-container">
-								<button id="like-button" className="post-button">
-									Like
-								</button>
+							<LikeButton post={post} />
 								<button id="comment-button" className="post-button"
 									onClick={() =>
 										handleCommentClick(

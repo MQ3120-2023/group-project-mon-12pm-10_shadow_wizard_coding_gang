@@ -155,6 +155,37 @@ app.get("/getAllPosts", async (req, res) => {
     }
 });
 
+// Endpoint to get a post by its ID
+app.get("/getPostById/:postId", async (req, res) => {
+    try {
+        const postId = parseInt(req.params.postId); // Convert postId from string to number
+        if (!postId) {
+            return res.status(400).json({ message: "Invalid postId provided" });
+        }
+
+        const post = await Post.findOne({ postId: postId });
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        // Optionally, you can also fetch the user and car data related to the post
+        const user = await User.findOne({ userId: post.userId });
+        const car = await Car.findOne({ carId: post.carId });
+
+        // Enrich the post with user and car data if needed
+        const enrichedPost = {
+            ...post._doc,
+            user: user,
+            car: car,
+        };
+
+        res.status(200).json(enrichedPost);
+    } catch (error) {
+        console.error("Error fetching post by ID:", error);
+        res.status(500).json({ message: "Error fetching post by ID" });
+    }
+});
+
 // Endpoint to get all users
 app.get("/getAllUsers", async (req, res) => {
     try {
