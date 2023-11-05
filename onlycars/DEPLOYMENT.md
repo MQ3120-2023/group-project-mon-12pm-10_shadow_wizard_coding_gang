@@ -3,7 +3,7 @@ It is currently set up on Render.com as a Web Service https://onlycars2.onrender
 
 Please Note: If the deployment version of the website is not working or loading, please contact the Team via the below emails so that the website can be up and running.
 
-victor.quocson@students.mq.edu.au, brendan.nguyen1@students.mq.edu.au
+victor.quocson@students.mq.edu.au, brendan.nguyen1@students.mq.edu.au, luke.keevy@students.mq.edu.au, carl.khraiche@students.mq.edu.au
 
 ## Information on how to run and build the project, eg. if someone were to take over development
 Build Command $ npm install; npm run build, and Start Command $ npm run project-server.
