@@ -581,15 +581,6 @@ app.post("/unsubscribe", async (req, res) => {
     }
 });
 
-// Checks if the current user is subscribed to another user
-app.get("/checkifSubscribedUser", async (req, res) => {
-    try {
-        
-    } catch (error) {
-        res.status(500).json({ message: "Unsubscribing user" });
-    }
-});
-
 //
 // Data Object Creation in MongoDB
 //
