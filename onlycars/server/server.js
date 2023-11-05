@@ -536,6 +536,46 @@ app.get("/getExploreEvents", async (req, res) => {
     }
 });
 
+// Like or Unlike a Post
+app.post('/likePost', async (req, res) => {
+    const { userId, postId } = req.body;
+    console.log(userId + " - " + postId)
+
+    if (!userId || !postId) {
+        return res.status(400).json({ message: "User ID or Post ID is missing." });
+    }
+
+    try {
+        // Find the post by postId
+        const post = await Post.findOne({ postId: postId });
+        if (!post) {
+            return res.status(404).json({ message: "Post not found." });
+        }
+
+        // Check if the user has already liked the post
+        const index = post.likes.indexOf(userId);
+        if (index === -1) {
+            // If not liked, add userId to likes array
+            post.likes.push(userId);
+            console.log("Post liked!")
+        } else {
+            // If already liked, remove userId from likes array
+            post.likes.splice(index, 1);
+            console.log("Post unliked!")
+        }
+
+        // Save the updated post
+        const updatedPost = await post.save();
+
+        // Respond with the updated likes array
+        res.status(200).json({ likes: updatedPost.likes });
+    } catch (error) {
+        console.error('Error updating like status:', error);
+        res.status(500).json({ message: "Error updating like status." });
+    }
+});
+
+
 //
 // Subscriptions for Users
 //

@@ -7,12 +7,20 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../App";
+import PostImageModal from "./PostImageModal";
+import PostCommentModal from "./PostCommentModal";
 
 const HomePopular = ({ user }) => {
 	const { currentUser } = useContext(CurrentUserContext);
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
+	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+	const [isCommentModalOpen, setisCommentModalOpen] = useState(false);
+	const [modalPost, setModalPost] = useState();
+	const [modalPostId, setModalPostId] = useState();
+	const [carObject, setCar] = useState();
+	const [userObject, setUser] = useState();
 	const navigate = useNavigate();
 
 	const fetchMoreData = async () => {
@@ -47,6 +55,21 @@ const HomePopular = ({ user }) => {
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1,
+	};
+
+	const closeImageModal = () => {
+		setIsImageModalOpen(false);
+		setisCommentModalOpen(false);
+	};
+
+	// Function to handle comment button click
+	const handleCommentClick = (post, postId, car, user) => {
+		console.log(postId);
+		setModalPost(post);
+		setisCommentModalOpen(true);
+		setModalPostId(postId);
+		setCar(car);
+		setUser(user);
 	};
 
 	const handleUserClick = (user) => {
@@ -107,6 +130,10 @@ const HomePopular = ({ user }) => {
 												key={imgIndex}
 												src={image}
 												alt={`Post image ${imgIndex + 1}`}
+												onClick={() => {
+													setModalPost(post);
+													setIsImageModalOpen(true);
+												}}
 											/>
 										))}
 									</Slider>
@@ -116,7 +143,17 @@ const HomePopular = ({ user }) => {
 								<button id="like-button" className="post-button">
 									Like
 								</button>
-								<button id="comment-button" className="post-button">
+								<button id="comment-button" className="post-button"
+									onClick={() =>
+										handleCommentClick(
+											post,
+											post.postId,
+											car,
+											user,
+											closeImageModal
+										)
+									}
+								>
 									Comment
 								</button>
 							</div>
@@ -124,6 +161,19 @@ const HomePopular = ({ user }) => {
 					);
 				})}
 			</InfiniteScroll>
+			<PostImageModal
+				isOpen={isImageModalOpen}
+				onRequestClose={closeImageModal}
+				post={modalPost}
+			/>
+			<PostCommentModal
+				post={modalPost}
+				onRequestClose={closeImageModal}
+				isOpen={isCommentModalOpen}
+				postId={modalPostId}
+				car={carObject}
+				user={userObject}
+			/>
 		</section>
 	);
 };

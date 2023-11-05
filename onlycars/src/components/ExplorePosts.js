@@ -6,11 +6,20 @@ import "slick-carousel/slick/slick-theme.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import LikeButton from "./LikeButton";
+import PostImageModal from "./PostImageModal";
+import PostCommentModal from "./PostCommentModal";
 
 const ExplorePosts = ({ path }) => {
 	const [posts, setPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(1);
+	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+	const [isCommentModalOpen, setisCommentModalOpen] = useState(false);
+	const [modalPost, setModalPost] = useState();
+	const [modalPostId, setModalPostId] = useState();
+	const [carObject, setCar] = useState();
+	const [userObject, setUser] = useState();
 	const navigate = useNavigate();
 
 	const fetchMoreData = async () => {
@@ -30,8 +39,14 @@ const ExplorePosts = ({ path }) => {
 	};
 
 	useEffect(() => {
-		fetchMoreData(); // Initial fetch
-	}, []);
+		// Reset state variables
+		setPosts([]);
+		setHasMore(true);
+		setPage(1);
+
+		// Fetch initial data based on sortType
+		fetchMoreData();
+	}, [path]);
 
 	const settings = {
 		dots: true,
@@ -41,9 +56,23 @@ const ExplorePosts = ({ path }) => {
 		slidesToScroll: 1,
 	};
 
+	const closeImageModal = () => {
+		setIsImageModalOpen(false);
+		setisCommentModalOpen(false);
+	};
+
+	// Function to handle comment button click
+	const handleCommentClick = (post, postId, car, user) => {
+		console.log(postId);
+		setModalPost(post);
+		setisCommentModalOpen(true);
+		setModalPostId(postId);
+		setCar(car);
+		setUser(user);
+	};
+
+
 	const handleUserClick = (user) => {
-		// Navigate to the ProfilePage with the username as a parameter
-		// and pass the user data as state
 		navigate(`/profile`, { state: { user } });
 	};
 
@@ -80,7 +109,11 @@ const ExplorePosts = ({ path }) => {
 							) : (
 								<p>No car information available.</p>
 							)}
-							<p>{post.description}</p>
+							<p>
+								{post.likes.length}
+								<br />
+								{post.description}
+							</p>
 							<p>{moment(post.date).format("MMMM Do YYYY, h:mm a")}</p>
 							<figure className="post-images">
 								<Slider {...settings}>
@@ -89,15 +122,26 @@ const ExplorePosts = ({ path }) => {
 											key={imgIndex}
 											src={image}
 											alt={`Post image ${imgIndex + 1}`}
+											onClick={() => {
+												setModalPost(post);
+												setIsImageModalOpen(true);
+											}}
 										/>
 									))}
 								</Slider>
 							</figure>
 							<div className="post-button-container">
-								<button id="like-button" className="post-button">
-									Like
-								</button>
-								<button id="comment-button" className="post-button">
+								<LikeButton post={post} />
+								<button id="comment-button" className="post-button"
+									onClick={() =>
+										handleCommentClick(
+											post,
+											post.postId,
+											car,
+											user,
+											closeImageModal
+										)
+									}>
 									Comment
 								</button>
 							</div>
@@ -105,6 +149,19 @@ const ExplorePosts = ({ path }) => {
 					);
 				})}
 			</InfiniteScroll>
+			<PostImageModal
+				isOpen={isImageModalOpen}
+				onRequestClose={closeImageModal}
+				post={modalPost}
+			/>
+			<PostCommentModal
+				post={modalPost}
+				onRequestClose={closeImageModal}
+				isOpen={isCommentModalOpen}
+				postId={modalPostId}
+				car={carObject}
+				user={userObject}
+			/>
 		</section>
 	);
 };

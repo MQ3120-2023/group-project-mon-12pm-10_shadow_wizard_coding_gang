@@ -1,6 +1,10 @@
 ## A link to a deployed version of your application if available
 It is currently set up on Render.com as a Web Service https://onlycars2.onrender.com/
 
+Please Note: If the deployment version of the website is not working or loading, please contact the Team via the below emails so that the website can be up and running.
+
+victor.quocson@students.mq.edu.au, brendan.nguyen1@students.mq.edu.au
+
 ## Information on how to run and build the project, eg. if someone were to take over development
 Build Command $ npm install; npm run build, and Start Command $ npm run project-server.
 
@@ -23,9 +27,6 @@ Secure Access: We prioritize your data security. Your login information is encry
 Forgot Password: If you've forgotten your password Click on the "Forgot Password" link to reset your password securely.
 New User? you can easily create an account by clicking on the "Sign Up" button.
 
-
-
-
 Sign up 
 The sign-up page is a crucial component of a website, serving as the gateway for new users to create their accounts and access the platform's features. This report provides an overview and analysis of a typical sign-up page for a website, focusing on the elements it contains, the user experience, and its importance in the onboarding process.
 
@@ -45,7 +46,7 @@ For users who have already registered accounts, the presence of the "Already Hav
 
 
 Home Page 
-The home page of a website is the first point of contact for users and serves as the central hub for navigation, content discovery, and user engagement. This report provides an overview and analysis of a well-designed home page that includes various elements, buttons, and features to enhance the user experience.
+The home page of a website is the first point of contact for users and serves as the central hub for navigation, content discovery, and user engagement. This report provides an overview and analysis of a well-designed home page that includes various elements, buttons, and features to enhance the user experience. Will only show posts from users who the current user is subscribed to.
 
 Key Elements of the Home Page:
 Latest Post and Popular Post Buttons: These buttons are strategically placed to allow users to easily access and explore the most recent and trending content on the platform. They promote user engagement by showcasing dynamic and relevant posts.
@@ -86,16 +87,6 @@ Description: This field allows users to add or modify a description to their pro
 
 Security Settings Section:
 Update Password: Users can change their account password for security reasons, ensuring their account remains protected.
-
-Account Statistics Section:
-Dropdown Menu: This section presents a dropdown menu with various options for account statistics.
-Subscribers: Users can view the number of subscribers to their account.
-Subscribed Accounts: This option displays the accounts that the user is subscribed to.
-Total Likes: Users can check the total number of likes received on their posts.
-Uploaded Posts: This option shows the total number of posts uploaded by the user.
-Comments Made: Users can review the number of comments they have made on the platform.
-Vehicles Owned: This section provides information about vehicles owned by the user.
-User Experience and Flow:
 
 The settings page is designed to offer a user-friendly and efficient experience. Users can navigate to the various sections and buttons to manage their account information and preferences.
 
