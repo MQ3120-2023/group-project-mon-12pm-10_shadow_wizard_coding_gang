@@ -1,27 +1,32 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import { CurrentUserContext } from "../App";
 
 const SettingsProfile = () => {
 	const [username, setUsername] = useState("");
 	const [description, setDescription] = useState("");
+	const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post("/SettingsProfile", {
-				username,
-				description,
-			});
-			const { data } = response;
-			if (data.message === "Settings Saved") {
-				// Redirect to home page or dashboard
-				alert("Your Changes have been applied!");
-			}
+		  const response = await axios.post("/settingsProfile", {
+			username,
+			description,
+		  });
+		  const { data } = response;
+		  if (data.message === "Settings Saved") {
+			alert("Your Changes have been applied!");
+			// Update the currentUser state with the new username
+			setCurrentUser({ ...currentUser, username, description });
+			// Redirect to home page or dashboard
+			
+		  }
 		} catch (error) {
-			console.error("Error during authentication:", error);
-			alert("An error occurred during login. Please try again.");
+		  console.error("Error during authentication:", error);
+		  alert("An error occurred during login. Please try again.");
 		}
-	};
+	  };
 
 	return (
 		<main id="main-container">
@@ -48,14 +53,14 @@ const SettingsProfile = () => {
 								required
 							/>
 							<hr />
-							<label>
+							{/* <label>
 								Change Profile Picture
 								<input
 									type="file"
 									name="images"
 									accept="image/*"
 								/>
-							</label>
+							</label> */}
 							<button type="submit">Save Changes</button>
 						</form>
 					</div>
