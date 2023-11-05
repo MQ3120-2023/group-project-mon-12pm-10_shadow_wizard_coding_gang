@@ -12,93 +12,108 @@ import { useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 
 const ProfilePage = () => {
-    const location = useLocation();
-    const { currentUser } = useContext(CurrentUserContext);
-    console.log(currentUser.currentuser);
-    const [profileUser, setProfileUser] = useState(null);
-    const [activeButton, setActiveButton] = useState(1);
-    const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
-    const [isSubscribed, setIsSubscribed] = useState(false);
-    const [subText, setSubText] = useState("Subscribe");
-    const [subClass, setsubClass] = useState("subscribe");
+	const location = useLocation();
+	const { currentUser } = useContext(CurrentUserContext);
+	console.log(currentUser.currentuser);
+	const [profileUser, setProfileUser] = useState(null);
+	const [activeButton, setActiveButton] = useState(1);
+	const [isNewCarModalOpen, setIsNewCarModalOpen] = useState(false);
+	const [isSubscribed, setIsSubscribed] = useState(false);
+	const [subText, setSubText] = useState("Subscribe");
+	const [subClass, setsubClass] = useState("subscribe");
 
-    useEffect(() => {
-        // If there is user data passed in the location state, use that
-        // Otherwise, use the currentUser from context
-        setProfileUser(location.state?.user || currentUser);
-    }, [location, currentUser]);
+	useEffect(() => {
+		// If there is user data passed in the location state, use that
+		// Otherwise, use the currentUser from context
+		setProfileUser(location.state?.user || currentUser);
+	}, [location, currentUser]);
 
-    // Function to determine if the profile being viewed is the current user's profile
-    const isCurrentUserProfile = () => {
-        return (
-            profileUser &&
-            currentUser.currentuser &&
-            profileUser.userId === currentUser.currentuser.userId
-        );
-    };
+	// Function to determine if the profile being viewed is the current user's profile
+	const isCurrentUserProfile = () => {
+		if (
+			profileUser !== null &&
+			profileUser !== undefined &&
+			currentUser.currentuser !== null &&
+			currentUser.currentuser !== undefined &&
+			profileUser.userId === currentUser.currentuser.userId
+		) {
+			return true;
+		}
+		return false;
+	};
 
-    const handleButtonClick = (buttonId) => {
-        setActiveButton(buttonId);
-    };
+	const handleButtonClick = (buttonId) => {
+		setActiveButton(buttonId);
+	};
 
-    const openNewCarModal = () => {
-        setIsNewCarModalOpen(true);
-    };
-    const closeNewCarModal = () => {
-        setIsNewCarModalOpen(false);
-    };
+	const openNewCarModal = () => {
+		setIsNewCarModalOpen(true);
+	};
+	const closeNewCarModal = () => {
+		setIsNewCarModalOpen(false);
+	};
 
-    // profileUser.subscribers.map((user) => {
-    // 	if (
-    // 		currentUser !== null ||
-    // 		currentUser !== undefined
-    // 	) {
-    // 		if (currentUser.currentUser.userId == user) {
-    // 			setIsSubscribed(true);
-    // 		}
-    // 	}
-    // });
+	// profileUser.subscribers.map((user) => {
+	// 	if (
+	// 		currentUser !== null ||
+	// 		currentUser !== undefined
+	// 	) {
+	// 		if (currentUser.currentUser.userId == user) {
+	// 			setIsSubscribed(true);
+	// 		}
+	// 	}
+	// });
 
-    return (
-        <main id="main-container">
-            <section id="header"></section>
+    const subscribeHandler = () => {
+        if (!isSubscribed) {
+            setIsSubscribed(true)
+            setSubText("Subscribed")
+            setsubClass("subscribed")
+        } else {
+            setIsSubscribed(false)
+            setSubText("Subscribe")
+            setsubClass("subscribe")
+        }
+    }
 
-            <div id="logo-container">
-                <div id="text-logo"></div>
-            </div>
+	return (
+		<main id="main-container">
+			<section id="header"></section>
 
-            <aside id="search-container">
-                <SearchBar />
-            </aside>
+			<div id="logo-container">
+				<div id="text-logo"></div>
+			</div>
 
-            <nav id="navbar-container">
-                <NavBar />
-            </nav>
+			<aside id="search-container">
+				<SearchBar />
+			</aside>
 
-            <section id="mid-container">
-                <Profile user={profileUser} />
+			<nav id="navbar-container">
+				<NavBar />
+			</nav>
 
-                <button className={subClass}>{subText}</button>
+			<section id="mid-container">
+				<Profile user={profileUser} />
 
-                <ButtonBarPosts handleButtonClick={handleButtonClick} />
+				<button className={subClass} onClick={subscribeHandler}>{subText}</button>
 
-                {activeButton === 1 && <ProfileLatest user={profileUser} />}
-                {activeButton === 2 && <ProfilePopular user={profileUser} />}
-            </section>
+				<ButtonBarPosts handleButtonClick={handleButtonClick} />
 
-            <aside id="info-container">
-                <Info infoType="User's Cars" user={profileUser} />
+				{activeButton === 1 && <ProfileLatest user={profileUser} />}
+				{activeButton === 2 && <ProfilePopular user={profileUser} />}
+			</section>
 
-                {isCurrentUserProfile() && (
-                    <NewCarButton onClick={openNewCarModal} />
-                )}
-                <NewCarModal
-                    isOpen={isNewCarModalOpen}
-                    onRequestClose={closeNewCarModal}
-                />
-            </aside>
-        </main>
-    );
+			<aside id="info-container">
+				<Info infoType="User's Cars" user={profileUser} />
+
+				{isCurrentUserProfile() && <NewCarButton onClick={openNewCarModal} />}
+				<NewCarModal
+					isOpen={isNewCarModalOpen}
+					onRequestClose={closeNewCarModal}
+				/>
+			</aside>
+		</main>
+	);
 };
 
 export default ProfilePage;

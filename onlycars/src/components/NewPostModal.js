@@ -22,7 +22,6 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 			}
 			const cars = await response.json();
 			setUserCars(cars); // Update the state with the fetched cars
-			console.log(userCars.map((car) => car.carId));
 		} catch (error) {
 			console.error("Error fetching cars:", error);
 		}
@@ -31,7 +30,7 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 	// Call fetchUserCars when the modal opens
 	useEffect(() => {
 		if (isOpen) {
-			console.log("Modal is opened");
+			console.log("Post Modal is opened");
 			fetchUserCars();
 		}
 	}, [isOpen]);
@@ -87,6 +86,12 @@ const NewPostModal = ({ isOpen, onRequestClose }) => {
 				userId: currentUser.currentUser.userId,
 				carId: postData.carId || null, // Set carId to null if not provided
 			};
+
+			console.log("New Post Data: \n" + 
+			"User ID: " + updatedPostData.userId + "\n" +
+			"Post Image(s): " + updatedPostData.images + "\n" +
+			"Description: " + updatedPostData.description + "\n" +
+			"Post Car: " + updatedPostData.carId)
 
 			// Send post data to server
 			const response = await fetch("http://localhost:3001/createPost", {

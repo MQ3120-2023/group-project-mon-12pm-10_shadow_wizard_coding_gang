@@ -541,7 +541,7 @@ app.post("/createPost", async (req, res) => {
             postId: newPostId,
             userId,
             carId,
-            date,
+            date: new Date(),
             description,
             images,
             likes: [],
