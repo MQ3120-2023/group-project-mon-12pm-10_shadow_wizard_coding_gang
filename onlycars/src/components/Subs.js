@@ -5,21 +5,21 @@ import { useNavigate } from "react-router-dom";
 
 const Subs = ({ path }) => {
 	const currentUser = useContext(CurrentUserContext);
-    const [subs, setSubs] = useState([]);
+	const [subs, setSubs] = useState([]);
 	const navigate = useNavigate();
 
-    useEffect(() => {
-        axios
-            .get(`/getUserSubs?userId=${currentUser.currentUser.userId}`)
-            .then((response) => {
-                setSubs(response.data);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error);
-            });
-    }, [currentUser]); // Add currentUser as a dependency for the effect
+	useEffect(() => {
+		axios
+			.get(`/getUserSubs?userId=${currentUser.currentUser.userId}`)
+			.then((response) => {
+				setSubs(response.data);
+			})
+			.catch((error) => {
+				console.error("Error fetching data:", error);
+			});
+	}, [currentUser]); // Add currentUser as a dependency for the effect
 
-    const handleUserClick = (user) => {
+	const handleUserClick = (user) => {
 		// Navigate to the ProfilePage with the username as a parameter
 		// and pass the user data as state
 		navigate(`/profile`, { state: { user } });
