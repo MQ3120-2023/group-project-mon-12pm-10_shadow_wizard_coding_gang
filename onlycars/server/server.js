@@ -624,11 +624,11 @@ app.post("/settingsUser", async (req, res) => {
   });
 
   app.post("/settingsProfile", async (req, res) => {
-    const { username, description } = req.body;
+    const { username, description, profilepic } = req.body;
   
     try {
-      // Update the user's email, location, gender, and language directly
-      const updatedUser = await User.updateOne({}, { username, description });
+      // Update the user's username, description, and profilepic directly
+      const updatedUser = await User.updateOne({}, { username, description, profilepic });
   
       if (updatedUser.nModified === 0) {
         // User not found or no changes made
@@ -642,6 +642,45 @@ app.post("/settingsUser", async (req, res) => {
       res.status(500).json({ message: "Error updating user settings" });
     }
   });
+
+  app.post("/settingsSecurity", async (req, res) => {
+    const { oldPassword, password } = req.body;
+    
+    try {
+      // Retrieve the user document from the database
+      const user = await User.findOne({});
+    
+      if (!user) {
+        // User not found
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Compare the provided old password with the hashed existing password in the database
+      const oldPasswordMatch = await bcrypt.compare(oldPassword, user.password);
+      if (!oldPasswordMatch) {
+        // Old password is incorrect
+        return res.status(400).json({ message: "Old password is incorrect" });
+      }
+    
+      // Hash the new password using bcrypt
+      const hashedNewPassword = await bcrypt.hash(password, 10);
+    
+      // Update the user's password directly
+      const updatedUser = await User.updateOne({}, { password: hashedNewPassword });
+    
+      if (updatedUser.nModified === 0) {
+        // User not found or no changes made
+        return res.status(404).json({ message: "User not found or no changes made" });
+      }
+    
+      // Send a response indicating that the settings have been saved
+      res.status(200).json({ message: "Settings Saved" });
+    } catch (error) {
+      console.error("Error updating user settings:", error);
+      res.status(500).json({ message: "Error updating user settings" });
+    }
+  });
+  
 
 //
 app.post("/createEvent", async (req, res) => {
