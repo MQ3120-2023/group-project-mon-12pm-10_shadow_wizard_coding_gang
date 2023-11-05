@@ -602,6 +602,8 @@ form button:hover {
 	background-color: #a30000;
 	transition: 0.15s;
 	color: var(--primary-colour);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .unsubscribe:hover {
